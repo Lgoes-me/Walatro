@@ -15,6 +15,12 @@ public class SceneService : MonoBehaviour, IService, IPreparable
         return UniTask.CompletedTask;
     }
 
+    public async UniTask GoToScene<T>(T sceneData) where T : BaseSceneData
+    {
+        await SceneManager.LoadSceneAsync(sceneData.SceneName, LoadSceneMode.Single);
+        await FindAnyObjectByType<BaseScene<T>>().OpenScene(Application, sceneData);
+    }
+
     public async UniTask WaitScene<T>(T sceneData) where T : BaseSceneData
     {
         await SceneManager.LoadSceneAsync(sceneData.SceneName, LoadSceneMode.Additive);

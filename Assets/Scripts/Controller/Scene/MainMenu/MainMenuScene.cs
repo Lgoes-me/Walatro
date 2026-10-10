@@ -33,6 +33,11 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
 
     public async UniTaskVoid StartGame()
     {
+        foreach(var save in GameSaveService.LoadSaveList())
+        {
+            GameSaveService.DeleteSave(save);
+        }
+
         GameSaveService.StartNewSave();
         await Application.StartServices();
         

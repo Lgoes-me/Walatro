@@ -2,8 +2,9 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StartScene : BaseAwaitableScene<StartSceneData>
+public class StartScene : BaseScene<StartSceneData>
 {
+    [field: SerializeField] private GameObject Menu { get; set; }
     [field: SerializeField] private Button StartButton { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
@@ -28,18 +29,15 @@ public class StartScene : BaseAwaitableScene<StartSceneData>
 
             //todo Select default onboarding deck
 
+            Menu.SetActive(false);
+
             await Application.StartServices();
-        
-            CloseScene();
             await SceneService.WaitScene(new GameplaySceneData());
         }
         else
         {
-            GameSaveService.LoadLastSave();
-
-            await Application.StartServices();
-        
-            CloseScene();
+            Menu.SetActive(false);
+            
             await SceneService.WaitScene(new MainMenuSceneData());
         }
     }

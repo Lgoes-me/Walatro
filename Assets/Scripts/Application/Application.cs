@@ -61,7 +61,7 @@ public class Application : MonoBehaviour
     {
         await PrepareServices();
         await BootServices();
-        await GetService<SceneService>().WaitScene(new StartSceneData());
+        await GetService<SceneService>().GoToScene(new StartSceneData());
     }
 
     private async UniTask PrepareServices()

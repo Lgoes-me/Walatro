@@ -6,12 +6,8 @@ public class SelectDeckScene : BaseAwaitableScene<SelectDeckSceneData>
 {
     [field: SerializeField] private Button SelectButton { get; set; }
 
-    private SceneService SceneService { get; set; }
-
     protected override UniTask Init()
     {
-        SceneService = Application.GetService<SceneService>();
-
         SelectButton.onClick.RemoveAllListeners();
         SelectButton.onClick.AddListener(() => SelectDeck().Forget());
         SelectButton.Select();
@@ -24,7 +20,6 @@ public class SelectDeckScene : BaseAwaitableScene<SelectDeckSceneData>
         //todo Select deck
         CloseScene();
     }
-
 }
 
 public class SelectDeckSceneData : BaseSceneData
