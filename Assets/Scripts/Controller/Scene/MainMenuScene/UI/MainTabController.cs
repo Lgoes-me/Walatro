@@ -8,7 +8,7 @@ public class MainTabController : MonoBehaviour
     [field: SerializeField] private Button SettingsButton { get; set; }
     [field: SerializeField] private Button ExitButton { get; set; }
 
-    public void Init(GameSaveService gameSaveService, StartMenuScene startMenuScene)
+    public void Init(GameSaveService gameSaveService, MainMenuScene scene)
     {
         gameObject.SetActive(true);
 
@@ -20,18 +20,18 @@ public class MainTabController : MonoBehaviour
         if (!gameSaveService.IsFirstTimePlaying())
         {
             ContinueButton.gameObject.SetActive(true);
-            ContinueButton.onClick.AddListener(() => startMenuScene.ContinueGame().Forget());
+            ContinueButton.onClick.AddListener(() => scene.ContinueGame().Forget());
             ContinueButton.Select();
-            StartButton.onClick.AddListener(() => startMenuScene.StartGame().Forget());
+            StartButton.onClick.AddListener(() => scene.StartGame().Forget());
         }
         else
         {
             ContinueButton.gameObject.SetActive(false);
-            StartButton.onClick.AddListener(() => startMenuScene.StartGame().Forget());
+            StartButton.onClick.AddListener(() => scene.StartGame().Forget());
             StartButton.Select();
         }
         
-        SettingsButton.onClick.AddListener(startMenuScene.OpenSettingsTabController);
-        ExitButton.onClick.AddListener(startMenuScene.ExitGame);
+        SettingsButton.onClick.AddListener(scene.OpenSettingsTabController);
+        ExitButton.onClick.AddListener(scene.ExitGame);
     }
 }

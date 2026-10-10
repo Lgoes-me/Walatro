@@ -61,24 +61,7 @@ public class Application : MonoBehaviour
     {
         await PrepareServices();
         await BootServices();
-
-        var gameSaveService = GetService<GameSaveService>();
-        var sceneService = GetService<SceneService>();
-
-        if (gameSaveService.IsFirstTimePlaying())
-        {
-            gameSaveService.StartNewSave();
-
-            await StartServices();
-            await sceneService.StartGame();
-        }
-        else
-        {
-            gameSaveService.LoadLastSave();
-
-            await StartServices();
-            await sceneService.WaitScene(new StartMenuSceneData());
-        }
+        await GetService<SceneService>().WaitScene(new StartSceneData());
     }
 
     private async UniTask PrepareServices()

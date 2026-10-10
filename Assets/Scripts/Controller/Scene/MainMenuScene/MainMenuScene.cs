@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class StartMenuScene : BaseAwaitableOverlayScene<StartMenuSceneData>
+public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
 {
     [field: SerializeField] private MainTabController MainTabController { get; set; }
     [field: SerializeField] private SettingsTabController SettingsTabController { get; set; }
@@ -36,9 +36,11 @@ public class StartMenuScene : BaseAwaitableOverlayScene<StartMenuSceneData>
         GameSaveService.StartNewSave();
         await Application.StartServices();
         
+        //await SceneService.WaitScene(new SelectDeckSceneData());
+
         CloseScene();
         
-        await SceneService.StartGame();
+        await SceneService.WaitScene(new GameplaySceneData());
     }
 
     public async UniTaskVoid ContinueGame()
@@ -48,7 +50,7 @@ public class StartMenuScene : BaseAwaitableOverlayScene<StartMenuSceneData>
         
         CloseScene();
 
-        await SceneService.StartGame();
+        await SceneService.WaitScene(new GameplaySceneData());
     }
 
     public void ExitGame()
@@ -57,7 +59,7 @@ public class StartMenuScene : BaseAwaitableOverlayScene<StartMenuSceneData>
     }
 }
 
-public class StartMenuSceneData : BaseOverlaySceneData
+public class MainMenuSceneData : BaseSceneData
 {
-    public override string SceneName => "Start";
+    public override string SceneName => "MainMenu";
 }

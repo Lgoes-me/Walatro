@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public abstract class BaseAwaitableOverlaySceneWithResponse<T, T2> : MonoBehaviour where T : BaseOverlaySceneData
+public abstract class BaseAwaitableSceneWithResponse<T, T2> : MonoBehaviour where T : BaseSceneData
 {
     protected T Data { get; private set; }
     
