@@ -4,7 +4,6 @@ using UnityEngine;
 public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
 {
     [field: SerializeField] private MainTabController MainTabController { get; set; }
-    [field: SerializeField] private SettingsTabController SettingsTabController { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
     private SceneService SceneService { get; set; }
@@ -21,14 +20,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
 
     public void OpenMainTabController()
     {
-        SettingsTabController.gameObject.SetActive(false);
         MainTabController.Init(GameSaveService, this);
-    }
-
-    public void OpenSettingsTabController()
-    {
-        MainTabController.gameObject.SetActive(false);
-        SettingsTabController.Init(OpenMainTabController);
     }
 
     public async UniTaskVoid StartGame()

@@ -31,7 +31,7 @@ public class MainTabController : MonoBehaviour
             StartButton.Select();
         }
         
-        SettingsButton.onClick.AddListener(scene.OpenSettingsTabController);
+        //todo SettingsButton.onClick.AddListener(scene.OpenSettingsTabController);
         ExitButton.onClick.AddListener(scene.ExitGame);
     }
 }
