@@ -54,7 +54,8 @@ public class SceneService : MonoBehaviour, IService, IPreparable
     public async UniTask StartGame()
     {
         await Application.OnSaveReset();
-        //await GoToStartMenu
+        await sceneService.WaitScene(new StartMenuSceneData());
+        //await Go To Game
     }
 
     public async UniTask LoadGameplayScene()

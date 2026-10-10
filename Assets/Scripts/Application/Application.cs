@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Assemblies;
 
 public class Application : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class Application : MonoBehaviour
     {
         Services = new Dictionary<Type, object>();
 
-        foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies())
+        foreach (var assembly in CurrentAssemblies.GetLoadedAssemblies())
         {
             foreach (var type in assembly.GetTypes())
             {
