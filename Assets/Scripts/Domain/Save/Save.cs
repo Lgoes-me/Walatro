@@ -17,6 +17,6 @@ public class Save : ISavable
 
     public bool IsValidSave()
     {
-        return Events != null && Events.Contains("FirstDeath");
+        return true; //Events != null && Events.Contains("FirstDeath");
     }
 }

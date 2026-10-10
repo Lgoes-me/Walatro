@@ -6,6 +6,7 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
 {
     protected override UniTask Init()
     {
+        Application.GetService<GameSaveService>().SaveCurrentGameState();
         return default;
     }
 }

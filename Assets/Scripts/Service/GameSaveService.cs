@@ -65,4 +65,9 @@ public class GameSaveService : IService, IPreparable, IBootable
     {
         SaveManager.DeleteData<Save>(savedGame);
     }
+    
+    public void SaveCurrentGameState()
+    {
+        SaveManager.SaveData(Save);
+    }
 }

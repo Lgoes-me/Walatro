@@ -26,6 +26,8 @@ public class StartScene : BaseAwaitableScene<StartSceneData>
         {
             GameSaveService.StartNewSave();
 
+            //todo Select default onboarding deck
+
             await Application.StartServices();
         
             CloseScene();

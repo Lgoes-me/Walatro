@@ -45,18 +45,6 @@ public class SceneService : MonoBehaviour, IService, IPreparable
         }
     }
 
-    public async UniTask LoadGameplayScene()
-    {
-        var scene = SceneManager.GetSceneByName("RoomScene");
-
-        if (scene.IsValid() && scene.isLoaded)
-        {
-            return;
-        }
-
-        await SceneManager.LoadSceneAsync("RoomScene", LoadSceneMode.Single);
-    }
-
     public async UniTask StartTransitionAnimation()
     {
         Transition.alpha = 0;

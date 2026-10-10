@@ -36,7 +36,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         GameSaveService.StartNewSave();
         await Application.StartServices();
         
-        //await SceneService.WaitScene(new SelectDeckSceneData());
+        await SceneService.WaitScene(new SelectDeckSceneData());
 
         CloseScene();
         
