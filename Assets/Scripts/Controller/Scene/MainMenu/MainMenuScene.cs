@@ -1,9 +1,13 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
 {
-    [field: SerializeField] private MainTabController MainTabController { get; set; }
+    [field: SerializeField] private Button ContinueButton { get; set; }
+    [field: SerializeField] private Button StartButton { get; set; }
+    [field: SerializeField] private Button SettingsButton { get; set; }
+    [field: SerializeField] private Button ExitButton { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
     private SceneService SceneService { get; set; }
@@ -13,21 +17,38 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         GameSaveService = Application.GetService<GameSaveService>();
         SceneService = Application.GetService<SceneService>();
         
-        OpenMainTabController();
+        if (GameSaveService.PossuiContinue())
+        {
+            ContinueButton.gameObject.SetActive(true);
+            ContinueButton.Select();
+        }
+        else
+        {
+            ContinueButton.gameObject.SetActive(false);
+            StartButton.Select();
+        }
+    
+        ContinueButton.onClick.RemoveAllListeners();
+        ContinueButton.onClick.AddListener(() => ContinueGame().Forget());
+
+        StartButton.onClick.RemoveAllListeners();
+        StartButton.onClick.AddListener(() => StartGame().Forget());
+
+        //SettingsButton.onClick.RemoveAllListeners();
+        //SettingsButton.onClick.AddListener(scene.OpenSettingsTabController);
+
+        ExitButton.onClick.RemoveAllListeners();
+        ExitButton.onClick.AddListener(ExitGame);
 
         return default;
     }
 
-    public void OpenMainTabController()
+    private async UniTaskVoid StartGame()
     {
-        MainTabController.Init(GameSaveService, this);
-    }
-
-    public async UniTaskVoid StartGame()
-    {
-        foreach(var save in GameSaveService.LoadSaveList())
+        if (GameSaveService.PossuiContinue())
         {
-            GameSaveService.DeleteSave(save);
+            GameSaveService.LoadLastSave();
+            GameSaveService.DeleteSave(GameSaveService.Save);
         }
 
         GameSaveService.StartNewSave();
@@ -40,7 +61,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         await SceneService.WaitScene(new GameplaySceneData());
     }
 
-    public async UniTaskVoid ContinueGame()
+    private async UniTaskVoid ContinueGame()
     {
         GameSaveService.LoadLastSave();
         await Application.StartServices();
@@ -50,7 +71,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         await SceneService.WaitScene(new GameplaySceneData());
     }
 
-    public void ExitGame()
+    private void ExitGame()
     {
         UnityEngine.Application.Quit();
     }

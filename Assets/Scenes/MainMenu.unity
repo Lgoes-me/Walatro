@@ -153,9 +153,9 @@ RectTransform:
   - {fileID: 2044341402}
   m_Father: {fileID: 441856776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -230}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &105147058
@@ -274,9 +274,9 @@ RectTransform:
   - {fileID: 1453095345}
   m_Father: {fileID: 441856776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -450}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &289314494
@@ -371,14 +371,13 @@ GameObject:
   m_Component:
   - component: {fileID: 441856776}
   - component: {fileID: 441856777}
-  - component: {fileID: 441856778}
   m_Layer: 5
   m_Name: MainTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &441856776
 RectTransform:
   m_ObjectHideFlags: 0
@@ -428,22 +427,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &441856778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 441856775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb67e9de8014c243af678dc4d68890e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ContinueButton>k__BackingField: {fileID: 105147058}
-  <StartButton>k__BackingField: {fileID: 289314494}
-  <SettingsButton>k__BackingField: {fileID: 496677607}
-  <ExitButton>k__BackingField: {fileID: 2015881297}
 --- !u!1 &496677605
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,9 +461,9 @@ RectTransform:
   - {fileID: 2064899784}
   m_Father: {fileID: 441856776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -670}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &496677607
@@ -988,8 +971,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277257bd94cd79345b49be968cdbd022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MainTabController>k__BackingField: {fileID: 441856778}
-  <SettingsTabController>k__BackingField: {fileID: 0}
+  <ContinueButton>k__BackingField: {fileID: 105147058}
+  <StartButton>k__BackingField: {fileID: 289314494}
+  <SettingsButton>k__BackingField: {fileID: 496677607}
+  <ExitButton>k__BackingField: {fileID: 2015881297}
 --- !u!1 &2015881295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,9 +1009,9 @@ RectTransform:
   - {fileID: 1142068036}
   m_Father: {fileID: 441856776}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -890}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2015881297

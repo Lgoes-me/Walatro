@@ -19,15 +19,14 @@ public class GameSaveService : IService, IPreparable, IBootable
         return UniTask.CompletedTask;
     }
 
-    public bool IsFirstTimePlaying()
+    public bool PossuiContinue()
     {
         foreach (var save in SaveManager.LoadList<Save>())
         {
-            if (save.IsValidSave())
-                return false;
+            return true;
         }
         
-        return true;
+        return false;
     }
 
     public void StartNewSave()
@@ -46,13 +45,7 @@ public class GameSaveService : IService, IPreparable, IBootable
         var saves = new List<Save>();
 
         foreach (var save in SaveManager.LoadList<Save>())
-        {
-            if (!save.IsValidSave())
-            {
-                DeleteSave(save);
-                continue;
-            }
-            
+        {                       
             saves.Add(save);
         }
 

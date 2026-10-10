@@ -14,9 +14,4 @@ public class Save : ISavable
         Events = new List<string>();
         BaseSeed = Guid.NewGuid().ToString();
     }
-
-    public bool IsValidSave()
-    {
-        return true; //Events != null && Events.Contains("FirstDeath");
-    }
 }

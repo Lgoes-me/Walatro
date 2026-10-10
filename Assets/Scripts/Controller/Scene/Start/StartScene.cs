@@ -23,7 +23,8 @@ public class StartScene : BaseScene<StartSceneData>
 
     private async UniTask StartGame()
     {
-        if (GameSaveService.IsFirstTimePlaying())
+        // todo usar tutorial para isso
+        if (!GameSaveService.PossuiContinue())
         {
             GameSaveService.StartNewSave();
 
