@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Reflection;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.AI;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using Object = UnityEngine.Object;
 
 #if UNITY_EDITOR
@@ -43,4 +45,36 @@ public static class Extensions
         
         return services;
     }
+    
+    public static Dictionary<string, T> ToAssetReferenceDictionary<T>(this List<T> list) where T : AssetReference
+    {
+        var dictionary = new Dictionary<string, T>();
+
+        foreach (var item in list)
+        {
+            dictionary.Add(item.AssetGUID, item);
+        }
+        
+        return dictionary;
+    }
+
+    public static async UniTask<TObject> LoadAssetAsyncIfValid<TObject>(this AssetReferenceT<TObject> assetReference) where TObject : Object
+    {
+        AsyncOperationHandle op = assetReference.OperationHandle;
+        TObject result;
+
+        if (assetReference.IsValid() && op.IsValid())
+        {
+            // Increase the usage counter & Convert.
+            Addressables.ResourceManager.Acquire(op);
+            result = await op.Convert<TObject>();
+        }
+        else
+        {
+            result = await assetReference.LoadAssetAsync<TObject>();
+        }
+
+        return result;
+    }
+
 }

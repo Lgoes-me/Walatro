@@ -5,9 +5,9 @@ public class ModifierData : PrizeData
 {
     /*[field: SerializeReference] public BaseEventListener[] Events { get; private set; }
     [field: SerializeField] [field: TextArea(5,5)] private string Description { get; set; }
-
-    public Blessing ToDomain(Rarity rarity)
+*/
+    public Modifier ToDomain(ModifierInfo info)
     {
-        return new Blessing(Id, name, Icon, GetRarity(rarity), Events, Description);
-    }*/
+        return new Modifier();//(Id, name, Icon, GetRarity(info.Rarity), Events, Description);
+    }
 }
