@@ -6,8 +6,12 @@ public class GameOverScene : BaseAwaitableScene<GameOverSceneData>
 {
     [field: SerializeField] private Button ResetButton { get; set; }
 
+    private GameSaveService GameSaveService { get; set; }
+
     protected override UniTask Init()
     {
+        GameSaveService = Application.GetService<GameSaveService>();
+        
         ResetButton.onClick.RemoveAllListeners();
         ResetButton.onClick.AddListener(() => Reset().Forget());
         ResetButton.Select();
@@ -17,7 +21,8 @@ public class GameOverScene : BaseAwaitableScene<GameOverSceneData>
 
     private UniTask Reset()
     {
-        //todo Select deck
+        GameSaveService.DeleteSave(GameSaveService.Save);
+
         CloseScene();
         
         return UniTask.CompletedTask;

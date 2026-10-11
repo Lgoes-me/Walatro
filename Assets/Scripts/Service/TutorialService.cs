@@ -23,6 +23,7 @@ public class TutorialService : IService , IPreparable, IBootable
             new SimpleTutorialData("Gameplay"),
             new SimpleTutorialData("Lives"),
             new SimpleTutorialData("Money"),
+            new SimpleTutorialData("LivesReset"),
             new SimpleTutorialData("Shop"),
             new SimpleTutorialData("Boss"),
             new SimpleTutorialData("GameOver"),

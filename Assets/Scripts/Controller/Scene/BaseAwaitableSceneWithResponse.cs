@@ -3,12 +3,14 @@ using UnityEngine;
 
 public abstract class BaseAwaitableSceneWithResponse<T, T2> : MonoBehaviour where T : BaseSceneData
 {
+    protected Application Application { get; private set; }
     protected T Data { get; private set; }
     
     private UniTaskCompletionSource<T2> TaskCompletionSource { get; set; }
     
     public UniTask<T2> WaitOpenScene(Application application, T data)
     {
+        Application = application;
         Data = data;
         TaskCompletionSource = new UniTaskCompletionSource<T2>();
         Init().Forget();
@@ -16,10 +18,16 @@ public abstract class BaseAwaitableSceneWithResponse<T, T2> : MonoBehaviour wher
         return TaskCompletionSource.Task;
     }
 
-    protected abstract UniTaskVoid Init();
+    protected abstract UniTask Init();
     
+    protected virtual void OnSceneClose(T2 result)
+    {
+        
+    }
+
     protected void CloseScene(T2 result)
     {
+        OnSceneClose(result);
         TaskCompletionSource.TrySetResult(result);
     }
 }

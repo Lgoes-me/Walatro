@@ -1,30 +1,59 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
 {
-    [field: SerializeField] private Button WinButton { get; set; }
-    [field: SerializeField] private Button GameOverButton { get; set; }
-
     private SceneService SceneService { get; set; }
     private GameSaveService GameSaveService { get; set; }
 
-    protected override UniTask Init()
+    private List<int> Minigames { get; set; }
+    private int Vidas { get; set; }
+    private int ScoreToBeat { get; set; }
+
+    protected override async UniTask Init()
     {
         SceneService = Application.GetService<SceneService>();
         GameSaveService = Application.GetService<GameSaveService>();
         
         GameSaveService.SaveCurrentGameState();
         
-        WinButton.onClick.RemoveAllListeners();
-        WinButton.onClick.AddListener(() => Win().Forget());
-        WinButton.Select();
+        Minigames = new List<int>() {1, 2, 3, 4, 5};
+        Vidas = 3;
+        ScoreToBeat = 500;
+        
+        await OpenMinigameLoop();
+    }
 
-        GameOverButton.onClick.RemoveAllListeners();
-        GameOverButton.onClick.AddListener(() => GameOver().Forget());
+    private async UniTask OpenMinigameLoop()
+    {
+        var score = 0;
 
-        return UniTask.CompletedTask;
+        foreach(var minigame in Minigames)
+        {
+            var didWin = await SceneService.WaitScene<MinigameSceneData, bool>(new MinigameSceneData());
+
+            score += 200;
+
+            if (!didWin)
+            {
+                Vidas --;
+            }
+            
+            if (Vidas == 0)
+            {
+                await GameOver();
+                return;
+            }
+        }
+
+        if (ScoreToBeat > score)
+        {
+            await GameOver();
+            return;
+        }
+
+        await Win();
     }
 
     private async UniTask Win()
@@ -36,11 +65,7 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
     private async UniTask GameOver()
     {
         await SceneService.WaitScene(new GameOverSceneData());
-
-        GameSaveService.DeleteSave(GameSaveService.Save);
-    
         CloseScene();
-        
         await SceneService.WaitScene(new MainMenuSceneData());
     }
 }

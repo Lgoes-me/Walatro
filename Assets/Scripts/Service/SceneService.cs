@@ -28,7 +28,7 @@ public class SceneService : MonoBehaviour, IService, IPreparable
         await SceneManager.UnloadSceneAsync(sceneData.SceneName);
     }
 
-    public async UniTask<T2> WaitSceneWithResponse<T, T2>(T sceneData) where T : BaseSceneData
+    public async UniTask<T2> WaitScene<T, T2>(T sceneData) where T : BaseSceneData
     {
         await SceneManager.LoadSceneAsync(sceneData.SceneName, LoadSceneMode.Additive);
         var result = await FindAnyObjectByType<BaseAwaitableSceneWithResponse<T, T2>>().WaitOpenScene(Application, sceneData);

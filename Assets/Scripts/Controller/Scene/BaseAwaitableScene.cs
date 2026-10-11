@@ -20,8 +20,14 @@ public abstract class BaseAwaitableScene<T> : MonoBehaviour where T : BaseSceneD
 
     protected abstract UniTask Init();
     
+    protected virtual void OnSceneClose()
+    {
+        
+    }
+
     protected void CloseScene()
     {
+        OnSceneClose();
         TaskCompletionSource.TrySetResult();
     }
 }
