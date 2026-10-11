@@ -7,9 +7,11 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, b
 {
     [field: SerializeField] private Button WinButton { get; set; }
     [field: SerializeField] private Button GameOverButton { get; set; }
+    [field: SerializeField] private Image ProgressBar { get; set; } 
 
     private SceneService SceneService { get; set; }
     private Coroutine CountdownCoroutine { get; set; }
+    private int Timer { get; set; }
 
     protected override UniTask Init()
     {
@@ -21,6 +23,8 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, b
 
         GameOverButton.onClick.RemoveAllListeners();
         GameOverButton.onClick.AddListener(() => GameOver().Forget());
+
+        Timer = 3;
 
         CountdownCoroutine = StartCoroutine(CountdownEndMinigame());
 
@@ -41,8 +45,22 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, b
     
     private IEnumerator CountdownEndMinigame()
     {
-        yield return new WaitForSecondsRealtime(3f);
+        yield return AnimateProgressBar();
         CloseScene(false);
+    }
+
+    public IEnumerator AnimateProgressBar()
+    {
+        var timer = 0f;
+
+        while (timer <= Timer)
+        {
+            timer += Time.deltaTime;
+
+            ProgressBar.fillAmount = 1 - timer / Timer;
+            
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     protected override void OnSceneClose(bool result)
