@@ -8,28 +8,35 @@ public class StartScene : BaseScene<StartSceneData>
     [field: SerializeField] private Button StartButton { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
+    private TutorialService TutorialService { get; set; }
     private SceneService SceneService { get; set; }
     
     protected override UniTask Init()
     {
         GameSaveService = Application.GetService<GameSaveService>();
+        TutorialService = Application.GetService<TutorialService>();
         SceneService = Application.GetService<SceneService>();
         
         StartButton.onClick.RemoveAllListeners();
         StartButton.onClick.AddListener(() => StartGame().Forget());
         StartButton.Select();
-        
+
         return UniTask.CompletedTask;
     }
 
     private async UniTask StartGame()
     {
-        // todo usar tutorial para isso
-        if (!GameSaveService.PossuiContinue())
+        if (!TutorialService.HasFinishedTutorial())
         {
-            GameSaveService.StartNewSave();
-
-            //todo Select default onboarding deck
+            if (!GameSaveService.PossuiContinue())
+            {
+                GameSaveService.StartNewSave();
+                //todo Select default onboarding deck
+            }
+            else
+            {
+                GameSaveService.LoadLastSave();
+            }
 
             Menu.SetActive(false);
 

@@ -8,7 +8,7 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
     private ContentService ContentService { get; set; }
     //private InterfaceService InterfaceService { get; set; }
     private GameSaveService GameSaveService { get; set; }
-    //private PlayerService PlayerService { get; set; }
+    private PlayerService PlayerService { get; set; }
 
     public UniTask Prepare()
     {
@@ -17,7 +17,7 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
         ContentService = application.GetService<ContentService>();
         //InterfaceService = application.GetService<InterfaceService>();
         GameSaveService = application.GetService<GameSaveService>();
-        //PlayerService = application.GetService<PlayerService>();
+        PlayerService = application.GetService<PlayerService>();
         
         return UniTask.CompletedTask;
     }
@@ -37,15 +37,15 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
 
     public async UniTask LoadModifiers()
     {
-        /*foreach (var modifier in PlayerService.PlayerModifiers)
+        foreach (var modifier in PlayerService.PlayerModifiers)
         {
             await modifier.DoCreatedEvent();
             Modifiers.Add(modifier);
-        }*/
+        }
         
         foreach (var modifierInfo in GameSaveService.Save.Modifiers)
         {
-            var modifier = await ContentService.GetModifierFromId(modifierInfo);
+            var modifier = await ContentService.GetModifierFromInfo(modifierInfo);
             await modifier.DoCreatedEvent();
             Modifiers.Add(modifier);
         } 

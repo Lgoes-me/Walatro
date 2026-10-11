@@ -19,7 +19,7 @@ public class ContentService : MonoBehaviour, IService, IPreparable
         return UniTask.CompletedTask;
     }
     
-    public async UniTask<Modifier> GetModifierFromId(ModifierInfo info)
+    public async UniTask<Modifier> GetModifierFromInfo(ModifierInfo info)
     {
         if (AvailableModifiers.TryGetValue(info.Id, out var modifierDataAsset))
         {

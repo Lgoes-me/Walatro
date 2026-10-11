@@ -76,5 +76,17 @@ public static class Extensions
 
         return result;
     }
+    
+    public static Dictionary<string, T> ToIdentifiableDictionary<T>(this List<T> list) where T : IIdentifiable
+    {
+        var dictionary = new Dictionary<string, T>();
 
+        foreach (var item in list)
+        {
+            dictionary.Add(item.Id, item);
+        }
+        
+        return dictionary;
+    }
+    
 }
