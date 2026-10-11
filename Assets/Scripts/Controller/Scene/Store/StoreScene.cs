@@ -20,13 +20,12 @@ public class StoreScene : BaseAwaitableScene<StoreSceneData>
         NextButton.onClick.AddListener(() => Next().Forget());
         NextButton.Select();
 
-        return default;
+        return UniTask.CompletedTask;
     }
 
     private async UniTask Next()
     {
         CloseScene();
-        
         await SceneService.WaitScene(new GameplaySceneData());
     }
 }

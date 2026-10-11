@@ -24,7 +24,7 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
         GameOverButton.onClick.RemoveAllListeners();
         GameOverButton.onClick.AddListener(() => GameOver().Forget());
 
-        return default;
+        return UniTask.CompletedTask;
     }
 
     private async UniTask Win()

@@ -40,7 +40,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         ExitButton.onClick.RemoveAllListeners();
         ExitButton.onClick.AddListener(ExitGame);
 
-        return default;
+        return UniTask.CompletedTask;
     }
 
     private async UniTaskVoid StartGame()

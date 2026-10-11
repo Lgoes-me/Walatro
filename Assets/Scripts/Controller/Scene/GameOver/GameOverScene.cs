@@ -6,20 +6,21 @@ public class GameOverScene : BaseAwaitableScene<GameOverSceneData>
 {
     [field: SerializeField] private Button ResetButton { get; set; }
 
-
     protected override UniTask Init()
     {
         ResetButton.onClick.RemoveAllListeners();
         ResetButton.onClick.AddListener(() => Reset().Forget());
         ResetButton.Select();
 
-        return default;
+        return UniTask.CompletedTask;
     }
 
-    private async UniTask Reset()
+    private UniTask Reset()
     {
         //todo Select deck
         CloseScene();
+        
+        return UniTask.CompletedTask;
     }
 
 }

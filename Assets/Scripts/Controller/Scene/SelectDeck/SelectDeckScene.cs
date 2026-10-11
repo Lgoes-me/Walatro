@@ -12,13 +12,15 @@ public class SelectDeckScene : BaseAwaitableScene<SelectDeckSceneData>
         SelectButton.onClick.AddListener(() => SelectDeck().Forget());
         SelectButton.Select();
 
-        return default;
+        return UniTask.CompletedTask;
     }
 
-    private async UniTask SelectDeck()
+    private UniTask SelectDeck()
     {
         //todo Select deck
         CloseScene();
+
+        return UniTask.CompletedTask;
     }
 }
 

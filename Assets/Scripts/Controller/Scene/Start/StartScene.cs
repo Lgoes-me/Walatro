@@ -18,7 +18,8 @@ public class StartScene : BaseScene<StartSceneData>
         StartButton.onClick.RemoveAllListeners();
         StartButton.onClick.AddListener(() => StartGame().Forget());
         StartButton.Select();
-        return default;
+        
+        return UniTask.CompletedTask;
     }
 
     private async UniTask StartGame()
