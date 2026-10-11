@@ -27,37 +27,43 @@ public abstract class BaseEventListener<T, T1>: BaseEventListener
     }
 }
 
+[Serializable]
 public class GameplayStartListener : BaseEventListener<IGameplayStartValidator, IGameplayStartEffect>
 {
 
 }
 
+[Serializable]
 public class MinigameStartListener : BaseEventListener<IMinigameStartValidator, IMinigameStartEffect>
 {
 
 }
 
+[Serializable]
 public class MinigameEndListener : BaseEventListener<IMinigameEndValidator, IMinigameEndEffect>
 {
 
 }
 
-
+[Serializable]
 public class GameplayEndListener : BaseEventListener<IGameplayEndValidator, IGameplayEndEffect>
 {
 
 }
 
+[Serializable]
 public class LifeLostListener : BaseEventListener<ILifeLostValidator, ILifeLostEffect>
 {
 
 }
 
+[Serializable]
 public class TimeOverListener : BaseEventListener<ITimeOverValidator, ITimeOverEffect>
 {
 
 }
 
+[Serializable]
 public class CreatedListener : BaseEventListener<ICreatedValidator, ICreatedEffect>
 {
 

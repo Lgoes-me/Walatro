@@ -462,7 +462,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1553547555}
   - component: {fileID: 1553547557}
-  - component: {fileID: 1553547556}
   m_Layer: 5
   m_Name: MainTab
   m_TagString: Untagged
@@ -490,22 +489,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1553547556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553547554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb67e9de8014c243af678dc4d68890e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <ContinueButton>k__BackingField: {fileID: 0}
-  <StartButton>k__BackingField: {fileID: 1065050540}
-  <SettingsButton>k__BackingField: {fileID: 0}
-  <ExitButton>k__BackingField: {fileID: 0}
 --- !u!114 &1553547557
 MonoBehaviour:
   m_ObjectHideFlags: 0
