@@ -1,26 +1,28 @@
-using System.Collections.Generic;
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using TMPro;
 
 public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
 {
+    [field: SerializeField] private TMP_Text LivesText { get; set; }
+
     private SceneService SceneService { get; set; }
     private GameSaveService GameSaveService { get; set; }
+    private GameplayService GameplayService { get; set; }
 
-    private List<int> Minigames { get; set; }
-    private int Vidas { get; set; }
-    private int ScoreToBeat { get; set; }
+    private Gameplay Gameplay { get; set; }
 
     protected override async UniTask Init()
     {
         SceneService = Application.GetService<SceneService>();
         GameSaveService = Application.GetService<GameSaveService>();
+        GameplayService = Application.GetService<GameplayService>();
         
         GameSaveService.SaveCurrentGameState();
         
-        Minigames = new List<int>() {1, 2, 3, 4, 5};
-        Vidas = 3;
-        ScoreToBeat = 500;
+        Gameplay = new Gameplay();
+        LivesText.text = $"Lives: {Gameplay.Vidas}";
         
         await OpenMinigameLoop();
     }
@@ -29,25 +31,29 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
     {
         var score = 0;
 
-        foreach(var minigame in Minigames)
+        foreach(var minigame in Gameplay.Minigames)
         {
+            await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
+
             var didWin = await SceneService.WaitScene<MinigameSceneData, bool>(new MinigameSceneData());
 
             score += 200;
 
             if (!didWin)
             {
-                Vidas --;
+                Gameplay.Vidas --;
+                LivesText.text = $"Lives: {Gameplay.Vidas}";
+                await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
             }
             
-            if (Vidas == 0)
+            if (Gameplay.Vidas == 0)
             {
                 await GameOver();
                 return;
             }
         }
 
-        if (ScoreToBeat > score)
+        if (Gameplay.ScoreToBeat > score)
         {
             await GameOver();
             return;

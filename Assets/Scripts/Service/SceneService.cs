@@ -1,12 +1,9 @@
 using Cysharp.Threading.Tasks;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneService : MonoBehaviour, IService, IPreparable
+public class SceneService : IService, IPreparable
 {
-    [field: SerializeField] private CanvasGroup Transition { get; set; }
-
     private Application Application { get; set; }
 
     public UniTask Prepare()
@@ -18,20 +15,20 @@ public class SceneService : MonoBehaviour, IService, IPreparable
     public async UniTask GoToScene<T>(T sceneData) where T : BaseSceneData
     {
         await SceneManager.LoadSceneAsync(sceneData.SceneName, LoadSceneMode.Single);
-        await FindAnyObjectByType<BaseScene<T>>().OpenScene(Application, sceneData);
+        await UnityEngine.Object.FindAnyObjectByType<BaseScene<T>>().OpenScene(Application, sceneData);
     }
 
     public async UniTask WaitScene<T>(T sceneData) where T : BaseSceneData
     {
         await SceneManager.LoadSceneAsync(sceneData.SceneName, LoadSceneMode.Additive);
-        await FindAnyObjectByType<BaseAwaitableScene<T>>().WaitOpenScene(Application, sceneData);
+        await UnityEngine.Object.FindAnyObjectByType<BaseAwaitableScene<T>>().WaitOpenScene(Application, sceneData);
         await SceneManager.UnloadSceneAsync(sceneData.SceneName);
     }
 
     public async UniTask<T2> WaitScene<T, T2>(T sceneData) where T : BaseSceneData
     {
         await SceneManager.LoadSceneAsync(sceneData.SceneName, LoadSceneMode.Additive);
-        var result = await FindAnyObjectByType<BaseAwaitableSceneWithResponse<T, T2>>().WaitOpenScene(Application, sceneData);
+        var result = await UnityEngine.Object.FindAnyObjectByType<BaseAwaitableSceneWithResponse<T, T2>>().WaitOpenScene(Application, sceneData);
         await SceneManager.UnloadSceneAsync(sceneData.SceneName);
         return result;
     }
@@ -47,20 +44,7 @@ public class SceneService : MonoBehaviour, IService, IPreparable
         else
         {
             await SceneManager.LoadSceneAsync(sceneData.SceneName, LoadSceneMode.Additive);
-            await FindAnyObjectByType<BaseScene<T>>().OpenScene(Application, sceneData);
+            await UnityEngine.Object.FindAnyObjectByType<BaseScene<T>>().OpenScene(Application, sceneData);
         }
-    }
-
-    public async UniTask StartTransitionAnimation()
-    {
-        Transition.alpha = 0;
-        await Transition.DOFade(1, 0.1f).ToUniTask();
-    }
-
-    public async UniTask CompleteTransitionAnimation()
-    {
-        Transition.alpha = 1;
-        await Transition.DOFade(0, 0.1f).ToUniTask();
-        Transition.gameObject.SetActive(false);
     }
 }
