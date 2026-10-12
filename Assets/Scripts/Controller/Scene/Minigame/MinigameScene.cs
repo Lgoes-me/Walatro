@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, bool>
+public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, MinigameResult>
 {
     [field: SerializeField] private Button WinButton { get; set; }
     [field: SerializeField] private Button GameOverButton { get; set; }
@@ -33,20 +33,20 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, b
 
     private UniTask Win()
     {
-        CloseScene(true);
+        CloseScene(new MinigameResult(true));
         return UniTask.CompletedTask;
     }
     
     private UniTask GameOver()
     {
-        CloseScene(false);
+        CloseScene(new MinigameResult(false));
         return UniTask.CompletedTask;
     }
     
     private IEnumerator CountdownEndMinigame()
     {
         yield return AnimateProgressBar();
-        CloseScene(false);
+        CloseScene(new MinigameResult(false));
     }
 
     public IEnumerator AnimateProgressBar()
@@ -63,7 +63,7 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, b
         }
     }
 
-    protected override void OnSceneClose(bool result)
+    protected override void OnSceneClose(MinigameResult result)
     {
         if (CountdownCoroutine != null)
         {

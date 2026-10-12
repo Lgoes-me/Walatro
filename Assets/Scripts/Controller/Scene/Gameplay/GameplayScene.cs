@@ -35,19 +35,19 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
         {
             await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
 
-            var didWin = await SceneService.WaitScene<MinigameSceneData, bool>(new MinigameSceneData());
+            var result = await SceneService.WaitScene<MinigameSceneData, MinigameResult>(new MinigameSceneData());
 
-            score += 200;
+            score += result.Score;
 
-            if (!didWin)
+            if (!result.DidWin)
             {
                 Gameplay.Vidas --;
                 LivesText.text = $"Lives: {Gameplay.Vidas}";
-                await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
             }
             
             if (Gameplay.Vidas == 0)
             {
+                await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
                 await GameOver();
                 return;
             }
@@ -55,6 +55,7 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
 
         if (Gameplay.ScoreToBeat > score)
         {
+            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
             await GameOver();
             return;
         }
