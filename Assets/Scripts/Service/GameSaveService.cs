@@ -7,9 +7,14 @@ public class GameSaveService : IService, IPreparable, IBootable
     public Save Save { get; private set; }
     private SaveManager SaveManager { get; set; }
 
+    private ModifierService ModifierService { get; set; }
+    private GameplayService GameplayService { get; set; }
+
     public UniTask Prepare()
     {
         var application = Application.Instance;
+        ModifierService = application.GetService<ModifierService>();
+        GameplayService = application.GetService<GameplayService>();
         return UniTask.CompletedTask;
     }
 
@@ -61,6 +66,19 @@ public class GameSaveService : IService, IPreparable, IBootable
     
     public void SaveCurrentGameState()
     {
+        Save.Modifiers.Clear();
+        
+        foreach (var modifier in ModifierService.Modifiers)
+        {
+            Save.Modifiers.Add(new ModifierInfo()
+            {
+                Id = modifier.Id,
+                Rarity = modifier.Rarity,
+            });
+        }
+
+        Save.CurrentLevel = GameplayService.CurrentLevel;
+
         SaveManager.SaveData(Save);
     }
 

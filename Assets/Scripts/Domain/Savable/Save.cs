@@ -5,15 +5,17 @@ using System.Collections.Generic;
 public class Save : ISavable
 {
     public Metadata Metadata { get; set; }
+    public string BaseSeed { get; set; }
     public List<string> Events { get; set; }
     public List<ModifierInfo> Modifiers { get; set; }
-    public string BaseSeed { get; set; }
+    public int CurrentLevel { get; set; }
 
     public Save()
     {
         Metadata = new Metadata().CreateNewDynamicFile(".json");
+        BaseSeed = Guid.NewGuid().ToString();
         Events = new List<string>();
         Modifiers = new List<ModifierInfo>();
-        BaseSeed = Guid.NewGuid().ToString();
+        CurrentLevel = 1;
     }
 }
