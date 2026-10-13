@@ -26,6 +26,10 @@ public class StartScene : BaseScene<StartSceneData>
 
     private async UniTask StartGame()
     {
+        Menu.SetActive(false);
+        await SceneService.WaitScene(new MainMenuSceneData());
+        return;
+
         if (!TutorialService.HasFinishedTutorial())
         {
             if (!GameSaveService.PossuiContinue())
@@ -41,7 +45,7 @@ public class StartScene : BaseScene<StartSceneData>
             Menu.SetActive(false);
 
             await Application.StartServices();
-            await SceneService.WaitScene(new GameplaySceneData());
+            await SceneService.WaitScene(new StoreSceneData());
         }
         else
         {

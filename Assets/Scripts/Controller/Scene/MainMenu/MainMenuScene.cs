@@ -34,8 +34,8 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         StartButton.onClick.RemoveAllListeners();
         StartButton.onClick.AddListener(() => StartGame().Forget());
 
-        //SettingsButton.onClick.RemoveAllListeners();
-        //SettingsButton.onClick.AddListener(scene.OpenSettingsTabController);
+        SettingsButton.onClick.RemoveAllListeners();
+        SettingsButton.onClick.AddListener(() => OpenSettings().Forget());
 
         ExitButton.onClick.RemoveAllListeners();
         ExitButton.onClick.AddListener(ExitGame);
@@ -58,7 +58,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
 
         CloseScene();
         
-        await SceneService.WaitScene(new GameplaySceneData());
+        await SceneService.WaitScene(new StoreSceneData());
     }
 
     private async UniTaskVoid ContinueGame()
@@ -69,6 +69,11 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         CloseScene();
 
         await SceneService.WaitScene(new GameplaySceneData());
+    }
+
+    private async UniTaskVoid OpenSettings()
+    {
+        
     }
 
     private void ExitGame()
