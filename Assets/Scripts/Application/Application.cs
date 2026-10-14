@@ -6,6 +6,8 @@ using UnityEngine.Assemblies;
 
 public class Application : MonoBehaviour
 {
+    [field: SerializeField] public Camera MainCamera { get; set; }
+
     public static Application Instance { get; private set; }
     
     private Dictionary<Type, object> Services { get; set; }

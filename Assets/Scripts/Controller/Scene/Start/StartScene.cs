@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class StartScene : BaseScene<StartSceneData>
 {
-    [field: SerializeField] private GameObject Menu { get; set; }
+    [field: SerializeField] private Canvas Menu { get; set; }
     [field: SerializeField] private Button StartButton { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
@@ -13,6 +13,8 @@ public class StartScene : BaseScene<StartSceneData>
     
     protected override UniTask Init()
     {
+        Menu.worldCamera = Application.MainCamera;
+
         GameSaveService = Application.GetService<GameSaveService>();
         TutorialService = Application.GetService<TutorialService>();
         SceneService = Application.GetService<SceneService>();
@@ -38,14 +40,14 @@ public class StartScene : BaseScene<StartSceneData>
                 GameSaveService.LoadLastSave();
             }
 
-            Menu.SetActive(false);
+            Menu.gameObject.SetActive(false);
 
             await Application.StartServices();
             await SceneService.WaitScene(new StoreSceneData());
         }
         else
         {
-            Menu.SetActive(false);
+            Menu.gameObject.SetActive(false);
             
             await SceneService.WaitScene(new MainMenuSceneData());
         }

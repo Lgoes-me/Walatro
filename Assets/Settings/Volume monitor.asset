@@ -131,20 +131,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: Volume2
-  m_EditorClassIdentifier: 
-  components:
-  - {fileID: 1247868777620691934}
-  - {fileID: 2338690907228448291}
-  - {fileID: 2335868966179733374}
-  - {fileID: 3460444317416099510}
-  - {fileID: 5762530381802164056}
-  - {fileID: 156332030701414761}
-  - {fileID: 9099548931283147545}
-  - {fileID: 8549655192814258499}
-  - {fileID: -7645455725216806467}
-  - {fileID: -3978695733392391637}
-  - {fileID: -1083910812058648046}
+  m_Name: Volume monitor
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.VolumeProfile
+  components: []
 --- !u!114 &156332030701414761
 MonoBehaviour:
   m_ObjectHideFlags: 3
