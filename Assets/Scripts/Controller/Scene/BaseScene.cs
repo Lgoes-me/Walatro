@@ -10,6 +10,14 @@ public abstract class BaseScene<T> : MonoBehaviour where T : BaseSceneData
     {
         Application = application;
         Data = data;
+
+        var canvases = Object.FindObjectsByType<Canvas>();
+
+        foreach(var canvas in canvases)
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = Application.MainCamera;
+        }
         
         await Init();
     }

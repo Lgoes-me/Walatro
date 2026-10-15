@@ -26,7 +26,6 @@ public class ScreenMouseDetector : MonoBehaviour
             if (hit.collider.gameObject == this.gameObject)
             {
                 Vector2 uvCoords = hit.textureCoord;
-
                 Vector2 canvasSize = canvasRect.sizeDelta;
 
                 Vector2 anchoredPos = new Vector2(

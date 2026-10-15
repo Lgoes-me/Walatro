@@ -13,15 +13,13 @@ public class StartScene : BaseScene<StartSceneData>
     
     protected override UniTask Init()
     {
-        Menu.worldCamera = Application.MainCamera;
-
         GameSaveService = Application.GetService<GameSaveService>();
         TutorialService = Application.GetService<TutorialService>();
         SceneService = Application.GetService<SceneService>();
         
         StartButton.onClick.RemoveAllListeners();
         StartButton.onClick.AddListener(() => StartGame().Forget());
-        //StartButton.Select();
+        StartButton.Select();
 
         return UniTask.CompletedTask;
     }

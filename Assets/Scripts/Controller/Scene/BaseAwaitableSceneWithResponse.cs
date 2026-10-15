@@ -15,6 +15,14 @@ public abstract class BaseAwaitableSceneWithResponse<T, T2> : MonoBehaviour wher
         TaskCompletionSource = new UniTaskCompletionSource<T2>();
         Init().Forget();
 
+        var canvases = Object.FindObjectsByType<Canvas>();
+
+        foreach(var canvas in canvases)
+        {
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = Application.MainCamera;
+        }
+
         return TaskCompletionSource.Task;
     }
 

@@ -52,6 +52,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         }
 
         GameSaveService.StartNewSave();
+        
         await Application.StartServices();
         
         await SceneService.WaitScene(new SelectDeckSceneData());
@@ -64,6 +65,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
     private async UniTaskVoid ContinueGame()
     {
         GameSaveService.LoadLastSave();
+        
         await Application.StartServices();
         
         CloseScene();
