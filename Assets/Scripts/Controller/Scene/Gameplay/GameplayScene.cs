@@ -23,7 +23,8 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
         
         GameSaveService.SaveCurrentGameState();
         
-        Gameplay = new Gameplay();
+        Gameplay = GameplayService.GetNextGameplay();
+        
         LivesText.text = $"Lives: {Gameplay.Vidas}";
         ScoreToBeatText.text = $"To Beat: {Gameplay.ScoreToBeat}";
         ScoreText.text = $"Score: 0";

@@ -78,6 +78,7 @@ public class GameSaveService : IService, IPreparable, IBootable
         }
 
         Save.CurrentLevel = GameplayService.CurrentLevel;
+        Save.CurrentBind = GameplayService.CurrentBind;
 
         SaveManager.SaveData(Save);
     }

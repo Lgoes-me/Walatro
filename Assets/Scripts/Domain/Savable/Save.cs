@@ -9,6 +9,7 @@ public class Save : ISavable
     public List<string> Events { get; set; }
     public List<ModifierInfo> Modifiers { get; set; }
     public int CurrentLevel { get; set; }
+    public int CurrentBind { get; set; }
 
     public Save()
     {
@@ -17,5 +18,6 @@ public class Save : ISavable
         Events = new List<string>();
         Modifiers = new List<ModifierInfo>();
         CurrentLevel = 1;
+        CurrentBind = -1;
     }
 }

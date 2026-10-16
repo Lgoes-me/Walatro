@@ -5,7 +5,8 @@ public class GameplayService : IService, IPreparable, IStartable
 {
     public List<int> Levels = new List<int>()
     {
-        100, 
+        100,
+        300, 
         800,
         2000,
         5000,
@@ -16,6 +17,7 @@ public class GameplayService : IService, IPreparable, IStartable
     };
 
     public int CurrentLevel { get; set; }
+    public int CurrentBind { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
 
@@ -30,6 +32,32 @@ public class GameplayService : IService, IPreparable, IStartable
     public UniTask StartSave()
     {
         CurrentLevel = GameSaveService.Save.CurrentLevel;
+        CurrentBind = GameSaveService.Save.CurrentBind;
         return UniTask.CompletedTask;
+    }
+
+    public Gameplay GetNextGameplay()
+    {
+        CurrentBind ++;
+
+        if (CurrentBind == 3)
+        {
+            CurrentLevel ++;
+            CurrentBind = 0;
+        }
+
+        return new Gameplay(
+            (int) (Levels[CurrentLevel] * ModificadorDeScore(CurrentBind)));
+    }
+
+    private float ModificadorDeScore(int bind)
+    {
+        return bind switch
+        {
+            0 => 1f,
+            1 => 1.5f,
+            2 => 2,
+            _ => 0,
+        };
     }
 }
