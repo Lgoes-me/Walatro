@@ -20,7 +20,6 @@ public class ScreenMouseDetector : MonoBehaviour
     {
         Ray ray = Camera.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-
         if (Physics.Raycast(ray, out var hit))
         {
             if (hit.collider.gameObject == this.gameObject)
