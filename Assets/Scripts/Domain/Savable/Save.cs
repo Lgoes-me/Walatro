@@ -18,6 +18,6 @@ public class Save : ISavable
         Events = new List<string>();
         Modifiers = new List<ModifierInfo>();
         CurrentLevel = 1;
-        CurrentBind = -1;
+        CurrentBind = 0;
     }
 }

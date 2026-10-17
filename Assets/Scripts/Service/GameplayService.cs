@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
@@ -17,14 +18,23 @@ public class GameplayService : IService, IPreparable, IStartable
     };
 
     public int CurrentLevel { get; set; }
+
     public int CurrentBind { get; set; }
 
+
     private GameSaveService GameSaveService { get; set; }
+
+    private SceneService SceneService { get; set; }
+
+
+    public Gameplay Gameplay { get; set; }
+
 
     public UniTask Prepare()
     {
         var application = Application.Instance;
         GameSaveService = application.GetService<GameSaveService>();
+        SceneService = application.GetService<SceneService>();
 
         return UniTask.CompletedTask;
     }
@@ -33,10 +43,13 @@ public class GameplayService : IService, IPreparable, IStartable
     {
         CurrentLevel = GameSaveService.Save.CurrentLevel;
         CurrentBind = GameSaveService.Save.CurrentBind;
+
+        Gameplay = new Gameplay((int) (Levels[CurrentLevel] * ModificadorDeScore(CurrentBind)));
+
         return UniTask.CompletedTask;
     }
 
-    public Gameplay GetNextGameplay()
+    public void NextGameplay()
     {
         CurrentBind ++;
 
@@ -45,9 +58,47 @@ public class GameplayService : IService, IPreparable, IStartable
             CurrentLevel ++;
             CurrentBind = 0;
         }
+        
+        Gameplay = new Gameplay((int) (Levels[CurrentLevel] * ModificadorDeScore(CurrentBind)));
+    }
 
-        return new Gameplay(
-            (int) (Levels[CurrentLevel] * ModificadorDeScore(CurrentBind)));
+    public async UniTask MinigameLoop(Action updateTexts, Func<UniTask> win, Func<UniTask> gameOver)
+    {
+        foreach(var minigame in Gameplay.Minigames)
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
+
+            var result = await SceneService.WaitScene<MinigameSceneData, MinigameResult>(new MinigameSceneData());
+
+            if (!result.DidWin)
+            {
+                Gameplay.Vidas --;
+            }
+            
+            Gameplay.Score += result.Score;
+
+            updateTexts();
+
+            if (Gameplay.Vidas == 0)
+            {
+                await gameOver();
+                return;
+            }
+
+            if (Gameplay.ScoreToBeat <= Gameplay.Score)
+            {
+                await win();
+                return;
+            }
+        }
+
+        if (Gameplay.ScoreToBeat > Gameplay.Score)
+        {
+            await gameOver();
+            return;
+        }
+
+        await win();
     }
 
     private float ModificadorDeScore(int bind)
