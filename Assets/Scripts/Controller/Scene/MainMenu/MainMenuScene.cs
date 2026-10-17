@@ -75,7 +75,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
 
     private async UniTaskVoid OpenSettings()
     {
-        
+        await SceneService.WaitScene(new SettingsSceneData());
     }
 
     private void ExitGame()
