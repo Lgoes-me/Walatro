@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class ResidentEvilMinigameController : MonoBehaviour
@@ -11,22 +12,32 @@ public class ResidentEvilMinigameController : MonoBehaviour
 
     private Action Callback { get; set; }
 
+    private bool PodeAtirar { get; set; }
+
     void Start()
     {
-        Callback = Application.Instance.GetService<InterfaceService>().MudarMousePorEnquanto(Mira);
+        Callback = Application.Instance.GetService<InterfaceService>().MudarMousePorEnquanto(Mira, 2);
+        PodeAtirar = true;
     }
 
     void Update()
     {
-        
-        if(Input.GetMouseButtonDown(0))
+        if(PodeAtirar && Input.GetMouseButtonDown(0))
         {
-            MuzzleFlash.SetActive(true);
+            PodeAtirar = false;
+            StartCoroutine(CoroutinaDeTiro());
         }
     }
 
     private void OnDestroy()
     {
         Callback();
+    }
+
+    private IEnumerator CoroutinaDeTiro()
+    {
+        MuzzleFlash.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        MuzzleFlash.SetActive(false);
     }
 }
