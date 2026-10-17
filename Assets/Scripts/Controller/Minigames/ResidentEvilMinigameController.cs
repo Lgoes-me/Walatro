@@ -23,7 +23,7 @@ public class ResidentEvilMinigameController : MonoBehaviour
     {
         if(PodeAtirar && Input.GetMouseButtonDown(0))
         {
-            //PodeAtirar = false;
+            PodeAtirar = false;
             StartCoroutine(CoroutinaDeTiro());
 
             var ray = Application.Instance.GetService<InterfaceService>().RaycastFromVirtualMouse();
@@ -32,15 +32,11 @@ public class ResidentEvilMinigameController : MonoBehaviour
             
             if (Physics.Raycast(ray, out var hit, 100f))
             {
-                Debug.Log(hit.collider.gameObject.name);
-
                 if (hit.collider.TryGetComponent<ClickDetectorController>(out var clickDetectorController))
                 {
                     clickDetectorController.OnClick();
                 }
             }
-                
-            Debug.Log(hit.collider);
         }
     }
 

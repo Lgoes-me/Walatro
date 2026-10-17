@@ -6,9 +6,4 @@ public class ClickDetectorController : MonoBehaviour
     {
         Debug.Log($"OnClick {name}");
     }
-    
-    public void OnMouseDown()
-    {
-        Debug.Log($"OnMouseDown {name}");
-    }
 }
