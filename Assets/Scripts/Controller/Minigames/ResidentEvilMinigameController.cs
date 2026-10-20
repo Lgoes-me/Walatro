@@ -10,16 +10,23 @@ public class ResidentEvilMinigameController : MonoBehaviour
     [field: SerializeField]
     private GameObject MuzzleFlash { get; set; }
 
+    [field: SerializeField]
+    private Animation Animation { get; set; }
+
+    [field: SerializeField]
+    private AnimationClip PositiveAnimationClip { get; set; }
+
     private Action Callback { get; set; }
+    
     private bool PodeAtirar { get; set; }
 
-    void Start()
+    private void Start()
     {
         Callback = Application.Instance.GetService<InterfaceService>().MudarMousePorEnquanto(Mira, 2);
         PodeAtirar = true;
     }
 
-    void Update()
+    private void Update()
     {
         if(PodeAtirar && Input.GetMouseButtonDown(0))
         {
@@ -38,6 +45,14 @@ public class ResidentEvilMinigameController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void CompleteMinigame(int score)
+    {
+        Debug.Log($"Score {score}");
+        
+        Animation.AddClip(PositiveAnimationClip, "PositiveAnimationClip");
+        Animation.Play("PositiveAnimationClip");
     }
 
     private void OnDestroy()
