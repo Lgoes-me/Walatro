@@ -3,11 +3,10 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, MinigameResult>
+public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, MinigameSceneResult>
 {
-    [field: SerializeField] private Button WinButton { get; set; }
-    [field: SerializeField] private Button GameOverButton { get; set; }
     [field: SerializeField] private Image ProgressBar { get; set; } 
+    [field: SerializeField] private ResidentEvilMinigameController ResidentEvilMinigameController { get; set; } 
 
     private SceneService SceneService { get; set; }
     private Coroutine CountdownCoroutine { get; set; }
@@ -16,37 +15,25 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
     protected override UniTask Init()
     {
         SceneService = Application.GetService<SceneService>();
-        
-        WinButton.onClick.RemoveAllListeners();
-        WinButton.onClick.AddListener(() => Win().Forget());
-        WinButton.Select();
-
-        GameOverButton.onClick.RemoveAllListeners();
-        GameOverButton.onClick.AddListener(() => GameOver().Forget());
 
         Timer = 3;
 
         CountdownCoroutine = StartCoroutine(CountdownEndMinigame());
 
+        ResidentEvilMinigameController.Init(EndMinigame);
+
         return UniTask.CompletedTask;
     }
 
-    private UniTask Win()
+    private void EndMinigame(MinigameSceneResult result)
     {
-        CloseScene(new MinigameResult(true));
-        return UniTask.CompletedTask;
+        CloseScene(result);
     }
-    
-    private UniTask GameOver()
-    {
-        CloseScene(new MinigameResult(false));
-        return UniTask.CompletedTask;
-    }
-    
+
     private IEnumerator CountdownEndMinigame()
     {
         yield return AnimateProgressBar();
-        CloseScene(new MinigameResult(false));
+        CloseScene(new MinigameSceneResult(false, 0));
     }
 
     public IEnumerator AnimateProgressBar()
@@ -63,7 +50,7 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
         }
     }
 
-    protected override void OnSceneClose(MinigameResult result)
+    protected override void OnSceneClose(MinigameSceneResult result)
     {
         if (CountdownCoroutine != null)
         {
@@ -76,4 +63,16 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
 public class MinigameSceneData : BaseSceneData
 {
     public override string SceneName => "Minigame";
+}
+
+public class MinigameSceneResult
+{
+    public bool DidWin { get; set; }
+    public int Score { get; set; }
+
+    public MinigameSceneResult(bool didWin, int score)
+    {
+        DidWin = didWin;
+        Score = score;
+    }
 }

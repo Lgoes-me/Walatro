@@ -68,7 +68,7 @@ public class GameplayService : IService, IPreparable, IStartable
         {
             await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
 
-            var result = await SceneService.WaitScene<MinigameSceneData, MinigameResult>(new MinigameSceneData());
+            var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData());
 
             if (!result.DidWin)
             {

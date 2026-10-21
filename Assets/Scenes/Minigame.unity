@@ -305,7 +305,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 403126130}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.807, y: 13.837, z: -88.734}
 --- !u!212 &427232935
 SpriteRenderer:
   serializedVersion: 3
@@ -1583,9 +1583,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce026f2a80baf7543ba990e5f7b665b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinigameScene
-  <WinButton>k__BackingField: {fileID: 2064825179}
-  <GameOverButton>k__BackingField: {fileID: 398036422}
   <ProgressBar>k__BackingField: {fileID: 1589567045}
+  <ResidentEvilMinigameController>k__BackingField: {fileID: 580313956}
 --- !u!1 &2064825177
 GameObject:
   m_ObjectHideFlags: 0

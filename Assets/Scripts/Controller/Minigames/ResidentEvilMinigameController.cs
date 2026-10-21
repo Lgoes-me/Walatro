@@ -16,14 +16,18 @@ public class ResidentEvilMinigameController : MonoBehaviour
     [field: SerializeField]
     private AnimationClip PositiveAnimationClip { get; set; }
 
-    private Action Callback { get; set; }
+    private Action<MinigameSceneResult> Callback { get; set; }
+    private Action MouseReturn { get; set; }
+
+    private MinigameSceneResult MinigameSceneResult { get; set; }
     
     private bool PodeAtirar { get; set; }
 
-    private void Start()
+    public void Init(Action<MinigameSceneResult> callback)
     {
-        Callback = Application.Instance.GetService<InterfaceService>().MudarMousePorEnquanto(Mira, 2);
+        MouseReturn = Application.Instance.GetService<InterfaceService>().MudarMousePorEnquanto(Mira, 2);
         PodeAtirar = true;
+        Callback = callback;
     }
 
     private void Update()
@@ -49,15 +53,19 @@ public class ResidentEvilMinigameController : MonoBehaviour
 
     public void CompleteMinigame(int score)
     {
-        Debug.Log($"Score {score}");
-        
         Animation.AddClip(PositiveAnimationClip, "PositiveAnimationClip");
         Animation.Play("PositiveAnimationClip");
+        MinigameSceneResult = new MinigameSceneResult(true, score);
+    }
+
+    public void CompleteCallback()
+    {
+        Callback(MinigameSceneResult);
     }
 
     private void OnDestroy()
     {
-        Callback();
+        MouseReturn();
     }
 
     private IEnumerator CoroutinaDeTiro()
