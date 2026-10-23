@@ -6,7 +6,7 @@ public class ClickDetectorController : MonoBehaviour
     private int AreaScore { get; set; }
 
     [field: SerializeField]
-    private ResidentEvilMinigameController MinigameController { get; set; }
+    private BaseMinigameController MinigameController { get; set; }
 
     public void OnClick()
     {

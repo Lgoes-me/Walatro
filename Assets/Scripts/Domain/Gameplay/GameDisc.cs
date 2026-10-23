@@ -1,8 +1,8 @@
 public class GameDisc
 {
-    public ResidentEvilMinigameController MinigameControllerPrefab { get; set; }
+    public BaseMinigameController MinigameControllerPrefab { get; set; }
 
-    public GameDisc(ResidentEvilMinigameController minigameControllerPrefab)
+    public GameDisc(BaseMinigameController minigameControllerPrefab)
     {
         MinigameControllerPrefab = minigameControllerPrefab;
     }

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class ResidentEvilMinigameController : BaseMinigameController
+public class ShootTheZombieController : BaseMinigameController
 {
     [field: SerializeField]
     protected override Sprite Mouse { get; set; }
