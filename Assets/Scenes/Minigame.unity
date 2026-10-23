@@ -631,7 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da0f28d038e5c0479e78b8807135ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ResidentEvilMinigameController
-  <Mira>k__BackingField: {fileID: 5091146171140590353, guid: fc5b0f259cf949343bd4a04137551ab6, type: 3}
+  <Mouse>k__BackingField: {fileID: 5091146171140590353, guid: fc5b0f259cf949343bd4a04137551ab6, type: 3}
   <MuzzleFlash>k__BackingField: {fileID: 738133420}
   <Animation>k__BackingField: {fileID: 580313955}
   <PositiveAnimationClip>k__BackingField: {fileID: 7400000, guid: 06ab1baf2791a08419696426518034ee, type: 2}

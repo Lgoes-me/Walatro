@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class ResidentEvilMinigameController : MonoBehaviour
+public class ResidentEvilMinigameController : BaseMinigameController
 {
     [field: SerializeField]
-    private Sprite Mira { get; set; }
+    protected override Sprite Mouse { get; set; }
 
     [field: SerializeField]
     private GameObject MuzzleFlash { get; set; }
@@ -15,20 +15,8 @@ public class ResidentEvilMinigameController : MonoBehaviour
 
     [field: SerializeField]
     private AnimationClip PositiveAnimationClip { get; set; }
-
-    private Action<MinigameSceneResult> Callback { get; set; }
-    private Action MouseReturn { get; set; }
-
-    private MinigameSceneResult MinigameSceneResult { get; set; }
     
-    private bool PodeAtirar { get; set; }
-
-    public void Init(Action<MinigameSceneResult> callback)
-    {
-        MouseReturn = Application.Instance.GetService<InterfaceService>().MudarMousePorEnquanto(Mira, 2);
-        PodeAtirar = true;
-        Callback = callback;
-    }
+    private bool PodeAtirar { get; set; } = true;
 
     private void Update()
     {
@@ -51,21 +39,16 @@ public class ResidentEvilMinigameController : MonoBehaviour
         }
     }
 
-    public void CompleteMinigame(int score)
+    public override void ComputeMinigameInteraction(int score)
     {
         Animation.AddClip(PositiveAnimationClip, "PositiveAnimationClip");
         Animation.Play("PositiveAnimationClip");
         MinigameSceneResult = new MinigameSceneResult(true, score);
     }
 
-    public void CompleteCallback()
+    public override void CompleteAnimationCallback()
     {
         Callback(MinigameSceneResult);
-    }
-
-    private void OnDestroy()
-    {
-        MouseReturn();
     }
 
     private IEnumerator CoroutinaDeTiro()

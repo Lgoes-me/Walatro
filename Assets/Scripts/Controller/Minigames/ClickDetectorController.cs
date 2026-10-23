@@ -10,6 +10,6 @@ public class ClickDetectorController : MonoBehaviour
 
     public void OnClick()
     {
-        MinigameController.CompleteMinigame(AreaScore);
+        MinigameController.ComputeMinigameInteraction(AreaScore);
     }
 }
