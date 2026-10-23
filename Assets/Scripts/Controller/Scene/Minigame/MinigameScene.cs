@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, MinigameSceneResult>
 {
-    [field: SerializeField] private Image ProgressBar { get; set; } 
-    [field: SerializeField] private GameDiscScriptableObject GameDisc { get; set; }
+    [field: SerializeField] private Image ProgressBar { get; set; }
 
     private SceneService SceneService { get; set; }
     private BaseMinigameController MinigameController { get; set; }
@@ -21,8 +20,7 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
 
         CountdownCoroutine = StartCoroutine(CountdownEndMinigame());
 
-        MinigameController = Instantiate(GameDisc.ToDomain().MinigameControllerPrefab);
-        
+        MinigameController = Instantiate(Data.GameDisc.MinigameControllerPrefab);
         MinigameController.Init(EndMinigame);
 
         return UniTask.CompletedTask;
@@ -71,6 +69,12 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
 public class MinigameSceneData : BaseSceneData
 {
     public override string SceneName => "Minigame";
+    public GameDisc GameDisc { get; set; }
+
+    public MinigameSceneData(GameDisc gameDisc)
+    {
+        GameDisc = gameDisc;
+    }
 }
 
 public class MinigameSceneResult

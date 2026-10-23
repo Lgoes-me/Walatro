@@ -5,6 +5,8 @@ using TMPro;
 
 public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
 {
+    [field: SerializeField] private GameBoxScriptableObject GameBox { get; set; }
+    
     [field: SerializeField] private TMP_Text LivesText { get; set; }
     [field: SerializeField] private TMP_Text ScoreToBeatText { get; set; }
     [field: SerializeField] private TMP_Text ScoreText { get; set; }
@@ -19,7 +21,7 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
         
         UpdateTexts();
         
-        await GameplayService.MinigameLoop(UpdateTexts, Win, GameOver);
+        await GameplayService.MinigameLoop(GameBox.ToDomain(), UpdateTexts, Win, GameOver);
     }
 
     private void UpdateTexts()

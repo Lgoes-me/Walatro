@@ -742,6 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32fe1b51fa2b374383d6b2e6c9ebd75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameplayScene
+  <GameBox>k__BackingField: {fileID: 11400000, guid: 5ee07483df0c80c4898bb4e5ee96d77f, type: 2}
   <LivesText>k__BackingField: {fileID: 1580602573}
   <ScoreToBeatText>k__BackingField: {fileID: 1511868074}
   <ScoreText>k__BackingField: {fileID: 24363589}
