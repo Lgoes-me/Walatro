@@ -880,7 +880,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinigameScene
   <ProgressBar>k__BackingField: {fileID: 1589567045}
-  <MinigameControllerPrefab>k__BackingField: {fileID: 1583506301261162727, guid: 9fe6625a602394a479125960c0b30991, type: 3}
+  <GameDisc>k__BackingField: {fileID: 11400000, guid: 8a8e8e23e907fb64185f7e9c1225268a, type: 2}
 --- !u!1 &2064825177
 GameObject:
   m_ObjectHideFlags: 0

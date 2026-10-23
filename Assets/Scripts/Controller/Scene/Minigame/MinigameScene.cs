@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, MinigameSceneResult>
 {
     [field: SerializeField] private Image ProgressBar { get; set; } 
-    [field: SerializeField] private ResidentEvilMinigameController MinigameControllerPrefab { get; set; } 
+    [field: SerializeField] private GameDiscScriptableObject GameDisc { get; set; }
 
     private SceneService SceneService { get; set; }
     private BaseMinigameController MinigameController { get; set; }
@@ -21,7 +21,7 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
 
         CountdownCoroutine = StartCoroutine(CountdownEndMinigame());
 
-        MinigameController = Instantiate(MinigameControllerPrefab);
+        MinigameController = Instantiate(GameDisc.ToDomain().MinigameControllerPrefab);
         
         MinigameController.Init(EndMinigame);
 
