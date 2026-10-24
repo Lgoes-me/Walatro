@@ -8,15 +8,13 @@ public class GameOverScene : BaseAwaitableScene<GameOverSceneData>
 
     private GameSaveService GameSaveService { get; set; }
 
-    protected override UniTask Init()
+    protected override void Init()
     {
         GameSaveService = Application.GetService<GameSaveService>();
         
         ResetButton.onClick.RemoveAllListeners();
         ResetButton.onClick.AddListener(() => Reset().Forget());
         ResetButton.Select();
-
-        return UniTask.CompletedTask;
     }
 
     private UniTask Reset()

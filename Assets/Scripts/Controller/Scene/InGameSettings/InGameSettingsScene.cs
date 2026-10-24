@@ -4,9 +4,9 @@ using UnityEngine.UI;
 
 public class InGameSettingsScene : BaseAwaitableScene<InGameSettingsSceneData>
 {
-    protected override UniTask Init()
+    protected override void Init()
     {
-        return UniTask.CompletedTask;
+        
     }
 }
 

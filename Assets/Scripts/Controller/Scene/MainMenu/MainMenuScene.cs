@@ -12,7 +12,7 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
     private GameSaveService GameSaveService { get; set; }
     private SceneService SceneService { get; set; }
     
-    protected override UniTask Init()
+    protected override void Init()
     {
         GameSaveService = Application.GetService<GameSaveService>();
         SceneService = Application.GetService<SceneService>();
@@ -39,8 +39,6 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
 
         ExitButton.onClick.RemoveAllListeners();
         ExitButton.onClick.AddListener(ExitGame);
-
-        return UniTask.CompletedTask;
     }
 
     private async UniTaskVoid StartGame()

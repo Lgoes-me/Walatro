@@ -9,7 +9,7 @@ public class StoreScene : BaseAwaitableScene<StoreSceneData>
     private SceneService SceneService { get; set; }
     private GameSaveService GameSaveService { get; set; }
 
-    protected override UniTask Init()
+    protected override void Init()
     {
         SceneService = Application.GetService<SceneService>();
         GameSaveService = Application.GetService<GameSaveService>();
@@ -19,8 +19,6 @@ public class StoreScene : BaseAwaitableScene<StoreSceneData>
         NextButton.onClick.RemoveAllListeners();
         NextButton.onClick.AddListener(() => Next().Forget());
         NextButton.Select();
-
-        return UniTask.CompletedTask;
     }
 
     private async UniTask Next()

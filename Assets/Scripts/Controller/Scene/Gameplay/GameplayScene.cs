@@ -14,14 +14,14 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
     private SceneService SceneService { get; set; }
     private GameplayService GameplayService { get; set; }
 
-    protected override async UniTask Init()
+    protected override  void Init()
     {
         SceneService = Application.GetService<SceneService>();
         GameplayService = Application.GetService<GameplayService>();
         
         UpdateTexts();
         
-        await GameplayService.MinigameLoop(GameBox.ToDomain(), UpdateTexts, Win, GameOver);
+        GameplayService.MinigameLoop(GameBox.ToDomain(), UpdateTexts, Win, GameOver).Forget();
     }
 
     private void UpdateTexts()

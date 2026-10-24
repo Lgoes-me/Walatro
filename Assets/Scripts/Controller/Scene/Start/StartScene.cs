@@ -11,7 +11,7 @@ public class StartScene : BaseScene<StartSceneData>
     private TutorialService TutorialService { get; set; }
     private SceneService SceneService { get; set; }
     
-    protected override UniTask Init()
+    protected override void Init()
     {
         GameSaveService = Application.GetService<GameSaveService>();
         TutorialService = Application.GetService<TutorialService>();
@@ -20,8 +20,6 @@ public class StartScene : BaseScene<StartSceneData>
         StartButton.onClick.RemoveAllListeners();
         StartButton.onClick.AddListener(() => StartGame().Forget());
         StartButton.Select();
-
-        return UniTask.CompletedTask;
     }
 
     private async UniTask StartGame()

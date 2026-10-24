@@ -12,7 +12,7 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
     private Coroutine CountdownCoroutine { get; set; }
     private int Timer { get; set; }
 
-    protected override UniTask Init()
+    protected override void Init()
     {
         SceneService = Application.GetService<SceneService>();
 
@@ -22,8 +22,6 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
 
         MinigameController = Instantiate(Data.GameDisc.MinigameControllerPrefab);
         MinigameController.Init(EndMinigame);
-
-        return UniTask.CompletedTask;
     }
 
     private void EndMinigame(MinigameSceneResult result)

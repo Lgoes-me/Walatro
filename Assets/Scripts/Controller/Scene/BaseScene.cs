@@ -9,19 +9,19 @@ public abstract class BaseScene<T> : MonoBehaviour where T : BaseSceneData
     protected Application Application { get; private set; }
     protected T Data { get; private set; }
 
-    public async UniTask OpenScene(Application application, T data)
+    public void OpenScene(Application application, T data)
     {
         Application = application;
         Data = data;
-        
+
         Canvas.renderMode = RenderMode.ScreenSpaceCamera;
         Canvas.worldCamera = Application.MainCamera;
         Canvas.planeDistance = CanvasDistance;
         
-        await Init();
+        Init();
     }
     
-    protected abstract UniTask Init();
+    protected abstract void Init();
 }
 
 public abstract class BaseSceneData

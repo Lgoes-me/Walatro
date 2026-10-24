@@ -6,13 +6,11 @@ public class SelectDeckScene : BaseAwaitableScene<SelectDeckSceneData>
 {
     [field: SerializeField] private Button SelectButton { get; set; }
 
-    protected override UniTask Init()
+    protected override void Init()
     {
         SelectButton.onClick.RemoveAllListeners();
         SelectButton.onClick.AddListener(() => SelectDeck().Forget());
         SelectButton.Select();
-
-        return UniTask.CompletedTask;
     }
 
     private UniTask SelectDeck()

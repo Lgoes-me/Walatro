@@ -12,10 +12,10 @@ public class SceneService : IService, IPreparable
         return UniTask.CompletedTask;
     }
 
-    public async UniTask GoToScene<T>(T sceneData) where T : BaseSceneData
+    public async UniTask OpenScene<T>(T sceneData) where T : BaseSceneData
     {
         await SceneManager.LoadSceneAsync(sceneData.SceneName, LoadSceneMode.Single);
-        await UnityEngine.Object.FindAnyObjectByType<BaseScene<T>>().OpenScene(Application, sceneData);
+        UnityEngine.Object.FindAnyObjectByType<BaseScene<T>>().OpenScene(Application, sceneData);
     }
 
     public async UniTask WaitScene<T>(T sceneData) where T : BaseSceneData
@@ -31,20 +31,5 @@ public class SceneService : IService, IPreparable
         var result = await UnityEngine.Object.FindAnyObjectByType<BaseAwaitableSceneWithResponse<T, T2>>().WaitOpenScene(Application, sceneData);
         await SceneManager.UnloadSceneAsync(sceneData.SceneName);
         return result;
-    }
-
-    public async UniTaskVoid SwitchScene<T>(T sceneData) where T : BaseSceneData
-    {
-        var scene = SceneManager.GetSceneByName(sceneData.SceneName);
-
-        if (scene.IsValid() && scene.isLoaded)
-        {
-            await SceneManager.UnloadSceneAsync(scene);
-        }
-        else
-        {
-            await SceneManager.LoadSceneAsync(sceneData.SceneName, LoadSceneMode.Additive);
-            await UnityEngine.Object.FindAnyObjectByType<BaseScene<T>>().OpenScene(Application, sceneData);
-        }
     }
 }
