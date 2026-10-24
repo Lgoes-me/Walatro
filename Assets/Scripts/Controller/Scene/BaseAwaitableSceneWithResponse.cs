@@ -3,6 +3,9 @@ using UnityEngine;
 
 public abstract class BaseAwaitableSceneWithResponse<T, T2> : MonoBehaviour where T : BaseSceneData
 {
+    [field: SerializeField] protected int CanvasDistance { get; set; } = 100;
+    [field: SerializeField] protected Canvas Canvas { get; set; }
+
     protected Application Application { get; private set; }
     protected T Data { get; private set; }
     
@@ -15,13 +18,9 @@ public abstract class BaseAwaitableSceneWithResponse<T, T2> : MonoBehaviour wher
         TaskCompletionSource = new UniTaskCompletionSource<T2>();
         Init().Forget();
 
-        var canvases = Object.FindObjectsByType<Canvas>();
-
-        foreach(var canvas in canvases)
-        {
-            canvas.renderMode = RenderMode.ScreenSpaceCamera;
-            canvas.worldCamera = Application.MainCamera;
-        }
+        Canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        Canvas.worldCamera = Application.MainCamera;
+        Canvas.planeDistance = CanvasDistance;
 
         return TaskCompletionSource.Task;
     }

@@ -663,6 +663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc448f15eceea5c4baf45aa0d8fc6e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverScene
+  <CanvasDistance>k__BackingField: 100
+  <Canvas>k__BackingField: {fileID: 1215515986}
   <ResetButton>k__BackingField: {fileID: 289314494}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

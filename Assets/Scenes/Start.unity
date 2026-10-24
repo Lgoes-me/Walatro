@@ -587,6 +587,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be732ee97d36a840b8211f8fb5bcac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartScene
+  <CanvasDistance>k__BackingField: 100
+  <Canvas>k__BackingField: {fileID: 1215515986}
   <Menu>k__BackingField: {fileID: 1215515986}
   <StartButton>k__BackingField: {fileID: 289314494}
 --- !u!1660057539 &9223372036854775807

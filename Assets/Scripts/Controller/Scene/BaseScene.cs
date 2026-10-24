@@ -3,6 +3,9 @@ using UnityEngine;
 
 public abstract class BaseScene<T> : MonoBehaviour where T : BaseSceneData
 {
+    [field: SerializeField] protected int CanvasDistance { get; set; } = 100;
+    [field: SerializeField] protected Canvas Canvas { get; set; }
+
     protected Application Application { get; private set; }
     protected T Data { get; private set; }
 
@@ -10,14 +13,10 @@ public abstract class BaseScene<T> : MonoBehaviour where T : BaseSceneData
     {
         Application = application;
         Data = data;
-
-        var canvases = Object.FindObjectsByType<Canvas>();
-
-        foreach(var canvas in canvases)
-        {
-            canvas.renderMode = RenderMode.ScreenSpaceCamera;
-            canvas.worldCamera = Application.MainCamera;
-        }
+        
+        Canvas.renderMode = RenderMode.ScreenSpaceCamera;
+        Canvas.worldCamera = Application.MainCamera;
+        Canvas.planeDistance = CanvasDistance;
         
         await Init();
     }

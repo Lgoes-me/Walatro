@@ -879,8 +879,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce026f2a80baf7543ba990e5f7b665b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MinigameScene
+  <CanvasDistance>k__BackingField: 3
+  <Canvas>k__BackingField: {fileID: 521629930}
   <ProgressBar>k__BackingField: {fileID: 1589567045}
-  <GameDisc>k__BackingField: {fileID: 11400000, guid: 8a8e8e23e907fb64185f7e9c1225268a, type: 2}
 --- !u!1 &2064825177
 GameObject:
   m_ObjectHideFlags: 0

@@ -971,6 +971,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277257bd94cd79345b49be968cdbd022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <CanvasDistance>k__BackingField: 100
+  <Canvas>k__BackingField: {fileID: 1215515986}
   <ContinueButton>k__BackingField: {fileID: 105147058}
   <StartButton>k__BackingField: {fileID: 289314494}
   <SettingsButton>k__BackingField: {fileID: 496677607}
