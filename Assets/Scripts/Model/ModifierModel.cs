@@ -1,12 +1,20 @@
 using System;
 
 [Serializable]
-public class ModifierInfo
+public class ModifierModel
 {
     public string Id { get; set; }
     public Rarity Rarity { get; set; }
 
-    protected bool Equals(ModifierInfo other)
+    public ModifierModel(
+        string id,
+        Rarity rarity)
+    {
+        Id = id;
+        Rarity = rarity;
+    }
+
+    protected bool Equals(ModifierModel other)
     {
         return Id == other.Id && Rarity == other.Rarity;
     }
@@ -16,7 +24,7 @@ public class ModifierInfo
         if (obj is null) return false;
         if (ReferenceEquals(this, obj)) return true;
         if (obj.GetType() != GetType()) return false;
-        return Equals((ModifierInfo)obj);
+        return Equals((ModifierModel)obj);
     }
 
     public override int GetHashCode()

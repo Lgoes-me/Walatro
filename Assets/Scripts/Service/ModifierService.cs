@@ -43,9 +43,9 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
             Modifiers.Add(modifier);
         }
         
-        foreach (var modifierInfo in GameSaveService.Save.Modifiers)
+        foreach (var modifierModel in GameSaveService.Save.Modifiers)
         {
-            var modifier = await ContentService.GetModifierFromInfo(modifierInfo);
+            var modifier = await ContentService.GetModifierFromModel(modifierModel);
             await modifier.DoCreatedEvent();
             Modifiers.Add(modifier);
         } 

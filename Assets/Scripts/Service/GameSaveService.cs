@@ -73,17 +73,13 @@ public class GameSaveService : IService, IPreparable, IBootable
         
         foreach (var modifier in ModifierService.Modifiers)
         {
-            Save.Modifiers.Add(new ModifierInfo()
-            {
-                Id = modifier.Id,
-                Rarity = modifier.Rarity,
-            });
+            Save.Modifiers.Add(new ModifierModel(modifier.Id, modifier.Rarity));
         }
 
         Save.CurrentLevel = GameplayService.CurrentLevel;
         Save.CurrentBind = GameplayService.CurrentBind;
         
-        //Save.GameBox = GameBoxService.GameBox;
+        Save.GameBox = GameBoxService.GameBox.ToModel();
 
         SaveManager.SaveData(Save);
     }

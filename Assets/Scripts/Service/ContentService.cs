@@ -10,19 +10,26 @@ using UnityEditor;
 public class ContentService : MonoBehaviour, IService, IPreparable
 {
     [field: SerializeField] public List<GameBoxScriptableObject> GameBoxes { get; set; }
+    [field: SerializeField] public List<GameDiscScriptableObject> GameDiscs { get; set; }
 
     [field: SerializeField] public List<ModifierDataAssetReference> Modifiers { get; private set; }
     
     
     private Dictionary<string, ModifierDataAssetReference> AvailableModifiers { get; set; }
+    private Dictionary<string, GameBoxScriptableObject> AvailableGameBoxes { get; set; }
+    private Dictionary<string, GameDiscScriptableObject> AvailableGameDiscs { get; set; }
 
     public UniTask Prepare()
     {
+        AvailableGameBoxes = GameBoxes.ToIdentifiableDictionary();
+        AvailableGameDiscs = GameDiscs.ToIdentifiableDictionary();
+
         AvailableModifiers = Modifiers.ToAssetReferenceDictionary();
+
         return UniTask.CompletedTask;
     }
     
-    public async UniTask<Modifier> GetModifierFromInfo(ModifierInfo info)
+    public async UniTask<Modifier> GetModifierFromModel(ModifierModel info)
     {
         if (AvailableModifiers.TryGetValue(info.Id, out var modifierDataAsset))
         {
@@ -31,6 +38,16 @@ public class ContentService : MonoBehaviour, IService, IPreparable
         }
 
         throw new Exception("Invalid Modifier");
+    }
+
+    public async UniTask<GameDisc> GetGameDiscsFromModel(GameDiscModel gameDiscModel)
+    {
+        if (AvailableGameDiscs.TryGetValue(gameDiscModel.Id, out var gameDiscScriptableObject))
+        {
+            return gameDiscScriptableObject.ToDomain();
+        }
+
+        throw new Exception("Invalid gameDiscModel");
     }
 
 #if UNITY_EDITOR

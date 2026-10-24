@@ -6,20 +6,29 @@ using UnityEngine;
 public class GameBoxService : IService, IPreparable, IStartable
 {
     public GameBox GameBox { get; set; }
+
     private GameSaveService GameSaveService { get; set; }
+    private ContentService ContentService { get; set; }
 
     public UniTask Prepare()
     {
         var application = Application.Instance;
         GameSaveService = application.GetService<GameSaveService>();
+        ContentService = application.GetService<ContentService>();
 
         return UniTask.CompletedTask;
     }
 
-    public UniTask StartSave()
+    public async UniTask StartSave()
     {
-        //GameBox = GameSaveService.Save.GameBox;
-        return UniTask.CompletedTask;
+        var games = new List<GameDisc>();
+        
+        foreach (var gameModel in GameSaveService.Save.GameBox.Discs)
+        {
+            games.Add(await ContentService.GetGameDiscsFromModel(gameModel));
+        }
+        
+        GameBox = new GameBox(games);
     }
 
     public void SelectGameBox(GameBoxScriptableObject gameBoxScriptableObject)

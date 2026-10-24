@@ -10,4 +10,9 @@ public class GameDisc
         Id = id;
         MinigameControllerPrefab = minigameControllerPrefab;
     }
+
+    public GameDiscModel ToModel()
+    {
+        return new GameDiscModel(Id);
+    }
 }

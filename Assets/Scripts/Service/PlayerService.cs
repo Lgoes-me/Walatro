@@ -23,9 +23,9 @@ public class PlayerService : IService, IPreparable, IStartable, IResettable
     {
         PlayerModifiers = new List<Modifier>();
 
-        foreach (var modifierInfo in GameSaveService.Save.Modifiers)
+        foreach (var modifierModel in GameSaveService.Save.Modifiers)
         {
-            var modifier = await ContentService.GetModifierFromInfo(modifierInfo);
+            var modifier = await ContentService.GetModifierFromModel(modifierModel);
             PlayerModifiers.Add(modifier);
         }
     }

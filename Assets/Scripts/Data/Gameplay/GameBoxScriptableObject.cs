@@ -16,6 +16,6 @@ public class GameBoxScriptableObject : ScriptableObject, IIdentifiable
             games.Add(gameDiscScriptableObject.ToDomain());
         }
 
-        return new GameBox(Id, games);
+        return new GameBox(games);
     }
 }
