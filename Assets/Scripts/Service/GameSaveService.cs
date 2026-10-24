@@ -9,12 +9,15 @@ public class GameSaveService : IService, IPreparable, IBootable
 
     private ModifierService ModifierService { get; set; }
     private GameplayService GameplayService { get; set; }
+    private GameBoxService GameBoxService { get; set; }
 
     public UniTask Prepare()
     {
         var application = Application.Instance;
         ModifierService = application.GetService<ModifierService>();
         GameplayService = application.GetService<GameplayService>();
+        GameBoxService = application.GetService<GameBoxService>();
+
         return UniTask.CompletedTask;
     }
 
@@ -79,6 +82,8 @@ public class GameSaveService : IService, IPreparable, IBootable
 
         Save.CurrentLevel = GameplayService.CurrentLevel;
         Save.CurrentBind = GameplayService.CurrentBind;
+        
+        //Save.GameBox = GameBoxService.GameBox;
 
         SaveManager.SaveData(Save);
     }

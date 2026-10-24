@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoreScene : BaseAwaitableScene<StoreSceneData>
+public class StoreScene : BaseScene<StoreSceneData>
 {
     [field: SerializeField] private Button NextButton { get; set; }
 
@@ -23,8 +23,7 @@ public class StoreScene : BaseAwaitableScene<StoreSceneData>
 
     private async UniTask Next()
     {
-        CloseScene();
-        await SceneService.WaitScene(new GameplaySceneData());
+        await SceneService.OpenScene(new GameplaySceneData());
     }
 }
 

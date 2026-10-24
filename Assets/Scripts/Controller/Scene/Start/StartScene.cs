@@ -4,16 +4,19 @@ using UnityEngine.UI;
 
 public class StartScene : BaseScene<StartSceneData>
 {
-    [field: SerializeField] private Canvas Menu { get; set; }
     [field: SerializeField] private Button StartButton { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
+    private ContentService ContentService { get; set; }
+    private GameBoxService GameBoxService { get; set; }
     private TutorialService TutorialService { get; set; }
     private SceneService SceneService { get; set; }
     
     protected override void Init()
     {
         GameSaveService = Application.GetService<GameSaveService>();
+        ContentService = Application.GetService<ContentService>();
+        GameBoxService = Application.GetService<GameBoxService>();
         TutorialService = Application.GetService<TutorialService>();
         SceneService = Application.GetService<SceneService>();
         
@@ -26,26 +29,26 @@ public class StartScene : BaseScene<StartSceneData>
     {
         if (!TutorialService.HasFinishedTutorial())
         {
+
             if (!GameSaveService.PossuiContinue())
             {
                 GameSaveService.StartNewSave();
-                //todo Select default onboarding deck
+                await Application.StartServices();
+
+                var defaultGameBox = ContentService.GameBoxes[0];
+                GameBoxService.SelectGameBox(defaultGameBox);
             }
             else
             {
                 GameSaveService.LoadLastSave();
+                await Application.StartServices();
             }
 
-            Menu.gameObject.SetActive(false);
-
-            await Application.StartServices();
-            await SceneService.WaitScene(new StoreSceneData());
+            await SceneService.OpenScene(new StoreSceneData());
         }
         else
         {
-            Menu.gameObject.SetActive(false);
-            
-            await SceneService.WaitScene(new MainMenuSceneData());
+            await SceneService.OpenScene(new MainMenuSceneData());
         }
     }
 

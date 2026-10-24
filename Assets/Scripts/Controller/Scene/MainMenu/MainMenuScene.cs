@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
+public class MainMenuScene : BaseScene<MainMenuSceneData>
 {
     [field: SerializeField] private Button ContinueButton { get; set; }
     [field: SerializeField] private Button StartButton { get; set; }
@@ -54,10 +54,8 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         await Application.StartServices();
         
         await SceneService.WaitScene(new SelectDeckSceneData());
-
-        CloseScene();
         
-        await SceneService.WaitScene(new StoreSceneData());
+        await SceneService.OpenScene(new StoreSceneData());
     }
 
     private async UniTaskVoid ContinueGame()
@@ -65,10 +63,8 @@ public class MainMenuScene : BaseAwaitableScene<MainMenuSceneData>
         GameSaveService.LoadLastSave();
         
         await Application.StartServices();
-        
-        CloseScene();
 
-        await SceneService.WaitScene(new GameplaySceneData());
+        await SceneService.OpenScene(new GameplaySceneData());
     }
 
     private async UniTaskVoid OpenSettings()

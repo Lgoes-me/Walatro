@@ -9,7 +9,10 @@ using UnityEditor;
 
 public class ContentService : MonoBehaviour, IService, IPreparable
 {
+    [field: SerializeField] public List<GameBoxScriptableObject> GameBoxes { get; set; }
+
     [field: SerializeField] public List<ModifierDataAssetReference> Modifiers { get; private set; }
+    
     
     private Dictionary<string, ModifierDataAssetReference> AvailableModifiers { get; set; }
 

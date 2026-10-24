@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 public class GameplayService : IService, IPreparable, IStartable
 {
@@ -24,6 +25,8 @@ public class GameplayService : IService, IPreparable, IStartable
 
     private GameSaveService GameSaveService { get; set; }
 
+    private GameBoxService GameBoxService { get; set; }
+
     private SceneService SceneService { get; set; }
 
 
@@ -34,6 +37,7 @@ public class GameplayService : IService, IPreparable, IStartable
     {
         var application = Application.Instance;
         GameSaveService = application.GetService<GameSaveService>();
+        GameBoxService = application.GetService<GameBoxService>();
         SceneService = application.GetService<SceneService>();
 
         return UniTask.CompletedTask;
@@ -62,13 +66,15 @@ public class GameplayService : IService, IPreparable, IStartable
         Gameplay = new Gameplay((int) (Levels[CurrentLevel] * ModificadorDeScore(CurrentBind)));
     }
 
-    public async UniTask MinigameLoop(GameBox GameBox, Action updateTexts, Func<UniTask> win, Func<UniTask> gameOver)
+    public async UniTask MinigameLoop(Action updateTexts, Func<UniTask> win, Func<UniTask> gameOver)
     {
         foreach(var minigame in Gameplay.Minigames)
         {
             await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
 
-            var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(GameBox.GetRandomGame()));
+            var game = GameBoxService.GameBox.GetRandomGame();
+
+            var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
 
             if (!result.DidWin)
             {

@@ -1,11 +1,17 @@
+using System;
 using System.Collections.Generic;
 
+[Serializable]
 public class GameBox
 {
+    public string Id { get; set; }
     public List<GameDisc> Games { get; set; }
 
-    public GameBox(List<GameDisc> games)
+    public GameBox(
+        string id,
+        List<GameDisc> games)
     {
+        Id = id;
         Games = games;
     }
 

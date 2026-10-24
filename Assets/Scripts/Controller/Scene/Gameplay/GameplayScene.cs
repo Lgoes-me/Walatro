@@ -3,10 +3,8 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using TMPro;
 
-public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
-{
-    [field: SerializeField] private GameBoxScriptableObject GameBox { get; set; }
-    
+public class GameplayScene : BaseScene<GameplaySceneData>
+{    
     [field: SerializeField] private TMP_Text LivesText { get; set; }
     [field: SerializeField] private TMP_Text ScoreToBeatText { get; set; }
     [field: SerializeField] private TMP_Text ScoreText { get; set; }
@@ -21,7 +19,7 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
         
         UpdateTexts();
         
-        GameplayService.MinigameLoop(GameBox.ToDomain(), UpdateTexts, Win, GameOver).Forget();
+        GameplayService.MinigameLoop(UpdateTexts, Win, GameOver).Forget();
     }
 
     private void UpdateTexts()
@@ -38,17 +36,14 @@ public class GameplayScene : BaseAwaitableScene<GameplaySceneData>
         GameplayService.NextGameplay();
 
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
-
-        CloseScene();
-        await SceneService.WaitScene(new StoreSceneData());
+        await SceneService.OpenScene(new StoreSceneData());
     }
     
     private async UniTask GameOver()
     {
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
         await SceneService.WaitScene(new GameOverSceneData());
-        CloseScene();
-        await SceneService.WaitScene(new MainMenuSceneData());
+        await SceneService.OpenScene(new MainMenuSceneData());
     }
 }
 

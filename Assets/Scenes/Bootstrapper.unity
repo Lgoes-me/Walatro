@@ -647,7 +647,7 @@ SpriteRenderer:
   m_Size: {x: 12, y: 6.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!1 &607067345
@@ -694,6 +694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d5a07e333546c04db6d1f7d069a604b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContentService
+  <GameBoxes>k__BackingField:
+  - {fileID: 11400000, guid: 5ee07483df0c80c4898bb4e5ee96d77f, type: 2}
   <Modifiers>k__BackingField: []
 --- !u!1 &622422277 stripped
 GameObject:

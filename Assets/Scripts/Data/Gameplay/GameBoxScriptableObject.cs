@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class GameBoxScriptableObject : ScriptableObject
+public class GameBoxScriptableObject : ScriptableObject, IIdentifiable
 {
+    [field: SerializeField] public string Id { get; set; }
     [field: SerializeField] private List<GameDiscScriptableObject> Games { get; set; }
 
     public GameBox ToDomain()
@@ -15,6 +16,6 @@ public class GameBoxScriptableObject : ScriptableObject
             games.Add(gameDiscScriptableObject.ToDomain());
         }
 
-        return new GameBox(games);
+        return new GameBox(Id, games);
     }
 }
