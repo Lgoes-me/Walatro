@@ -14,7 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Addressables.Editor::UnityEditor.AddressableAssets.Settings.AddressableAssetGroup
   m_GroupName: Default Local Group
   m_GUID: 3a388d7d796d81b4bb667099c8ca7a0a
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 5ee07483df0c80c4898bb4e5ee96d77f
+    m_Address: Assets/Datas/Boxes/Horror.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a8e8e23e907fb64185f7e9c1225268a
+    m_Address: Assets/Datas/Discs/ShootTheZombie.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3f469b41167f3f14cad3a9b56da16c45, type: 2}
   m_SchemaSet:

@@ -19,15 +19,12 @@ public class SelectDeckScene : BaseAwaitableScene<SelectDeckSceneData>
         SelectButton.Select();
     }
 
-    private UniTask SelectDeck()
+    private async UniTask SelectDeck()
     {
-        var defaultGameBox = ContentService.GameBoxes[0];
-
+        var defaultGameBox = await ContentService.GetGameBoxFromId("5ee07483df0c80c4898bb4e5ee96d77f");
         GameBoxService.SelectGameBox(defaultGameBox);
 
         CloseScene();
-
-        return UniTask.CompletedTask;
     }
 }
 

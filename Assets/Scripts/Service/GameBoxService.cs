@@ -31,8 +31,8 @@ public class GameBoxService : IService, IPreparable, IStartable
         GameBox = new GameBox(games);
     }
 
-    public void SelectGameBox(GameBoxScriptableObject gameBoxScriptableObject)
+    public void SelectGameBox(GameBox gameBox)
     {
-        GameBox = gameBoxScriptableObject.ToDomain();
+        GameBox = gameBox;
     }
 }

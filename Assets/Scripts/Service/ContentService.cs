@@ -9,21 +9,18 @@ using UnityEditor;
 
 public class ContentService : MonoBehaviour, IService, IPreparable
 {
-    [field: SerializeField] public List<GameBoxScriptableObject> GameBoxes { get; set; }
-    [field: SerializeField] public List<GameDiscScriptableObject> GameDiscs { get; set; }
-
+    [field: SerializeField] public List<GameBoxDataAssetReference> GameBoxes { get; set; }
+    [field: SerializeField] public List<GameDiscDataAssetReference> GameDiscs { get; set; }
     [field: SerializeField] public List<ModifierDataAssetReference> Modifiers { get; private set; }
     
-    
+    private Dictionary<string, GameBoxDataAssetReference> AvailableGameBoxes { get; set; }
+    private Dictionary<string, GameDiscDataAssetReference> AvailableGameDiscs { get; set; }
     private Dictionary<string, ModifierDataAssetReference> AvailableModifiers { get; set; }
-    private Dictionary<string, GameBoxScriptableObject> AvailableGameBoxes { get; set; }
-    private Dictionary<string, GameDiscScriptableObject> AvailableGameDiscs { get; set; }
 
     public UniTask Prepare()
     {
-        AvailableGameBoxes = GameBoxes.ToIdentifiableDictionary();
-        AvailableGameDiscs = GameDiscs.ToIdentifiableDictionary();
-
+        AvailableGameBoxes = GameBoxes.ToAssetReferenceDictionary();
+        AvailableGameDiscs = GameDiscs.ToAssetReferenceDictionary();
         AvailableModifiers = Modifiers.ToAssetReferenceDictionary();
 
         return UniTask.CompletedTask;
@@ -37,14 +34,27 @@ public class ContentService : MonoBehaviour, IService, IPreparable
             return modifierData.ToDomain(info);
         }
 
-        throw new Exception("Invalid Modifier");
+        throw new Exception("Invalid Modifier info");
     }
+
+    public async UniTask<GameBox> GetGameBoxFromId(string id)
+    {
+        if (AvailableGameBoxes.TryGetValue(id, out var gameBoxDataAsset))
+        {
+            var gameBoxData = await gameBoxDataAsset.LoadAssetAsyncIfValid();
+            return gameBoxData.ToDomain();
+        }
+
+        throw new Exception("Invalid gameBox id");
+    }
+
 
     public async UniTask<GameDisc> GetGameDiscsFromModel(GameDiscModel gameDiscModel)
     {
-        if (AvailableGameDiscs.TryGetValue(gameDiscModel.Id, out var gameDiscScriptableObject))
+        if (AvailableGameDiscs.TryGetValue(gameDiscModel.Id, out var gameDiscDataAsset))
         {
-            return gameDiscScriptableObject.ToDomain();
+            var gameDiscData = await gameDiscDataAsset.LoadAssetAsyncIfValid();
+            return gameDiscData.ToDomain();
         }
 
         throw new Exception("Invalid gameDiscModel");
@@ -54,7 +64,9 @@ public class ContentService : MonoBehaviour, IService, IPreparable
     [ContextMenu("ForceLoadContent")]
     private void ForceLoadContent()
     {
-        //Modifiers = Extensions.FindAllScriptableObjectsOfType<ModifierData>("Assets/Datas/Modifiers");
+        GameBoxes = Extensions.LoadAllAdressablesOfType<GameBoxDataAssetReference, GameBoxData>("Assets/Datas/Boxes");
+        GameDiscs = Extensions.LoadAllAdressablesOfType<GameDiscDataAssetReference, GameDiscData>("Assets/Datas/Discs");
+        Modifiers = Extensions.LoadAllAdressablesOfType<ModifierDataAssetReference, ModifierData>("Assets/Datas/Modifiers");
 
         EditorUtility.SetDirty(this);
         AssetDatabase.SaveAssets();

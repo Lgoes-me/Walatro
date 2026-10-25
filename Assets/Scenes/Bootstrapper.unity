@@ -695,9 +695,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContentService
   <GameBoxes>k__BackingField:
-  - {fileID: 11400000, guid: 5ee07483df0c80c4898bb4e5ee96d77f, type: 2}
+  - m_AssetGUID: 5ee07483df0c80c4898bb4e5ee96d77f
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   <GameDiscs>k__BackingField:
-  - {fileID: 11400000, guid: 8a8e8e23e907fb64185f7e9c1225268a, type: 2}
+  - m_AssetGUID: 8a8e8e23e907fb64185f7e9c1225268a
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   <Modifiers>k__BackingField: []
 --- !u!1 &622422277 stripped
 GameObject:

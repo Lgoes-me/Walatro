@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476fc3abcdf76a34b9c1212e74d44dc1, type: 3}
   m_Name: ShootTheZombie
   m_EditorClassIdentifier: Assembly-CSharp::GameDiscScriptableObject
-  <Id>k__BackingField: ShootTheZombie
+  <Id>k__BackingField: 8a8e8e23e907fb64185f7e9c1225268a
   <MinigameControllerPrefab>k__BackingField: {fileID: 1583506301261162727, guid: 9fe6625a602394a479125960c0b30991, type: 3}

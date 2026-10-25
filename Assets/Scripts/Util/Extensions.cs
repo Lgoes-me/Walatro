@@ -89,4 +89,35 @@ public static class Extensions
         return dictionary;
     }
     
+#if UNITY_EDITOR
+    public static List<T> FindAllScriptableObjectsOfType<T>(string folder = "Assets")
+        where T : ScriptableObject
+    {
+        var list = new List<T>();
+
+        foreach (var file in AssetDatabase.FindAssets($"t:{typeof(T)}", new[] {folder}))
+        {
+            list.Add(AssetDatabase.LoadAssetAtPath<T>(AssetDatabase.GUIDToAssetPath(file)));
+        }
+        
+        return list;
+    }
+
+    public static List<T> LoadAllAdressablesOfType<T, U>(string folder = "Assets") 
+        where T : AssetReferenceT<U>
+        where U : ScriptableObject
+    {
+        var list = new List<T>();
+
+        foreach (var file in AssetDatabase.FindAssets($"t:{typeof(U)}", new[] {folder}))
+        {
+            var assetPath = AssetDatabase.GUIDToAssetPath(file);
+            var assetGUID = AssetDatabase.AssetPathToGUID(assetPath);
+            
+            list.Add((T) Activator.CreateInstance(typeof(T), assetGUID));
+        }
+        
+        return list;
+    }
+#endif
 }
