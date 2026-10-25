@@ -37,7 +37,7 @@ public class Modifier : IBaseEventData, IInfoDescriptor
                 continue;
 
             TriggerEventDelegate();
-            await eventListener.Invoke();
+            await eventListener.Invoke(Rarity);
         }
     }
     

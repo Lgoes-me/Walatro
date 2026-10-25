@@ -18,12 +18,12 @@ public abstract class BaseEventListener<T, T1>: BaseEventListener
 
     public override IEffect BaseEffect => Effect;
 
-    public async UniTask Invoke()
+    public async UniTask Invoke(Rarity rarity)
     {
         if (Validator != null && !Validator.Validate())
             return;
 
-        await Effect.DoEffect();
+        await Effect.DoEffect(rarity);
     }
 }
 

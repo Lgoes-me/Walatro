@@ -16,7 +16,7 @@ public interface IBaseEventData
                 continue;
 
             TriggerEventDelegate();
-            await eventListener.Invoke();
+            await eventListener.Invoke(Rarity);
         }
     }
 
@@ -28,7 +28,7 @@ public interface IBaseEventData
                 continue;
 
             TriggerEventDelegate();
-            await eventListener.Invoke();
+            await eventListener.Invoke(Rarity);
         }
     }
 
@@ -40,7 +40,7 @@ public interface IBaseEventData
                 continue;
 
             TriggerEventDelegate();
-            await eventListener.Invoke();
+            await eventListener.Invoke(Rarity);
         }
     }
 
@@ -52,7 +52,7 @@ public interface IBaseEventData
                 continue;
 
             TriggerEventDelegate();
-            await eventListener.Invoke();
+            await eventListener.Invoke(Rarity);
         }
     }
 
@@ -64,7 +64,7 @@ public interface IBaseEventData
                 continue;
 
             TriggerEventDelegate();
-            await eventListener.Invoke();
+            await eventListener.Invoke(Rarity);
         }
     }
 
@@ -76,7 +76,7 @@ public interface IBaseEventData
                 continue;
 
             TriggerEventDelegate();
-            await eventListener.Invoke();
+            await eventListener.Invoke(Rarity);
         }
     }
 

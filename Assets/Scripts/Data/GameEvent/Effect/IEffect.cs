@@ -4,7 +4,7 @@ public interface IEffect : IComponentData
 {
     string[] GetTextParams(Rarity rarity);
     
-    UniTask DoEffect();
+    UniTask DoEffect(Rarity rarity);
 }
 
 public interface IGameplayStartEffect : IEffect
