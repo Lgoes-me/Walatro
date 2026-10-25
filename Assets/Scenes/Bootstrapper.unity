@@ -1464,6 +1464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d55a8ab8567b30045b636195085719a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InterfaceService
+  <MouseSprite>k__BackingField: {fileID: 4637131114846996510, guid: de5ea112c91da6e42abf2b8c59d8955c, type: 3}
   <Mouse>k__BackingField: {fileID: 1390449182}
   <GameCamera>k__BackingField: {fileID: 1274034069}
 --- !u!1 &1825069374

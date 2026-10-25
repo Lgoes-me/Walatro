@@ -8,28 +8,28 @@ public abstract class BaseMinigameController : MonoBehaviour
 
     protected MinigameSceneResult MinigameSceneResult { get; set; }
 
-    protected Action<MinigameSceneResult> Callback { get; set; }
+    protected MinigameScene MinigameScene { get; set; }
     
     private Action MouseReturn { get; set; }
 
-    public void Init(Action<MinigameSceneResult> callback)
+    public void Init(MinigameScene minigameScene)
     {
-        MouseReturn = Application.Instance.GetService<InterfaceService>().MudarMousePorEnquanto(Mouse, 2);
-        Callback = callback;
+        Application.Instance.GetService<InterfaceService>().MudarMouse(Mouse, 2);
+        MinigameScene = minigameScene;
     }
 
     public abstract void ComputeMinigameInteraction(int score);
 
-    public virtual void CompleteAnimationCallback()
+    public void CompleteAnimationCallback()
     {
         if (MinigameSceneResult == null)
             return;
 
-        Callback(MinigameSceneResult);
+        MinigameScene.EndMinigame(MinigameSceneResult);
     }
 
     private void OnDestroy()
     {
-        MouseReturn();
+       Application.Instance.GetService<InterfaceService>().ResetMouse();
     }
 }

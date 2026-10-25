@@ -7,24 +7,27 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
 {
     [field: SerializeField] private Image ProgressBar { get; set; }
 
+    public Minigame Minigame { get; set; }
+
     private SceneService SceneService { get; set; }
+
     private BaseMinigameController MinigameController { get; set; }
+
     private Coroutine CountdownCoroutine { get; set; }
-    private int Timer { get; set; }
 
     protected override void Init()
     {
+        Minigame = new Minigame();
+
         SceneService = Application.GetService<SceneService>();
 
-        Timer = 3;
+        MinigameController = Instantiate(Data.GameDisc.MinigameControllerPrefab);
+        MinigameController.Init(this);
 
         CountdownCoroutine = StartCoroutine(CountdownEndMinigame());
-
-        MinigameController = Instantiate(Data.GameDisc.MinigameControllerPrefab);
-        MinigameController.Init(EndMinigame);
     }
 
-    private void EndMinigame(MinigameSceneResult result)
+    public void EndMinigame(MinigameSceneResult result)
     {
         CloseScene(result);
     }
@@ -32,18 +35,18 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
     private IEnumerator CountdownEndMinigame()
     {
         yield return AnimateProgressBar();
-        CloseScene(new MinigameSceneResult(false, 0));
+        CloseScene(new MinigameSceneResult(false, 0, 0f));
     }
 
     public IEnumerator AnimateProgressBar()
     {
-        var timer = 0f;
+        Minigame.CurrentTimer = 0f;
 
-        while (timer <= Timer)
+        while (Minigame.CurrentTimer <= Minigame.TotalTimer)
         {
-            timer += Time.deltaTime;
+            Minigame.CurrentTimer += Time.deltaTime;
 
-            ProgressBar.fillAmount = 1 - timer / Timer;
+            ProgressBar.fillAmount = 1 - Minigame.CurrentTimer / Minigame.TotalTimer;
             
             yield return new WaitForEndOfFrame();
         }
@@ -79,10 +82,12 @@ public class MinigameSceneResult
 {
     public bool DidWin { get; set; }
     public int Score { get; set; }
+    public float Multiplier { get; set; }
 
-    public MinigameSceneResult(bool didWin, int score)
+    public MinigameSceneResult(bool didWin, int score, float multiplier)
     {
         DidWin = didWin;
         Score = score;
+        Multiplier = multiplier;
     }
 }

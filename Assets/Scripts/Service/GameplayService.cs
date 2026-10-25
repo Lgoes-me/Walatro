@@ -81,7 +81,12 @@ public class GameplayService : IService, IPreparable, IStartable
                 Gameplay.Vidas --;
             }
             
-            Gameplay.Score += result.Score;
+            Debug.Log($"Score: {result.Score}");
+            Debug.Log($"Multiplier: {result.Multiplier}");
+
+            Gameplay.Score += Mathf.CeilToInt(result.Score * result.Multiplier);
+
+            Debug.Log($"Gameplay.Score: {Gameplay.Score}");
 
             updateTexts();
 
