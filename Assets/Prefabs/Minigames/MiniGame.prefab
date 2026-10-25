@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1724b4936d732344942cc2ed8dd9c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickDetectorController
-  <AreaScore>k__BackingField: 20
+  <AreaScore>k__BackingField: 50
   <MinigameController>k__BackingField: {fileID: 1583506301261162727}
 --- !u!135 &7600107332474934501
 SphereCollider:
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1724b4936d732344942cc2ed8dd9c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickDetectorController
-  <AreaScore>k__BackingField: 10
+  <AreaScore>k__BackingField: 20
   <MinigameController>k__BackingField: {fileID: 1583506301261162727}
 --- !u!136 &2421454273490382078
 CapsuleCollider:
