@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [Serializable]
-public class AddScoreEffectData : IEffect
+public class AddScoreEffectData : IGameplayStartEffect
 {
     [field: SerializeField] private RarityDefinedInt Score { get; set; }
 

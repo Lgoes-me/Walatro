@@ -2,17 +2,19 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [Serializable]
-public abstract class RarityDefinedValue<T>
+public class RarityDefinedInt
 {
-    protected Dictionary<Rarity, T> Possibilities { get; private set; }
+    [field: SerializeField]
+    private Dictionary<Rarity, int> Possibilities { get; set; }
 
-    protected RarityDefinedValue(Dictionary<Rarity, T> possibilities)
+    public RarityDefinedInt(Dictionary<Rarity, int> possibilities)
     {
-        Possibilities = new Dictionary<Rarity, T>(possibilities);
+        Possibilities = new Dictionary<Rarity, int>(possibilities);
     }
-
-    public T GetValue(Rarity rarity)
+    
+    public int GetValue(Rarity rarity)
     {
         if (Possibilities.TryGetValue(rarity, out var value))
         {
@@ -24,17 +26,23 @@ public abstract class RarityDefinedValue<T>
 }
 
 [Serializable]
-public class RarityDefinedInt : RarityDefinedValue<int>
+public class RarityDefinedFloat
 {
-    public RarityDefinedInt(Dictionary<Rarity, int> possibilities) : base(possibilities)
-    {
-    }
-}
+    [field: SerializeField]
+    private Dictionary<Rarity, float> Possibilities { get; set; }
 
-[Serializable]
-public class RarityDefinedFloat : RarityDefinedValue<float>
-{
-    public RarityDefinedFloat(Dictionary<Rarity, float> possibilities) : base(possibilities)
+    public RarityDefinedFloat(Dictionary<Rarity, float> possibilities)
     {
+        Possibilities = new Dictionary<Rarity, float>(possibilities);
+    }
+    
+    public float GetValue(Rarity rarity)
+    {
+        if (Possibilities.TryGetValue(rarity, out var value))
+        {
+            return value;
+        }
+
+        return Possibilities.GetValueOrDefault(Rarity.Deactivated);
     }
 }

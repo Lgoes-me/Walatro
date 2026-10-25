@@ -11,24 +11,70 @@ public class GameplayScene : BaseScene<GameplaySceneData>
 
     private SceneService SceneService { get; set; }
     private GameplayService GameplayService { get; set; }
+    private GameBoxService GameBoxService { get; set; }
+    
+    private Gameplay Gameplay { get; set; }
 
     protected override  void Init()
     {
         SceneService = Application.GetService<SceneService>();
         GameplayService = Application.GetService<GameplayService>();
+        GameBoxService = Application.GetService<GameBoxService>();
         
+        Gameplay = GameplayService.Gameplay;
+
         UpdateTexts();
         
-        GameplayService.MinigameLoop(UpdateTexts, Win, GameOver).Forget();
+        MinigameLoop().Forget();
     }
 
     private void UpdateTexts()
     {
-        var gameplay = GameplayService.Gameplay;
+        LivesText.text = $"Lives: {Gameplay.Vidas}";
+        ScoreToBeatText.text = $"To Beat: {Gameplay.ScoreToBeat}";
+        ScoreText.text = $"Score:{Gameplay.Score}";
+    }
 
-        LivesText.text = $"Lives: {gameplay.Vidas}";
-        ScoreToBeatText.text = $"To Beat: {gameplay.ScoreToBeat}";
-        ScoreText.text = $"Score:{gameplay.Score}";
+
+    public async UniTask MinigameLoop()
+    {
+        foreach(var minigame in Gameplay.Minigames)
+        {
+            await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
+
+            var game = GameBoxService.GameBox.GetRandomGame();
+
+            var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
+
+            if (!result.DidWin)
+            {
+                Gameplay.Vidas --;
+            }
+            
+            Gameplay.Score += Mathf.CeilToInt(result.Score * result.Multiplier);
+            
+            UpdateTexts();
+
+            if (Gameplay.Vidas == 0)
+            {
+                await GameOver();
+                return;
+            }
+
+            if (Gameplay.ScoreToBeat <= Gameplay.Score)
+            {
+                await Win();
+                return;
+            }
+        }
+
+        if (Gameplay.ScoreToBeat > Gameplay.Score)
+        {
+            await GameOver();
+            return;
+        }
+
+        await Win();
     }
 
     private async UniTask Win()
