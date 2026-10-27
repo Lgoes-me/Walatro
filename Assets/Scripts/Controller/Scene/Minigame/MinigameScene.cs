@@ -35,7 +35,6 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
     private IEnumerator CountdownEndMinigame()
     {
         yield return AnimateProgressBar();
-        CloseScene(new MinigameSceneResult(false, 0, 0f));
     }
 
     public IEnumerator AnimateProgressBar()

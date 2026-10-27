@@ -41,9 +41,20 @@ public class ShootTheZombieController : BaseMinigameController
 
     public override void ComputeMinigameInteraction(int score)
     {
+        if (MinigameSceneResult != null)
+            return;
+
         Animation.AddClip(PositiveAnimationClip, "PositiveAnimationClip");
         Animation.Play("PositiveAnimationClip");
         MinigameSceneResult = new MinigameSceneResult(true, score, MinigameScene.Minigame.RemainingTime);
+    }
+
+    public void TerminateMinigame()
+    {
+        if (MinigameSceneResult != null)
+            return;
+            
+        MinigameSceneResult = new MinigameSceneResult(false, 0, 0);
     }
 
     private IEnumerator CoroutinaDeTiro()
