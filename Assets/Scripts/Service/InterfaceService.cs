@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Unity.Cinemachine;
 using Cysharp.Threading.Tasks;
 
 public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
@@ -14,11 +15,28 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
     [field: SerializeField]
     private Camera GameCamera { get; set; }
 
+    [field: SerializeField]
+    private CinemachineCamera CameraLonge { get; set; }
+
+    [field: SerializeField]
+    private CinemachineCamera CameraMedia { get; set; }
+
+    [field: SerializeField]
+    private CinemachineCamera CameraPerto { get; set; }
+
 
     public UniTask Boot()
     {
         ResetMouse();
+        CameraMedia.Priority = 1;
+        CameraLonge.Priority = -1;
         return UniTask.CompletedTask;
+    }
+
+    public void StartGame()
+    {
+        CameraPerto.Priority = 1;
+        CameraMedia.Priority = -1;
     }
 
     public UniTask StartSave()
