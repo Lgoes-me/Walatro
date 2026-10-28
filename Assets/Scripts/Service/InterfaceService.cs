@@ -24,7 +24,6 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
     [field: SerializeField]
     private CinemachineCamera CameraPerto { get; set; }
 
-
     public UniTask Boot()
     {
         ResetMouse();
@@ -45,13 +44,12 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
         return UniTask.CompletedTask;
     }
 
-    public void MudarMouse(Sprite sprite, float size)
+    public void MudarMouse(Sprite sprite)
     {
         if (Mouse == null)
             return;
             
         Mouse.sprite = sprite;
-        Mouse.transform.localScale = size * Vector3.one;
     }
 
     public Ray RaycastFromVirtualMouse()
@@ -66,6 +64,5 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
             return;
 
         Mouse.sprite = MouseSprite;
-        Mouse.transform.localScale = Vector3.one;
     }
 }

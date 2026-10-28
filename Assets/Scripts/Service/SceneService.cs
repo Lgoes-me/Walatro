@@ -9,6 +9,7 @@ public class SceneService : IService, IPreparable
     public UniTask Prepare()
     {
         Application = Application.Instance;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         return UniTask.CompletedTask;
     }
 
@@ -31,5 +32,10 @@ public class SceneService : IService, IPreparable
         var result = await UnityEngine.Object.FindAnyObjectByType<BaseAwaitableSceneWithResponse<T, T2>>().WaitOpenScene(Application, sceneData);
         await SceneManager.UnloadSceneAsync(sceneData.SceneName);
         return result;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode) 
+    {
+        SceneManager.SetActiveScene(scene);
     }
 }

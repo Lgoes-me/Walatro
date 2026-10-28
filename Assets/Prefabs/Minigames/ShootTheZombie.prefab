@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 1583506301261162727}
   - component: {fileID: 5287121571202514310}
   m_Layer: 0
-  m_Name: MiniGame
+  m_Name: ShootTheZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

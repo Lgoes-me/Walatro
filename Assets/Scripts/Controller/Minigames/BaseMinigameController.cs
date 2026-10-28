@@ -14,7 +14,7 @@ public abstract class BaseMinigameController : MonoBehaviour
 
     public void Init(MinigameScene minigameScene)
     {
-        Application.Instance.GetService<InterfaceService>().MudarMouse(Mouse, 2);
+        Application.Instance.GetService<InterfaceService>().MudarMouse(Mouse);
         MinigameScene = minigameScene;
     }
 
