@@ -193,6 +193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7439212845461019408}
+  - component: {fileID: -8212075775938077491}
   - component: {fileID: 4920644669586645649}
   m_Layer: 0
   m_Name: KickTheBall
@@ -219,6 +220,22 @@ Transform:
   - {fileID: 8695652456014979288}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8212075775938077491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6647818871518725735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5f9387505f823b4093e0377403ef583, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KickTheBall
+  <Mouse>k__BackingField: {fileID: -5130294652377279623, guid: f619b4fe82cc186458ec4450ae223fd7, type: 3}
+  <Ball>k__BackingField: {fileID: 1892922646036442777}
+  <Animation>k__BackingField: {fileID: 4920644669586645649}
+  <PositiveAnimationClip>k__BackingField: {fileID: 0}
 --- !u!111 &4920644669586645649
 Animation:
   m_ObjectHideFlags: 0
@@ -232,7 +249,7 @@ Animation:
   m_Animations:
   - {fileID: 0}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0

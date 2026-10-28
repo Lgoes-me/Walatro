@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class GameBox
 {
@@ -12,7 +12,7 @@ public class GameBox
 
     public GameDisc GetRandomGame()
     {
-        return Games[0];
+        return Games[Random.Range(0, Games.Count)];
     }
     
     public GameBoxModel ToModel()
