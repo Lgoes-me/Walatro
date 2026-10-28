@@ -16,7 +16,21 @@ public class ShootTheZombieController : BaseMinigameController
     [field: SerializeField]
     private AnimationClip PositiveAnimationClip { get; set; }
     
+    [field: SerializeField]
+    private ClickDetectorController HeadClickDetector { get; set; }
+
+    [field: SerializeField]
+    private ClickDetectorController BodyClickDetector { get; set; }
+
     private bool PodeAtirar { get; set; } = true;
+
+    public override void Init(MinigameScene minigameScene)
+    {
+        base.Init(minigameScene);
+
+        HeadClickDetector.Init(() => ComputeMinigameInteraction(50));
+        BodyClickDetector.Init(() => ComputeMinigameInteraction(20));
+    }
 
     private void Update()
     {

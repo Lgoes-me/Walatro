@@ -1,15 +1,17 @@
+using System;
 using UnityEngine;
 
 public class ClickDetectorController : MonoBehaviour
 {
-    [field: SerializeField]
-    private int AreaScore { get; set; }
+    private Action OnClickAction { get; set; }
 
-    [field: SerializeField]
-    private BaseMinigameController MinigameController { get; set; }
+    public void Init(Action onClickAction)
+    {
+        OnClickAction = onClickAction;
+    }
 
     public void OnClick()
     {
-        MinigameController.ComputeMinigameInteraction(AreaScore);
+        OnClickAction?.Invoke();
     }
 }

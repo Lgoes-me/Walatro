@@ -15,6 +15,11 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 3a388d7d796d81b4bb667099c8ca7a0a
   m_SerializeEntries:
+  - m_GUID: 1b9dc8727e2383c479893c7b862d8afb
+    m_Address: Assets/Datas/Discs/KickTheBall.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ee07483df0c80c4898bb4e5ee96d77f
     m_Address: Assets/Datas/Boxes/Horror.asset
     m_ReadOnly: 0

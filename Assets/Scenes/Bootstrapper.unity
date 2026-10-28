@@ -789,6 +789,11 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  - m_AssetGUID: 1b9dc8727e2383c479893c7b862d8afb
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
   <Modifiers>k__BackingField: []
 --- !u!1 &622422277 stripped
 GameObject:

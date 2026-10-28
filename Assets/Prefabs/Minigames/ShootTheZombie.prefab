@@ -45,8 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1724b4936d732344942cc2ed8dd9c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickDetectorController
-  <AreaScore>k__BackingField: 50
-  <MinigameController>k__BackingField: {fileID: 1583506301261162727}
 --- !u!135 &7600107332474934501
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -205,8 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1724b4936d732344942cc2ed8dd9c18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickDetectorController
-  <AreaScore>k__BackingField: 20
-  <MinigameController>k__BackingField: {fileID: 1583506301261162727}
 --- !u!136 &2421454273490382078
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -594,6 +590,8 @@ MonoBehaviour:
   <MuzzleFlash>k__BackingField: {fileID: 5296131870751916129}
   <Animation>k__BackingField: {fileID: 5287121571202514310}
   <PositiveAnimationClip>k__BackingField: {fileID: 7400000, guid: 06ab1baf2791a08419696426518034ee, type: 2}
+  <HeadClickDetector>k__BackingField: {fileID: 672243821259177315}
+  <BodyClickDetector>k__BackingField: {fileID: 1513612063437046553}
 --- !u!111 &5287121571202514310
 Animation:
   m_ObjectHideFlags: 0
