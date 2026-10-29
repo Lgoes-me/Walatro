@@ -101,7 +101,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8695652456014979288}
+  - component: {fileID: 1747902062460397279}
   - component: {fileID: 7019146258058940743}
+  - component: {fileID: 495465384741072727}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -124,6 +126,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7439212845461019408}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1747902062460397279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892922646036442777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1724b4936d732344942cc2ed8dd9c18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickDetectorController
 --- !u!212 &7019146258058940743
 SpriteRenderer:
   serializedVersion: 3
@@ -184,6 +198,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!135 &495465384741072727
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892922646036442777}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.1
+  m_Center: {x: -1.5149999, y: -1.1150001, z: 0}
 --- !u!1 &6647818871518725735
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,9 +268,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KickTheBall
   <Mouse>k__BackingField: {fileID: -5130294652377279623, guid: f619b4fe82cc186458ec4450ae223fd7, type: 3}
-  <Ball>k__BackingField: {fileID: 1892922646036442777}
   <Animation>k__BackingField: {fileID: 4920644669586645649}
-  <PositiveAnimationClip>k__BackingField: {fileID: 0}
+  <PositiveAnimationClip>k__BackingField: {fileID: 7400000, guid: 671ae710ce7cb3c4abe94da24bd23a8a, type: 2}
+  <BallClickDetector>k__BackingField: {fileID: 1747902062460397279}
 --- !u!111 &4920644669586645649
 Animation:
   m_ObjectHideFlags: 0
@@ -245,11 +280,12 @@ Animation:
   m_GameObject: {fileID: 6647818871518725735}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: f2c720c44036b3f4fb7c6546db383d6d, type: 2}
   m_Animations:
-  - {fileID: 0}
+  - {fileID: 7400000, guid: f2c720c44036b3f4fb7c6546db383d6d, type: 2}
+  - {fileID: 7400000, guid: 671ae710ce7cb3c4abe94da24bd23a8a, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0

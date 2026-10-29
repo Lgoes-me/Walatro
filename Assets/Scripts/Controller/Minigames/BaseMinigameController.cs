@@ -18,14 +18,22 @@ public abstract class BaseMinigameController : MonoBehaviour
         MinigameScene = minigameScene;
     }
 
-    public abstract void ComputeMinigameInteraction(int score);
-
     public void CompleteAnimationCallback()
     {
         if (MinigameSceneResult == null)
             return;
 
         MinigameScene.EndMinigame(MinigameSceneResult);
+    }
+
+    public abstract void ScoreMinigame(int score);
+    
+    public void FailMinigame()
+    {
+        if (MinigameSceneResult != null)
+            return;
+            
+        MinigameSceneResult = new MinigameSceneResult(false, 0, 0);
     }
 
     private void OnDestroy()
