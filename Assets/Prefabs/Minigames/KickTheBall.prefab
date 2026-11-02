@@ -321,6 +321,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7439212845461019408}
   - component: {fileID: -8212075775938077491}
+  - component: {fileID: 2846559233160008437}
   - component: {fileID: 970629440073106440}
   m_Layer: 0
   m_Name: KickTheBall
@@ -363,6 +364,20 @@ MonoBehaviour:
   <Mouse>k__BackingField: {fileID: -5130294652377279623, guid: f619b4fe82cc186458ec4450ae223fd7, type: 3}
   <Animator>k__BackingField: {fileID: 970629440073106440}
   <BallClickDetector>k__BackingField: {fileID: 1747902062460397279}
+--- !u!114 &2846559233160008437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6647818871518725735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7df805859450794bbf41d150bed63a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FakeStopMotion
+  <Animator>k__BackingField: {fileID: 970629440073106440}
+  <FPS>k__BackingField: 24
 --- !u!95 &970629440073106440
 Animator:
   serializedVersion: 7
