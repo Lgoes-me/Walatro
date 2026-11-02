@@ -8,10 +8,7 @@ public class ShootTheZombieController : BaseMouseInputMinigameController
     private GameObject MuzzleFlash { get; set; }
 
     [field: SerializeField]
-    private Animation Animation { get; set; }
-
-    [field: SerializeField]
-    private AnimationClip PositiveAnimationClip { get; set; }
+    private Animator Animator { get; set; }
     
     [field: SerializeField]
     private ClickDetectorController HeadClickDetector { get; set; }
@@ -29,6 +26,7 @@ public class ShootTheZombieController : BaseMouseInputMinigameController
 
     protected override void OnClickInputReceived()
     {
+        ClickEnabled = false;
         StartCoroutine(CoroutinaDeTiro());
     }
 
@@ -38,8 +36,7 @@ public class ShootTheZombieController : BaseMouseInputMinigameController
         if (MinigameSceneResult != null)
             return;
 
-        Animation.AddClip(PositiveAnimationClip, "PositiveAnimationClip");
-        Animation.Play("PositiveAnimationClip");
+        Animator.Play("ShootTheZombie_Positive");
         MinigameSceneResult = new MinigameSceneResult(true, score, MinigameScene.Minigame.RemainingTime);
     }
 

@@ -13,7 +13,6 @@ public abstract class BaseMouseInputMinigameController : BaseMinigameController
     {
         if(ClickEnabled && Input.GetMouseButtonDown(0))
         {
-            ClickEnabled = false;
             OnClickInputReceived();
 
             var ray = Application.Instance.GetService<InterfaceService>().RaycastFromVirtualMouse();

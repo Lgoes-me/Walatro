@@ -5,10 +5,7 @@ using UnityEngine;
 public class KickTheBall : BaseMouseInputMinigameController
 {
     [field: SerializeField]
-    private Animation Animation { get; set; }
-
-    [field: SerializeField]
-    private AnimationClip PositiveAnimationClip { get; set; }
+    private Animator Animator { get; set; }
 
     [field: SerializeField]
     private ClickDetectorController BallClickDetector { get; set; }
@@ -26,8 +23,7 @@ public class KickTheBall : BaseMouseInputMinigameController
         if (MinigameSceneResult != null)
             return;
 
-        Animation.AddClip(PositiveAnimationClip, "PositiveAnimationClip");
-        Animation.Play("PositiveAnimationClip", PlayMode.StopAll);
+        Animator.Play("KickTheBall_Positive");
         MinigameSceneResult = new MinigameSceneResult(true, score, MinigameScene.Minigame.RemainingTime);
     }
 }
