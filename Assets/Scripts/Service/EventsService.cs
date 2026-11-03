@@ -72,16 +72,4 @@ public class EventsService : IService, IPreparable
         
         await UniTask.WhenAll(tasks);
     }
-    
-    public async UniTask DoTimeOverEvent()
-    {
-        var tasks = new List<UniTask>();
-        
-        foreach (IBaseEventData modifier in ModifierService.Modifiers)
-        {
-            tasks.Add(modifier.DoTimeOverEvent());
-        }
-        
-        await UniTask.WhenAll(tasks);
-    }
 }

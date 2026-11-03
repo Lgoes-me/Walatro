@@ -31,11 +31,6 @@ public interface ILifeLostEffect : IEffect
 {
 
 }
-    
-public interface ITimeOverEffect : IEffect
-{
-
-}
 
 public interface ICreatedEffect : IEffect
 {

@@ -27,11 +27,6 @@ public interface ILifeLostValidator : IValidator
 {
 
 }
-    
-public interface ITimeOverValidator : IValidator
-{
-
-}
 
 public interface ICreatedValidator : IValidator
 {

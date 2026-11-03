@@ -17,7 +17,7 @@ public class Save : ISavable
         Metadata = new Metadata().CreateNewDynamicFile(".json");
         BaseSeed = Guid.NewGuid().ToString();
         Events = new List<string>();
-        Modifiers = new List<ModifierModel>();
+        Modifiers = new List<ModifierModel>() {new ModifierModel("ccc25c7feb9cb1d4cae56ccce3463063", Rarity.Common)};
         CurrentLevel = 1;
         CurrentBind = 0;
         GameBox = new GameBoxModel(new List<GameDiscModel>());

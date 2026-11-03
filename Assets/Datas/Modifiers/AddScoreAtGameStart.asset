@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f60f15a3db683e6479a9d84713ca7957, type: 3}
-  m_Name: Teste
+  m_Name: AddScoreAtGameStart
   m_EditorClassIdentifier: Assembly-CSharp::ModifierData
   <Id>k__BackingField: ccc25c7feb9cb1d4cae56ccce3463063
   <Icon>k__BackingField: {fileID: 0}
-  <AvailableRarities>k__BackingField: 0100000002000000i
+  <AvailableRarities>k__BackingField: 00000000i
+  <Material>k__BackingField: {fileID: 0}
   <Events>k__BackingField:
   - rid: 5989538494374477918
   <Description>k__BackingField: 
@@ -34,4 +35,6 @@ MonoBehaviour:
       type: {class: AddScoreEffectData, ns: , asm: Assembly-CSharp}
       data:
         <Score>k__BackingField:
-          <Possibilities>k__BackingField: []
+          <Possibilities>k__BackingField:
+          - key: 0
+            value: 20

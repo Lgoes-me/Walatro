@@ -11,14 +11,16 @@ public class GameplayScene : BaseScene<GameplaySceneData>
 
     private SceneService SceneService { get; set; }
     private GameplayService GameplayService { get; set; }
+    private EventsService EventsService { get; set; }
     private GameBoxService GameBoxService { get; set; }
     
     private Gameplay Gameplay { get; set; }
 
-    protected override  void Init()
+    protected override void Init()
     {
         SceneService = Application.GetService<SceneService>();
         GameplayService = Application.GetService<GameplayService>();
+        EventsService = Application.GetService<EventsService>();
         GameBoxService = Application.GetService<GameBoxService>();
         
         Gameplay = GameplayService.Gameplay;
@@ -35,19 +37,25 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         ScoreText.text = $"Score:{Gameplay.Score}";
     }
 
-
     public async UniTask MinigameLoop()
     {
+        await EventsService.DoGameplayStartEvent();
+
         foreach(var minigame in Gameplay.Minigames)
         {
+            await EventsService.DoMinigameStartEvent();
+
             await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
 
             var game = GameBoxService.GameBox.GetRandomGame();
 
             var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
 
+            await EventsService.DoMinigameEndEvent();
+
             if (!result.DidWin)
             {
+                await EventsService.DoLifeLostEvent();
                 Gameplay.Vidas --;
             }
             
@@ -79,6 +87,8 @@ public class GameplayScene : BaseScene<GameplaySceneData>
 
     private async UniTask Win()
     {
+        await EventsService.DoGameplayEndEvent();
+
         GameplayService.NextGameplay();
 
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);

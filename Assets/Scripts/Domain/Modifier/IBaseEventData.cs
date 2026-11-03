@@ -68,18 +68,6 @@ public interface IBaseEventData
         }
     }
 
-    async UniTask DoTimeOverEvent()
-    {
-        foreach (var listener in Events)
-        {
-            if (listener is not LifeLostListener eventListener)
-                continue;
-
-            TriggerEventDelegate();
-            await eventListener.Invoke(Rarity);
-        }
-    }
-
     string[] GetTextParams(Rarity rarity)
     {
         var texts = new List<string>();

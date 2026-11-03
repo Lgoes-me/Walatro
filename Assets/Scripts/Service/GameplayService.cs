@@ -25,7 +25,6 @@ public class GameplayService : IService, IPreparable, IStartable
 
     public Gameplay Gameplay { get; set; }
 
-
     public UniTask Prepare()
     {
         var application = Application.Instance;

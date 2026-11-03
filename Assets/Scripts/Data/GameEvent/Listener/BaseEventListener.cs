@@ -58,12 +58,6 @@ public class LifeLostListener : BaseEventListener<ILifeLostValidator, ILifeLostE
 }
 
 [Serializable]
-public class TimeOverListener : BaseEventListener<ITimeOverValidator, ITimeOverEffect>
-{
-
-}
-
-[Serializable]
 public class CreatedListener : BaseEventListener<ICreatedValidator, ICreatedEffect>
 {
 

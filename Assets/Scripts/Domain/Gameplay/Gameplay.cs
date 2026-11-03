@@ -16,4 +16,10 @@ public class Gameplay
 
         Score = 0;
     }   
+
+    public void AddScore(int score)
+    {
+        Debug.Log(score);
+        Score += score;
+    }
 }
