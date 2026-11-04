@@ -21,13 +21,14 @@ public class PlayerService : IService, IPreparable, IStartable, IResettable
     [CallbackOrder(0)]
     public async UniTask StartSave()
     {
-        PlayerModifiers = new List<Modifier>();
+        //todo nao deveria vir do save
+        /*PlayerModifiers = new List<Modifier>();
 
         foreach (var modifierModel in GameSaveService.Save.Modifiers)
         {
             var modifier = await ContentService.GetModifierFromModel(modifierModel);
             PlayerModifiers.Add(modifier);
-        }
+        }*/
     }
     
     public UniTask ResetSave()

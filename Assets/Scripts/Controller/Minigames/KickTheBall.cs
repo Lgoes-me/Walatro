@@ -10,20 +10,24 @@ public class KickTheBall : BaseMouseInputMinigameController
     [field: SerializeField]
     private ClickDetectorController BallClickDetector { get; set; }
 
-    public override void Init(MinigameScene minigameScene)
+    public override void Init(MinigameScene minigameScene, Gameplay gameplay)
     {
-        base.Init(minigameScene);
+        base.Init(minigameScene, gameplay);
 
         BallClickDetector.Init(() => ScoreMinigame(50));
     }
 
     //Good score
-    public override void ScoreMinigame(int score)
+    public override void ScoreMinigame(int points)
     {
         if (MinigameSceneResult != null)
             return;
 
         Animator.Play("KickTheBall_Positive");
-        MinigameSceneResult = new MinigameSceneResult(true, score, MinigameScene.Minigame.RemainingTime);
+        
+        Gameplay.SetPoints(points);
+        Gameplay.SetMult(MinigameScene.Minigame.RemainingTime);
+
+        MinigameSceneResult = new MinigameSceneResult(true);
     }
 }

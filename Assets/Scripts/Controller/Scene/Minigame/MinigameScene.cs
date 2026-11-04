@@ -22,7 +22,7 @@ public class MinigameScene : BaseAwaitableSceneWithResponse<MinigameSceneData, M
         SceneService = Application.GetService<SceneService>();
 
         MinigameController = Instantiate(Data.GameDisc.MinigameControllerPrefab);
-        MinigameController.Init(this);
+        MinigameController.Init(this, Data.Gameplay);
 
         CountdownCoroutine = StartCoroutine(CountdownEndMinigame());
     }
@@ -70,23 +70,21 @@ public class MinigameSceneData : BaseSceneData
 {
     public override string SceneName => "Minigame";
     public GameDisc GameDisc { get; set; }
+    public Gameplay Gameplay { get; set; }
 
-    public MinigameSceneData(GameDisc gameDisc)
+    public MinigameSceneData(GameDisc gameDisc, Gameplay gameplay)
     {
         GameDisc = gameDisc;
+        Gameplay = gameplay;
     }
 }
 
 public class MinigameSceneResult
 {
     public bool DidWin { get; set; }
-    public int Score { get; set; }
-    public float Multiplier { get; set; }
 
-    public MinigameSceneResult(bool didWin, int score, float multiplier)
+    public MinigameSceneResult(bool didWin)
     {
         DidWin = didWin;
-        Score = score;
-        Multiplier = multiplier;
     }
 }

@@ -25,6 +25,8 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         
         Gameplay = GameplayService.Gameplay;
 
+        Gameplay.OnGameplayUpdatedEvent += UpdateTexts;
+        
         UpdateTexts();
         
         MinigameLoop().Forget();
@@ -49,20 +51,18 @@ public class GameplayScene : BaseScene<GameplaySceneData>
 
             var game = GameBoxService.GameBox.GetRandomGame();
 
-            var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
+            var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game, Gameplay));
 
             await EventsService.DoMinigameEndEvent();
 
             if (!result.DidWin)
             {
                 await EventsService.DoLifeLostEvent();
-                Gameplay.Vidas --;
+                Gameplay.LoseVida();
             }
             
-            Gameplay.Score += Mathf.CeilToInt(result.Score * result.Multiplier);
+            Gameplay.SetScore();
             
-            UpdateTexts();
-
             if (Gameplay.Vidas == 0)
             {
                 await GameOver();
@@ -100,6 +100,11 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
         await SceneService.WaitScene(new GameOverSceneData());
         await SceneService.OpenScene(new MainMenuSceneData());
+    }
+
+    private void OnDestroy()
+    {
+        Gameplay.OnGameplayUpdatedEvent -= UpdateTexts;
     }
 }
 

@@ -16,9 +16,9 @@ public class ShootTheZombieController : BaseMouseInputMinigameController
     [field: SerializeField]
     private ClickDetectorController BodyClickDetector { get; set; }
 
-    public override void Init(MinigameScene minigameScene)
+    public override void Init(MinigameScene minigameScene, Gameplay gameplay)
     {
-        base.Init(minigameScene);
+        base.Init(minigameScene, gameplay);
 
         HeadClickDetector.Init(() => ScoreMinigame(50));
         BodyClickDetector.Init(() => ScoreMinigame(20));
@@ -31,13 +31,17 @@ public class ShootTheZombieController : BaseMouseInputMinigameController
     }
 
     //Good score
-    public override void ScoreMinigame(int score)
+    public override void ScoreMinigame(int points)
     {
         if (MinigameSceneResult != null)
             return;
 
         Animator.Play("ShootTheZombie_Positive");
-        MinigameSceneResult = new MinigameSceneResult(true, score, MinigameScene.Minigame.RemainingTime);
+
+        Gameplay.SetPoints(points);
+        Gameplay.SetMult(MinigameScene.Minigame.RemainingTime);
+
+        MinigameSceneResult = new MinigameSceneResult(true);
     }
 
     private IEnumerator CoroutinaDeTiro()

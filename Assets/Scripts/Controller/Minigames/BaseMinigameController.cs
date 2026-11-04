@@ -9,13 +9,16 @@ public abstract class BaseMinigameController : MonoBehaviour
     protected MinigameSceneResult MinigameSceneResult { get; set; }
 
     protected MinigameScene MinigameScene { get; set; }
+
+    protected Gameplay Gameplay { get; set; }
     
     private Action MouseReturn { get; set; }
 
-    public virtual void Init(MinigameScene minigameScene)
+    public virtual void Init(MinigameScene minigameScene, Gameplay gameplay)
     {
         Application.Instance.GetService<InterfaceService>().MudarMouse(Mouse);
         MinigameScene = minigameScene;
+        Gameplay = gameplay;
     }
 
     public void CompleteAnimationCallback()
@@ -26,14 +29,14 @@ public abstract class BaseMinigameController : MonoBehaviour
         MinigameScene.EndMinigame(MinigameSceneResult);
     }
 
-    public abstract void ScoreMinigame(int score);
+    public abstract void ScoreMinigame(int points);
     
     public void FailMinigame()
     {
         if (MinigameSceneResult != null)
             return;
             
-        MinigameSceneResult = new MinigameSceneResult(false, 0, 0);
+        MinigameSceneResult = new MinigameSceneResult(false);
     }
 
     private void OnDestroy()
