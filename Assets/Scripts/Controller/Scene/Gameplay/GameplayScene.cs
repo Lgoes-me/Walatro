@@ -24,6 +24,8 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         GameBoxService = Application.GetService<GameBoxService>();
         
         Gameplay = GameplayService.Gameplay;
+        Gameplay.SetMinigames(5);
+        Gameplay.SetVidas(3);
 
         Gameplay.OnGameplayUpdatedEvent += UpdateTexts;
         
@@ -62,6 +64,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
             }
             
             Gameplay.SetScore();
+            Gameplay.SetTotalScore();
             
             if (Gameplay.Vidas == 0)
             {
@@ -69,14 +72,16 @@ public class GameplayScene : BaseScene<GameplaySceneData>
                 return;
             }
 
-            if (Gameplay.ScoreToBeat <= Gameplay.Score)
+            if (Gameplay.ScoreToBeat <= Gameplay.TotalScore)
             {
                 await Win();
                 return;
             }
+
+            Gameplay.NextGameplay();
         }
 
-        if (Gameplay.ScoreToBeat > Gameplay.Score)
+        if (Gameplay.ScoreToBeat > Gameplay.TotalScore)
         {
             await GameOver();
             return;

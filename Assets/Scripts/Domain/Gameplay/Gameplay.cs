@@ -11,9 +11,13 @@ public class Gameplay
     
     public int Points { get; private set; }
     
-    public float Mult { get; private set; }
+    public float AdditiveMult { get; private set; }
+
+    public float MultiplicativeMult { get; private set; }
 
     public int Score { get; private set; }
+
+    public int TotalScore { get; private set; }
 
     public int ScoreToBeat { get; private set; }
     
@@ -23,39 +27,51 @@ public class Gameplay
 
     public Gameplay(int scoreToBeat)
     {
-        Minigames = new List<Minigame>() {null, null, null, null, null};
+        Minigames = new List<Minigame>();
         MinigameIndex = 0;
-        Vidas = 3;
+
         ScoreToBeat = scoreToBeat;
 
+        Vidas = 0;
         Points = 0;
-        Mult = 0;
+        AdditiveMult = 0;
+        MultiplicativeMult = 1;
         Score = 0;
+        TotalScore = 0;
     }   
 
-    public void SetMinigames()
+    public void SetMinigames(int games)
     {
-        
+        for(int i = 0; i < games; i++)
+        {
+            Minigames.Add(null);
+        }
     }
 
     public void NextMinigame()
     {
-
+        MinigameIndex ++;
     }
 
     public void SetVidas(int vidas)
     {
         Vidas = vidas;
+        
+        RaiseGameplayUpdatedEvent();
     }
 
     public void LoseVida()
     {
         Vidas --;
+        
+        RaiseGameplayUpdatedEvent();
     }
 
     public void GainVida()
     {
         Vidas ++;
+
+        RaiseGameplayUpdatedEvent();
     }
 
     public void SetPoints(int points)
@@ -81,32 +97,41 @@ public class Gameplay
 
     public void AddMult(float mult)
     {
-        Mult += mult;
+        AdditiveMult += mult;
         
         RaiseGameplayUpdatedEvent();
     }
 
     public void MultiplyMult(float mult)
     {
-        Mult *= mult;
+        MultiplicativeMult *= mult;
         
         RaiseGameplayUpdatedEvent();
     }
 
     public void SetScore()
     {
-        Score += Mathf.CeilToInt(Points * Mult);
+        Score = Mathf.CeilToInt(Points * Mult);
+        Score *= MultiplicativeMult;
 
         Points = 0;
-        Mult = 0;
+        AdditiveMult = 0;
+        MultiplicativeMult = 1;
         
         RaiseGameplayUpdatedEvent();
     }
 
     public void AddScore(int score)
     {
-        Score += score;
+        TotalScore += score;
+        RaiseGameplayUpdatedEvent();
+    }
 
+    public void SetTotalScore()
+    {
+        TotalScore += Score;
+        Score = 0;
+        
         RaiseGameplayUpdatedEvent();
     }
 

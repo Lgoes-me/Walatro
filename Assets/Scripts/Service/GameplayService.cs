@@ -39,7 +39,7 @@ public class GameplayService : IService, IPreparable, IStartable
         CurrentBind = GameSaveService.Save.CurrentBind;
 
         Gameplay = new Gameplay((int) (Levels[CurrentLevel] * ModificadorDeScore(CurrentBind)));
-
+        
         return UniTask.CompletedTask;
     }
 
