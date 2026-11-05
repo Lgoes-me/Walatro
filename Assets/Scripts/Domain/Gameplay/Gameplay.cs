@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class Gameplay
@@ -48,68 +50,68 @@ public class Gameplay
         }
     }
 
-    public void NextMinigame()
+    public async UniTask NextMinigame()
     {
         MinigameIndex ++;
     }
 
-    public void SetVidas(int vidas)
+    public async UniTask SetVidas(int vidas)
     {
         Vidas = vidas;
         
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void LoseVida()
+    public async UniTask LoseVida()
     {
         Vidas --;
         
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void GainVida()
+    public async UniTask GainVida()
     {
         Vidas ++;
 
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void SetPoints(int points)
+    public async UniTask SetPoints(int points)
     {
         Points = points;
         
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void SetMult(float mult)
+    public async UniTask SetMult(float mult)
     {
         AdditiveMult = mult;
         
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void AddPoints(int points)
+    public async UniTask AddPoints(int points)
     {
         Points += points;
         
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void AddMult(float mult)
+    public async UniTask AddMult(float mult)
     {
         AdditiveMult += mult;
         
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void MultiplyMult(float mult)
+    public async UniTask MultiplyMult(float mult)
     {
         MultiplicativeMult *= mult;
         
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void SetScore()
+    public async UniTask SetScore()
     {
         Score = Mathf.CeilToInt(Points * AdditiveMult * MultiplicativeMult);
 
@@ -117,25 +119,27 @@ public class Gameplay
         AdditiveMult = 1;
         MultiplicativeMult = 1;
         
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void AddScore(int score)
+    public async UniTask AddScore(int score)
     {
         TotalScore += score;
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public void SetTotalScore()
+    public async UniTask SetTotalScore()
     {
         TotalScore += Score;
         Score = 0;
         
-        RaiseGameplayUpdatedEvent();
+        await RaiseGameplayUpdatedEvent();
     }
 
-    public virtual void RaiseGameplayUpdatedEvent()
+    public async UniTask RaiseGameplayUpdatedEvent()
     {
         OnGameplayUpdatedEvent?.Invoke();
+        
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 }

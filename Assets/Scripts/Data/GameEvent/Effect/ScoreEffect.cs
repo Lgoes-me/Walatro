@@ -10,8 +10,7 @@ public class AddScoreEffectData : IGameplayStartEffect
 
     public async UniTask DoEffect(Rarity rarity) 
     {
-        //var gameplay = Application.Instance.GetService<GameplayService>().Gameplay;
-        //gameplay.AddScore(Score.GetValue(rarity));
+        Application.Instance.GetService<GameplayService>().Gameplay.AddScore(Score.GetValue(rarity));
     }
 
     public string[] GetTextParams(Rarity rarity)

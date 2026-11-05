@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +13,10 @@ public class GameBox
         Games = games;
     }
 
-    public GameDisc GetRandomGame()
+    public async UniTask<GameDisc> GetRandomGame()
     {
-        return Games[Random.Range(0, Games.Count)];
+        await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
+        return Games[UnityEngine.Random.Range(0, Games.Count)];
     }
     
     public GameBoxModel ToModel()

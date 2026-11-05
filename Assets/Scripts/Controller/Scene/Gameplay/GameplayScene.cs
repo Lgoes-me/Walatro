@@ -56,36 +56,24 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         {
             await EventsService.DoMinigameStartEvent();
 
-            await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
-
-            var game = GameBoxService.GameBox.GetRandomGame();
+            var game = await GameBoxService.GameBox.GetRandomGame();
 
             var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
-            
+
             await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
 
             await EventsService.DoMinigameEndEvent();
-
-            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
 
             if (!result.DidWin)
             {
                 await EventsService.DoLifeLostEvent();
 
-                await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
-
-                Gameplay.LoseVida();
+                await Gameplay.LoseVida();
             }
             
-            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+            await Gameplay.SetScore();
 
-            Gameplay.SetScore();
-
-            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
-
-            Gameplay.SetTotalScore();
-
-            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+            await Gameplay.SetTotalScore();
             
             if (Gameplay.Vidas == 0)
             {
@@ -99,7 +87,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
                 return;
             }
 
-            Gameplay.NextMinigame();
+            await Gameplay.NextMinigame();
         }
 
         if (Gameplay.ScoreToBeat > Gameplay.TotalScore)
