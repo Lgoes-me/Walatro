@@ -34,7 +34,7 @@ public class Gameplay
 
         Vidas = 0;
         Points = 0;
-        AdditiveMult = 0;
+        AdditiveMult = 1;
         MultiplicativeMult = 1;
         Score = 0;
         TotalScore = 0;
@@ -83,7 +83,7 @@ public class Gameplay
 
     public void SetMult(float mult)
     {
-        Mult = mult;
+        AdditiveMult = mult;
         
         RaiseGameplayUpdatedEvent();
     }
@@ -111,11 +111,10 @@ public class Gameplay
 
     public void SetScore()
     {
-        Score = Mathf.CeilToInt(Points * Mult);
-        Score *= MultiplicativeMult;
+        Score = Mathf.CeilToInt(Points * AdditiveMult * MultiplicativeMult);
 
         Points = 0;
-        AdditiveMult = 0;
+        AdditiveMult = 1;
         MultiplicativeMult = 1;
         
         RaiseGameplayUpdatedEvent();

@@ -16,9 +16,9 @@ public class ShootTheZombieController : BaseMouseInputMinigameController
     [field: SerializeField]
     private ClickDetectorController BodyClickDetector { get; set; }
 
-    public override void Init(MinigameScene minigameScene, Gameplay gameplay)
+    public override void Init(MinigameScene minigameScene)
     {
-        base.Init(minigameScene, gameplay);
+        base.Init(minigameScene);
 
         HeadClickDetector.Init(() => ScoreMinigame(50));
         BodyClickDetector.Init(() => ScoreMinigame(20));

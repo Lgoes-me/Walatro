@@ -7,7 +7,10 @@ public class GameplayScene : BaseScene<GameplaySceneData>
 {    
     [field: SerializeField] private TMP_Text LivesText { get; set; }
     [field: SerializeField] private TMP_Text ScoreToBeatText { get; set; }
+    [field: SerializeField] private TMP_Text TotalScoreText { get; set; }
     [field: SerializeField] private TMP_Text ScoreText { get; set; }
+    [field: SerializeField] private TMP_Text PointsText { get; set; }
+    [field: SerializeField] private TMP_Text MultText { get; set; }
 
     private SceneService SceneService { get; set; }
     private GameplayService GameplayService { get; set; }
@@ -23,7 +26,8 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         EventsService = Application.GetService<EventsService>();
         GameBoxService = Application.GetService<GameBoxService>();
         
-        Gameplay = GameplayService.Gameplay;
+        Gameplay = GameplayService.CreateGameplay();
+
         Gameplay.SetMinigames(5);
         Gameplay.SetVidas(3);
 
@@ -38,7 +42,10 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     {
         LivesText.text = $"Lives: {Gameplay.Vidas}";
         ScoreToBeatText.text = $"To Beat: {Gameplay.ScoreToBeat}";
-        ScoreText.text = $"Score:{Gameplay.Score}";
+        TotalScoreText.text = $"{Gameplay.TotalScore}";
+        ScoreText.text = $"{Gameplay.Score}";
+        PointsText.text = $"{Gameplay.Points}";
+        MultText.text = $"{Gameplay.AdditiveMult}";
     }
 
     public async UniTask MinigameLoop()
@@ -53,18 +60,32 @@ public class GameplayScene : BaseScene<GameplaySceneData>
 
             var game = GameBoxService.GameBox.GetRandomGame();
 
-            var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game, Gameplay));
+            var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
+            
+            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
 
             await EventsService.DoMinigameEndEvent();
+
+            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
 
             if (!result.DidWin)
             {
                 await EventsService.DoLifeLostEvent();
+
+                await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+
                 Gameplay.LoseVida();
             }
             
+            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+
             Gameplay.SetScore();
+
+            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+
             Gameplay.SetTotalScore();
+
+            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
             
             if (Gameplay.Vidas == 0)
             {
@@ -78,7 +99,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
                 return;
             }
 
-            Gameplay.NextGameplay();
+            Gameplay.NextMinigame();
         }
 
         if (Gameplay.ScoreToBeat > Gameplay.TotalScore)

@@ -10,9 +10,9 @@ public class KickTheBall : BaseMouseInputMinigameController
     [field: SerializeField]
     private ClickDetectorController BallClickDetector { get; set; }
 
-    public override void Init(MinigameScene minigameScene, Gameplay gameplay)
+    public override void Init(MinigameScene minigameScene)
     {
-        base.Init(minigameScene, gameplay);
+        base.Init(minigameScene);
 
         BallClickDetector.Init(() => ScoreMinigame(50));
     }

@@ -19,11 +19,12 @@ public class GameplayService : IService, IPreparable, IStartable
     };
 
     public int CurrentLevel { get; set; }
+    
     public int CurrentBind { get; set; }
 
-    private GameSaveService GameSaveService { get; set; }
-
     public Gameplay Gameplay { get; set; }
+
+    private GameSaveService GameSaveService { get; set; }
 
     public UniTask Prepare()
     {
@@ -37,10 +38,15 @@ public class GameplayService : IService, IPreparable, IStartable
     {
         CurrentLevel = GameSaveService.Save.CurrentLevel;
         CurrentBind = GameSaveService.Save.CurrentBind;
-
-        Gameplay = new Gameplay((int) (Levels[CurrentLevel] * ModificadorDeScore(CurrentBind)));
         
         return UniTask.CompletedTask;
+    }
+
+    public Gameplay CreateGameplay()
+    {
+        Gameplay = new Gameplay((int) (Levels[CurrentLevel] * ModificadorDeScore(CurrentBind)));
+        
+        return Gameplay;
     }
 
     public void NextGameplay()
@@ -52,8 +58,6 @@ public class GameplayService : IService, IPreparable, IStartable
             CurrentLevel ++;
             CurrentBind = 0;
         }
-        
-        Gameplay = new Gameplay((int) (Levels[CurrentLevel] * ModificadorDeScore(CurrentBind)));
     }
 
     private float ModificadorDeScore(int bind)

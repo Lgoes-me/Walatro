@@ -14,11 +14,12 @@ public abstract class BaseMinigameController : MonoBehaviour
     
     private Action MouseReturn { get; set; }
 
-    public virtual void Init(MinigameScene minigameScene, Gameplay gameplay)
+    public virtual void Init(MinigameScene minigameScene)
     {
-        Application.Instance.GetService<InterfaceService>().MudarMouse(Mouse);
         MinigameScene = minigameScene;
-        Gameplay = gameplay;
+
+        Application.Instance.GetService<InterfaceService>().MudarMouse(Mouse);
+        Gameplay = Application.Instance.GetService<GameplayService>().Gameplay;
     }
 
     public void CompleteAnimationCallback()
