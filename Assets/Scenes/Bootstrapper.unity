@@ -800,6 +800,11 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  - m_AssetGUID: a3a73555cebc6b641a4a2c484abb820e
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!1 &622422277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8256134651489076907, guid: a01a04f1846c4af46880bff8d161c4c1, type: 3}

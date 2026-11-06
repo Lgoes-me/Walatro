@@ -2,9 +2,8 @@ using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-
 [Serializable]
-public class AddScoreEffectData : IGameplayStartEffect
+public class AddScoreEffectData : IGameplayStartEffect , IMinigameEndEffect
 {
     [field: SerializeField] private RarityDefinedInt Score { get; set; }
 

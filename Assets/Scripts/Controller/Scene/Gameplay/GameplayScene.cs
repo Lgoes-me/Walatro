@@ -12,6 +12,11 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     [field: SerializeField] private TMP_Text PointsText { get; set; }
     [field: SerializeField] private TMP_Text MultText { get; set; }
 
+    [field: SerializeField] private TMP_Text PointsAddedText { get; set; }
+    [field: SerializeField] private TMP_Text MultAddedText { get; set; }
+    [field: SerializeField] private TMP_Text MultMultipliedText { get; set; }
+    [field: SerializeField] private TMP_Text ScoreAddedText { get; set; }
+
     private SceneService SceneService { get; set; }
     private GameplayService GameplayService { get; set; }
     private EventsService EventsService { get; set; }
@@ -32,6 +37,11 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         Gameplay.SetVidas(3);
 
         Gameplay.OnGameplayUpdatedEvent += UpdateTexts;
+
+        Gameplay.OnPointsAddedEvent += PointsAddedFeedback;
+        Gameplay.OnMultAddedEvent += MultAddedFeedback;
+        Gameplay.OnMultMultipliedEvent += MultMultipliedFeedback;
+        Gameplay.OnScoreAddedEvent += ScoreAddedFeedback;
         
         UpdateTexts();
         
@@ -46,6 +56,50 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         ScoreText.text = $"{Gameplay.Score}";
         PointsText.text = $"{Gameplay.Points}";
         MultText.text = $"{Gameplay.AdditiveMult}";
+    }
+    
+    private async void PointsAddedFeedback(int points)
+    {
+        PointsAddedText.gameObject.SetActive(true);
+        PointsAddedText.text = $"+{points}";
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+
+        PointsAddedText.gameObject.SetActive(false);
+        PointsAddedText.text = string.Empty;
+    }
+
+    private async void MultAddedFeedback(float mult)
+    {
+        MultAddedText.gameObject.SetActive(true);
+        MultAddedText.text = $"+{mult:00.00}";
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+
+        MultAddedText.gameObject.SetActive(false);
+        MultAddedText.text = string.Empty;
+    }
+
+    private async void MultMultipliedFeedback(float mult)
+    {
+        MultMultipliedText.gameObject.SetActive(true);
+        MultMultipliedText.text = $"x{mult:00.00}";
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+
+        MultMultipliedText.gameObject.SetActive(false);
+        MultMultipliedText.text = string.Empty;
+    }
+
+    private async void ScoreAddedFeedback(int score)
+    {
+        ScoreAddedText.gameObject.SetActive(true);
+        ScoreAddedText.text = $"+{score}";
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+        
+        ScoreAddedText.gameObject.SetActive(false);
+        ScoreAddedText.text = string.Empty;
     }
 
     public async UniTask MinigameLoop()
@@ -67,12 +121,10 @@ public class GameplayScene : BaseScene<GameplaySceneData>
             if (!result.DidWin)
             {
                 await EventsService.DoLifeLostEvent();
-
                 await Gameplay.LoseVida();
             }
             
             await Gameplay.SetScore();
-
             await Gameplay.SetTotalScore();
             
             if (Gameplay.Vidas == 0)
@@ -119,6 +171,11 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     private void OnDestroy()
     {
         Gameplay.OnGameplayUpdatedEvent -= UpdateTexts;
+        
+        Gameplay.OnPointsAddedEvent -= PointsAddedFeedback;
+        Gameplay.OnMultAddedEvent -= MultAddedFeedback;
+        Gameplay.OnMultMultipliedEvent -= MultMultipliedFeedback;
+        Gameplay.OnScoreAddedEvent -= ScoreAddedFeedback;
     }
 }
 

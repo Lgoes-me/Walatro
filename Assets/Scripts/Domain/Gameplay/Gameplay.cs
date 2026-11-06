@@ -6,26 +6,25 @@ using UnityEngine;
 public class Gameplay
 {
     public List<Minigame> Minigames { get; private set; }
-    
     public int MinigameIndex { get; private set; }
 
     public int Vidas { get; private set; }
-    
     public int Points { get; private set; }
-    
     public float AdditiveMult { get; private set; }
-
     public float MultiplicativeMult { get; private set; }
 
     public int Score { get; private set; }
-
     public int TotalScore { get; private set; }
-
     public int ScoreToBeat { get; private set; }
     
     public delegate void GameplayUpdateEventHandler();
-
     public event GameplayUpdateEventHandler OnGameplayUpdatedEvent;
+    
+    public delegate void GameplayValueChangedEventHandler<T>(T value);
+    public event GameplayValueChangedEventHandler<int> OnPointsAddedEvent;
+    public event GameplayValueChangedEventHandler<float> OnMultAddedEvent;
+    public event GameplayValueChangedEventHandler<float> OnMultMultipliedEvent;
+    public event GameplayValueChangedEventHandler<int> OnScoreAddedEvent;
 
     public Gameplay(int scoreToBeat)
     {
@@ -92,6 +91,8 @@ public class Gameplay
 
     public async UniTask AddPoints(int points)
     {
+        await RaisePointsAddedEvent(points);
+
         Points += points;
         
         await RaiseGameplayUpdatedEvent();
@@ -99,6 +100,8 @@ public class Gameplay
 
     public async UniTask AddMult(float mult)
     {
+        await RaiseMultAddedEvent(mult);
+
         AdditiveMult += mult;
         
         await RaiseGameplayUpdatedEvent();
@@ -106,6 +109,8 @@ public class Gameplay
 
     public async UniTask MultiplyMult(float mult)
     {
+        await RaiseMultMultipliedEvent(mult);
+
         MultiplicativeMult *= mult;
         
         await RaiseGameplayUpdatedEvent();
@@ -124,7 +129,10 @@ public class Gameplay
 
     public async UniTask AddScore(int score)
     {
+        await RaiseScoreAddedEventEvent(score);
+
         TotalScore += score;
+        
         await RaiseGameplayUpdatedEvent();
     }
 
@@ -139,7 +147,30 @@ public class Gameplay
     public async UniTask RaiseGameplayUpdatedEvent()
     {
         OnGameplayUpdatedEvent?.Invoke();
-        
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+    }
+    
+    public async UniTask RaisePointsAddedEvent(int points)
+    {
+        OnPointsAddedEvent?.Invoke(points);
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+    }
+    
+    public async UniTask RaiseMultAddedEvent(float mult)
+    {
+        OnMultAddedEvent?.Invoke(mult);
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+    }
+
+    public async UniTask RaiseMultMultipliedEvent(float mult)
+    {
+        OnMultMultipliedEvent?.Invoke(mult);
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+    }
+    
+    public async UniTask RaiseScoreAddedEventEvent(int score)
+    {
+        OnScoreAddedEvent?.Invoke(score);
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 }

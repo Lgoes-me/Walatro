@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3a73555cebc6b641a4a2c484abb820e
+    m_Address: Assets/Datas/Modifiers/AddScoreAtMinigameEnd.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ccc25c7feb9cb1d4cae56ccce3463063
     m_Address: Assets/Datas/Modifiers/AddScoreAtGameStart.asset
     m_ReadOnly: 0
