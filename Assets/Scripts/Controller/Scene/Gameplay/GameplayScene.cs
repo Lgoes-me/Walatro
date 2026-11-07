@@ -158,7 +158,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         GameplayService.NextGameplay();
 
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
-        await SceneService.OpenScene(new StoreSceneData());
+        await SceneService.OpenScene(new PrizeSceneData());
     }
     
     private async UniTask GameOver()

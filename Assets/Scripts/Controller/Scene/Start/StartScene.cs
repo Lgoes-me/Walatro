@@ -45,7 +45,7 @@ public class StartScene : BaseScene<StartSceneData>
                 await Application.StartServices();
             }
 
-            await SceneService.OpenScene(new StoreSceneData());
+            await SceneService.OpenScene(new PrizeSceneData());
         }
         else
         {

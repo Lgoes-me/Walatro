@@ -64,6 +64,7 @@ public class Gameplay
     {
         Vidas --;
         
+        OnGameplayUpdatedEvent?.Invoke();
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
@@ -71,6 +72,7 @@ public class Gameplay
     {
         Vidas ++;
 
+        OnGameplayUpdatedEvent?.Invoke();
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
@@ -94,6 +96,8 @@ public class Gameplay
 
         Points += points;
         
+        OnGameplayUpdatedEvent?.Invoke();
+
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
@@ -105,6 +109,8 @@ public class Gameplay
 
         AdditiveMult += mult;
         
+        OnGameplayUpdatedEvent?.Invoke();
+
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
@@ -116,6 +122,8 @@ public class Gameplay
 
         MultiplicativeMult *= mult;
         
+        OnGameplayUpdatedEvent?.Invoke();
+
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
@@ -127,6 +135,8 @@ public class Gameplay
         AdditiveMult = 1;
         MultiplicativeMult = 1;
         
+        OnGameplayUpdatedEvent?.Invoke();
+
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 

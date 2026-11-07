@@ -55,7 +55,7 @@ public class MainMenuScene : BaseScene<MainMenuSceneData>
         
         await SceneService.WaitScene(new SelectDeckSceneData());
         
-        await SceneService.OpenScene(new StoreSceneData());
+        await SceneService.OpenScene(new PrizeSceneData());
     }
 
     private async UniTaskVoid ContinueGame()
