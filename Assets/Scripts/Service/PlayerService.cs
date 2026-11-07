@@ -18,8 +18,7 @@ public class PlayerService : IService, IPreparable, IStartable, IResettable
         return UniTask.CompletedTask;
     }
     
-    [CallbackOrder(0)]
-    public async UniTask StartSave()
+    public UniTask StartSave()
     {
         //todo nao deveria vir do save
         /*PlayerModifiers = new List<Modifier>();
@@ -29,6 +28,8 @@ public class PlayerService : IService, IPreparable, IStartable, IResettable
             var modifier = await ContentService.GetModifierFromModel(modifierModel);
             PlayerModifiers.Add(modifier);
         }*/
+        
+        return UniTask.CompletedTask;
     }
     
     public UniTask ResetSave()

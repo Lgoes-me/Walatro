@@ -16,7 +16,7 @@ public class Application : MonoBehaviour
     private List<KeyValuePair<int, List<IBootable>>> Bootables { get; set; }
     private List<KeyValuePair<int, List<IStartable>>> Startables { get; set; }
     private List<KeyValuePair<int, List<IResettable>>> Resettables { get; set; }
-    private List<KeyValuePair<int, List<IOnRoomEnter>>> OnRoomEnters { get; set; }
+    private List<KeyValuePair<int, List<IOnShopEnter>>> OnShopEnters { get; set; }
 
     private void Awake()
     {
@@ -51,7 +51,7 @@ public class Application : MonoBehaviour
         Bootables = Services.PrepareServices<IBootable>("Boot");
         Startables = Services.PrepareServices<IStartable>("StartSave");
         Resettables = Services.PrepareServices<IResettable>("ResetSave");
-        OnRoomEnters = Services.PrepareServices<IOnRoomEnter>("OnRoomEnter");
+        OnShopEnters = Services.PrepareServices<IOnShopEnter>("OnShopEnter");
     }
 
     private void Start()
@@ -111,15 +111,15 @@ public class Application : MonoBehaviour
         }
     }
 
-    public async UniTask OnRoomEnter()
+    public async UniTask OnShopEnter()
     {
-        foreach (var (_, services) in OnRoomEnters)
+        foreach (var (_, services) in OnShopEnters)
         {
             var tasks = new List<UniTask>();
 
             foreach (var service in services)
             {
-                tasks.Add(service.OnRoomEnter());
+                tasks.Add(service.OnShopEnter());
             }
 
             await UniTask.WhenAll(tasks);
@@ -184,10 +184,10 @@ public interface IResettable
     UniTask ResetSave();
 }
 
-//After room loads
-public interface IOnRoomEnter
+//After shop loads
+public interface IOnShopEnter
 {
-    UniTask OnRoomEnter();
+    UniTask OnShopEnter();
 }
 
 public class CallbackOrderAttribute : Attribute

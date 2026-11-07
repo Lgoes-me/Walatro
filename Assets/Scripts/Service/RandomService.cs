@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
-public class RandomService : IService, IPreparable, IOnRoomEnter
+public class RandomService : IService, IPreparable, IOnShopEnter
 {
     private GameSaveService GameSaveService { get; set; }
+    private GameplayService GameplayService { get; set; }
     
     private Random Random { get; set; }
        
@@ -12,17 +13,18 @@ public class RandomService : IService, IPreparable, IOnRoomEnter
     {
         var application = Application.Instance;
         GameSaveService = application.GetService<GameSaveService>();
+        GameplayService = application.GetService<GameplayService>();
 
         return UniTask.CompletedTask;
     }
 
-    public UniTask OnRoomEnter()
+    public UniTask OnShopEnter()
     {
-        Random = new Random($"{GameSaveService.Save.BaseSeed}".GetHashCode());
+        Random = new Random($"{GameSaveService.Save.BaseSeed}/{GameplayService.CurrentLevel}/{GameplayService.CurrentBind}".GetHashCode());
         return UniTask.CompletedTask;
     }
     
-    public float GetRoomContent(int totalWeight)
+    public float GetFloat(int totalWeight)
     {
         return Random.Next(totalWeight);
     }
@@ -32,7 +34,7 @@ public class RandomService : IService, IPreparable, IOnRoomEnter
         return list[Random.Next(list.Count)];
     }
     
-    public int RandomValue(int minimumValue, int maximumValue)
+    public int RandomIntValue(int minimumValue, int maximumValue)
     {
         return Random.Next(minimumValue, maximumValue);
     }

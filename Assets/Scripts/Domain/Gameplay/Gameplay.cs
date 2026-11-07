@@ -49,71 +49,74 @@ public class Gameplay
         }
     }
 
-    public async UniTask NextMinigame()
+    public UniTask NextMinigame()
     {
         MinigameIndex ++;
+        return UniTask.CompletedTask;
     }
 
-    public async UniTask SetVidas(int vidas)
+    public void SetVidas(int vidas)
     {
         Vidas = vidas;
-        
-        await RaiseGameplayUpdatedEvent();
     }
 
     public async UniTask LoseVida()
     {
         Vidas --;
         
-        await RaiseGameplayUpdatedEvent();
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
     public async UniTask GainVida()
     {
         Vidas ++;
 
-        await RaiseGameplayUpdatedEvent();
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
-    public async UniTask SetPoints(int points)
+    public void SetPoints(int points)
     {
         Points = points;
-        
-        await RaiseGameplayUpdatedEvent();
+        OnGameplayUpdatedEvent?.Invoke();
     }
 
-    public async UniTask SetMult(float mult)
+    public void SetMult(float mult)
     {
         AdditiveMult = mult;
-        
-        await RaiseGameplayUpdatedEvent();
+        OnGameplayUpdatedEvent?.Invoke();
     }
 
     public async UniTask AddPoints(int points)
     {
-        await RaisePointsAddedEvent(points);
+        OnPointsAddedEvent?.Invoke(points);
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
 
         Points += points;
         
-        await RaiseGameplayUpdatedEvent();
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
     public async UniTask AddMult(float mult)
     {
-        await RaiseMultAddedEvent(mult);
+        OnMultAddedEvent?.Invoke(mult);
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
 
         AdditiveMult += mult;
         
-        await RaiseGameplayUpdatedEvent();
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
     public async UniTask MultiplyMult(float mult)
     {
-        await RaiseMultMultipliedEvent(mult);
+        OnMultMultipliedEvent?.Invoke(mult);
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
 
         MultiplicativeMult *= mult;
         
-        await RaiseGameplayUpdatedEvent();
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
     public async UniTask SetScore()
@@ -124,53 +127,30 @@ public class Gameplay
         AdditiveMult = 1;
         MultiplicativeMult = 1;
         
-        await RaiseGameplayUpdatedEvent();
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
     public async UniTask AddScore(int score)
     {
-        await RaiseScoreAddedEventEvent(score);
+        OnScoreAddedEvent?.Invoke(score);
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
 
         TotalScore += score;
         
-        await RaiseGameplayUpdatedEvent();
+        OnGameplayUpdatedEvent?.Invoke();
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 
     public async UniTask SetTotalScore()
     {
         TotalScore += Score;
+
         Score = 0;
         
-        await RaiseGameplayUpdatedEvent();
-    }
-
-    public async UniTask RaiseGameplayUpdatedEvent()
-    {
         OnGameplayUpdatedEvent?.Invoke();
-        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
-    }
-    
-    public async UniTask RaisePointsAddedEvent(int points)
-    {
-        OnPointsAddedEvent?.Invoke(points);
-        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
-    }
-    
-    public async UniTask RaiseMultAddedEvent(float mult)
-    {
-        OnMultAddedEvent?.Invoke(mult);
-        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
-    }
 
-    public async UniTask RaiseMultMultipliedEvent(float mult)
-    {
-        OnMultMultipliedEvent?.Invoke(mult);
-        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
-    }
-    
-    public async UniTask RaiseScoreAddedEventEvent(int score)
-    {
-        OnScoreAddedEvent?.Invoke(score);
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
     }
 }

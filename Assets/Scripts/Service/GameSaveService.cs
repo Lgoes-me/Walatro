@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
-public class GameSaveService : IService, IPreparable, IBootable
+public class GameSaveService : IService, IPreparable, IBootable, IOnShopEnter
 {
     public Save Save { get; private set; }
     private SaveManager SaveManager { get; set; }
@@ -18,6 +18,12 @@ public class GameSaveService : IService, IPreparable, IBootable
         GameplayService = application.GetService<GameplayService>();
         GameBoxService = application.GetService<GameBoxService>();
 
+        return UniTask.CompletedTask;
+    }
+        
+    public UniTask OnShopEnter()
+    {
+        SaveCurrentGameState();
         return UniTask.CompletedTask;
     }
 

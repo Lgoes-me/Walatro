@@ -5,6 +5,11 @@ using UnityEngine.UI;
 public class StoreScene : BaseScene<StoreSceneData>
 {
     [field: SerializeField] private Button NextButton { get; set; }
+    [field: SerializeField] private Button Item1Button { get; set; }
+    [field: SerializeField] private Button Item2Button { get; set; }
+    [field: SerializeField] private Button Item3Button { get; set; }
+    [field: SerializeField] private Button Item4Button { get; set; }
+    [field: SerializeField] private Button RerollButton { get; set; }
 
     private SceneService SceneService { get; set; }
     private GameSaveService GameSaveService { get; set; }
@@ -13,8 +18,6 @@ public class StoreScene : BaseScene<StoreSceneData>
     {
         SceneService = Application.GetService<SceneService>();
         GameSaveService = Application.GetService<GameSaveService>();
-        
-        GameSaveService.SaveCurrentGameState();
         
         NextButton.onClick.RemoveAllListeners();
         NextButton.onClick.AddListener(() => Next().Forget());
