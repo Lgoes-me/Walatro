@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
-public class RandomService : IService, IPreparable, IOnShopEnter
+public class RandomService : IService, IPreparable, IStartable, IOnShopEnter
 {
     private GameSaveService GameSaveService { get; set; }
     private GameplayService GameplayService { get; set; }
@@ -15,6 +15,13 @@ public class RandomService : IService, IPreparable, IOnShopEnter
         GameSaveService = application.GetService<GameSaveService>();
         GameplayService = application.GetService<GameplayService>();
 
+        return UniTask.CompletedTask;
+    }
+
+    [CallbackOrderAttribute(1)]
+    public UniTask StartSave()
+    {
+        Random = new Random($"{GameSaveService.Save.BaseSeed}/{GameplayService.CurrentLevel}/{GameplayService.CurrentBind}".GetHashCode());
         return UniTask.CompletedTask;
     }
 

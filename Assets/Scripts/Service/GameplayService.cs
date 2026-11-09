@@ -34,6 +34,7 @@ public class GameplayService : IService, IPreparable, IStartable
         return UniTask.CompletedTask;
     }
 
+    [CallbackOrderAttribute(0)]
     public UniTask StartSave()
     {
         CurrentLevel = GameSaveService.Save.CurrentLevel;
