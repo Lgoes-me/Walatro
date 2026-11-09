@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class ShopService : IService, IPreparable, IResettable
+public class PrizeService : IService, IPreparable, IResettable
 {
     private GameSaveService GameSaveService { get; set; }
     private RandomService RandomService { get; set; }
@@ -18,13 +18,13 @@ public class ShopService : IService, IPreparable, IResettable
         return UniTask.CompletedTask;
     }
     
-    public List<Modifier> GetCurrentShopItems()
+    public async UniTask<List<Modifier>> GetCurrentShopItems()
     {
         var shopItems = new List<Modifier>();
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
-            
+            var modifierAdressable = RandomService.RandomElement(ContentService.Modifiers);
 
         }
 
