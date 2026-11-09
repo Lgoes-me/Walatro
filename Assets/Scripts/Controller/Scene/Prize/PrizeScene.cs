@@ -6,10 +6,7 @@ using UnityEngine.UI;
 public class PrizeScene : BaseScene<PrizeSceneData>
 {
     [field: SerializeField] private Button NextButton { get; set; }
-    [field: SerializeField] private Button Item1Button { get; set; }
-    [field: SerializeField] private Button Item2Button { get; set; }
-    [field: SerializeField] private Button Item3Button { get; set; }
-    [field: SerializeField] private Button Item4Button { get; set; }
+    [field: SerializeField] private List<PrizeItemController> Items { get; set; }
     [field: SerializeField] private Button RerollButton { get; set; }
 
     private SceneService SceneService { get; set; }
@@ -31,22 +28,15 @@ public class PrizeScene : BaseScene<PrizeSceneData>
         NextButton.onClick.RemoveAllListeners();
         NextButton.onClick.AddListener(() => Next().Forget());
         
-        Item1Button.onClick.RemoveAllListeners();
-        Item1Button.onClick.AddListener(() => SelectItem(0).Forget());
-        
-        Item2Button.onClick.RemoveAllListeners();
-        Item2Button.onClick.AddListener(() => SelectItem(1).Forget());
-        
-        Item3Button.onClick.RemoveAllListeners();
-        Item3Button.onClick.AddListener(() => SelectItem(2).Forget());
-
-        Item4Button.onClick.RemoveAllListeners();
-        Item4Button.onClick.AddListener(() => SelectItem(3).Forget());
+        for (int i = 0; i < 4; i ++)
+        {
+            Items[i].Init(Modifiers[i], () => SelectItem(i).Forget());
+        }
 
         RerollButton.onClick.RemoveAllListeners();
         RerollButton.onClick.AddListener(() => RerollItems().Forget());
 
-        Item4Button.gameObject.SetActive(false);
+        Items[^1].gameObject.SetActive(false);
         RerollButton.gameObject.SetActive(false);
     }
 

@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ModifierData
   <Id>k__BackingField: a3a73555cebc6b641a4a2c484abb820e
   <Icon>k__BackingField: {fileID: 0}
-  <AvailableRarities>k__BackingField: 00000000i
+  <AvailableRarities>k__BackingField: 0000000003000000i
   <Material>k__BackingField: {fileID: 0}
   <Events>k__BackingField:
   - rid: 2559116750113734749
-  <Description>k__BackingField: 
+  <Description>k__BackingField: ganha {0} pontos ao fim do minigame
   references:
     version: 2
     RefIds:
@@ -38,3 +38,5 @@ MonoBehaviour:
           <Possibilities>k__BackingField:
           - key: 0
             value: 15
+          - key: 3
+            value: 30

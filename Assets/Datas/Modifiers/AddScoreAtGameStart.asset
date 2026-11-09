@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ModifierData
   <Id>k__BackingField: ccc25c7feb9cb1d4cae56ccce3463063
   <Icon>k__BackingField: {fileID: 0}
-  <AvailableRarities>k__BackingField: 00000000i
+  <AvailableRarities>k__BackingField: 00000000010000000200000003000000i
   <Material>k__BackingField: {fileID: 0}
   <Events>k__BackingField:
   - rid: 5989538494374477918
-  <Description>k__BackingField: 
+  <Description>k__BackingField: ganha {0} pontos no inicio da partida
   references:
     version: 2
     RefIds:
@@ -37,4 +37,10 @@ MonoBehaviour:
         <Score>k__BackingField:
           <Possibilities>k__BackingField:
           - key: 0
-            value: 1
+            value: 2
+          - key: 1
+            value: 4
+          - key: 3
+            value: 12
+          - key: 2
+            value: 8
