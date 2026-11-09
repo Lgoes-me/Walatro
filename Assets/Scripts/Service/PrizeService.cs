@@ -18,14 +18,19 @@ public class PrizeService : IService, IPreparable, IResettable
         return UniTask.CompletedTask;
     }
     
-    public async UniTask<List<Modifier>> GetCurrentShopItems()
+    public async UniTask<List<Modifier>> GetCurrentPrizeItems()
     {
         var shopItems = new List<Modifier>();
 
         for (int i = 0; i < 4; i++)
         {
-            var modifierAdressable = RandomService.RandomElement(ContentService.Modifiers);
+            var modifierDataAsset = RandomService.RandomElement(ContentService.Modifiers);
+            var modifierData = await modifierDataAsset.LoadAssetAsyncIfValid();
+            var modifierModel = new ModifierModel(modifierData.Id, RandomService.RandomRarity());
+            
+            var modifier = modifierData.ToDomain(modifierModel);
 
+            shopItems.Add(modifier);
         }
 
         return shopItems;

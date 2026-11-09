@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,12 +14,20 @@ public class PrizeScene : BaseScene<PrizeSceneData>
 
     private SceneService SceneService { get; set; }
     private GameSaveService GameSaveService { get; set; }
+    private ModifierService ModifierService { get; set; }
+    private PrizeService PrizeService { get; set; }
 
-    protected override void Init()
+    private List<Modifier> Modifiers { get; set; }
+
+    protected override async void Init()
     {
         SceneService = Application.GetService<SceneService>();
         GameSaveService = Application.GetService<GameSaveService>();
+        ModifierService = Application.GetService<ModifierService>();
+        PrizeService = Application.GetService<PrizeService>();
         
+        Modifiers = await PrizeService.GetCurrentPrizeItems(); 
+
         NextButton.onClick.RemoveAllListeners();
         NextButton.onClick.AddListener(() => Next().Forget());
         
@@ -43,12 +52,16 @@ public class PrizeScene : BaseScene<PrizeSceneData>
 
     private async UniTask SelectItem(int i)
     {
-        await SceneService.OpenScene(new GameplaySceneData());
+        //feedback visual
+        ModifierService.AddModifier(Modifiers[i]);
+        //desativa outros botoes
     }
 
     private async UniTask RerollItems()
     {
-        await SceneService.OpenScene(new GameplaySceneData());
+        //load desativando botões
+        Modifiers = await PrizeService.GetCurrentPrizeItems(); 
+        //rerenderiza botoes
     }
 
     private async UniTask Next()

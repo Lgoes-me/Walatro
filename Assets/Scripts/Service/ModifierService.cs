@@ -52,7 +52,7 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
         return UniTask.CompletedTask;
     }
 
-    public void AddBlessing(Modifier modifier)
+    public void AddModifier(Modifier modifier)
     {
         modifier.DoCreatedEvent().Forget();
         Modifiers.Add(modifier);
