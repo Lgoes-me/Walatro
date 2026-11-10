@@ -24,6 +24,9 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
     [field: SerializeField]
     private CinemachineCamera CameraPerto { get; set; }
 
+    [field: SerializeField]
+    public InfoDescriptorController InfoDescriptor { get; set; }
+
     public UniTask Boot()
     {
         ResetMouse();

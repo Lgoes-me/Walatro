@@ -28,15 +28,15 @@ public class PrizeScene : BaseScene<PrizeSceneData>
         NextButton.onClick.RemoveAllListeners();
         NextButton.onClick.AddListener(() => Next().Forget());
         
-        for (int i = 0; i < 4; i ++)
-        {
-            Items[i].Init(Modifiers[i], () => SelectItem(i).Forget());
-        }
+        Items[0].Init(Modifiers[0], () => SelectItem(0).Forget());
+        Items[1].Init(Modifiers[1], () => SelectItem(1).Forget());
+        Items[2].Init(Modifiers[2], () => SelectItem(2).Forget());
+        Items[3].Init(Modifiers[3], () => SelectItem(3).Forget());
 
         RerollButton.onClick.RemoveAllListeners();
         RerollButton.onClick.AddListener(() => RerollItems().Forget());
 
-        Items[^1].gameObject.SetActive(false);
+        Items[3].gameObject.SetActive(false);
         RerollButton.gameObject.SetActive(false);
     }
 
