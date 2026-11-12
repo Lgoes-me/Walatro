@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 public class ScreenMouseDetector : MonoBehaviour
 {
-    
     public RectTransform canvasRect;
     
     public RectTransform uiIndicator;
