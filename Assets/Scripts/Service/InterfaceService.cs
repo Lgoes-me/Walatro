@@ -27,6 +27,12 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
     [field: SerializeField]
     public InfoDescriptorController InfoDescriptor { get; set; }
 
+    [field: SerializeField]
+    public PrizeCanvasController PrizeCanvas { get; set; }
+
+    [field: SerializeField]
+    public ScreenMouseDetector ScreenMouseDetector { get; set; }
+
     public UniTask Boot()
     {
         ResetMouse();

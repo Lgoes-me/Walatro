@@ -26,4 +26,9 @@ public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointer
     {
         Application.Instance.GetService<InterfaceService>().InfoDescriptor.Hide();
     }
+
+    private void OnDisable()
+    {
+        Application.Instance.GetService<InterfaceService>().InfoDescriptor.Hide();
+    }
 }

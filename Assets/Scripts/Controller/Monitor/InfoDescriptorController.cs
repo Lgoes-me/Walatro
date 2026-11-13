@@ -4,8 +4,6 @@ using TMPro;
 
 public class InfoDescriptorController : MonoBehaviour
 {
-    [field: SerializeField] private RectTransform Pivot { get; set; }
-
     [field: SerializeField] private TMP_Text NameText { get; set; }
     [field: SerializeField] private TMP_Text DescriptionText { get; set; }
 
@@ -15,8 +13,6 @@ public class InfoDescriptorController : MonoBehaviour
 
         NameText.text = info.Name;
         DescriptionText.text = info.GetDescription(rarity);
-
-        Pivot.anchoredPosition = Mouse.current.position.ReadValue();
     }
 
     public void Hide()
