@@ -7,16 +7,23 @@ public class DecalManager : MonoBehaviour
 
     public bool ShowDecal(Modifier modifier)
     {
+        var decals = new List<DecalController>();
+
         foreach(var decal in Decals)
         {
             if (decal.gameObject.activeInHierarchy)
                 continue;
 
-            decal.Show(modifier);
-            return true;
+            decals.Add(decal);
         }
 
-        return false;
+        if (decals.Count == 0)
+        {
+            return false;
+        }
+
+        decals[Random.Range(0, decals.Count)].Show(modifier);
+        return true;
     }
 
     public void HideAll()

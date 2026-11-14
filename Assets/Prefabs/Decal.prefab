@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7968530238842474886}
   - component: {fileID: 5622910647360563537}
+  - component: {fileID: 9061723079443346290}
   m_Layer: 0
   m_Name: Decal
   m_TagString: Untagged
@@ -61,3 +62,24 @@ MonoBehaviour:
   m_VisibleInScene: 1
   version: 1
   m_DecalLayerMask: 1
+--- !u!65 &9061723079443346290
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5485316089323299483}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1.0095876}
+  m_Center: {x: 0.0000000019247872, y: -2.381707e-10, z: 0.49729028}
