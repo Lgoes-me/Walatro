@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -12,12 +13,22 @@ public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         Modifier = modifier;
         DecalProjector.material = Modifier.Material;
+        Modifier.ModifierTriggered += GiveFeedback;
         gameObject.SetActive(true);
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+        
+        Modifier = null;
+        DecalProjector.material = null;
+        Modifier.ModifierTriggered -= GiveFeedback;
+    }
+
+    private void GiveFeedback()
+    {
+        transform.DOShakePosition(0.15f, 0.15f);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
