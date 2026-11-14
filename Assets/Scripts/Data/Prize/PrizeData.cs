@@ -8,7 +8,6 @@ using UnityEditor;
 public abstract class PrizeData : ScriptableObject, IIdentifiable
 {
     [field: SerializeField] public string Id { get; private set; }
-    [field: SerializeField] public Sprite Icon { get; private set; }
     [field: SerializeField] public List<Rarity> AvailableRarities { get; private set; }
 
     protected Rarity GetRarity(Rarity rarity)

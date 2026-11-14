@@ -33,6 +33,9 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
     [field: SerializeField]
     public ScreenMouseDetector ScreenMouseDetector { get; set; }
 
+    [field: SerializeField] 
+    public DecalManager DecalManager { get; set; }
+
     public UniTask Boot()
     {
         ResetMouse();

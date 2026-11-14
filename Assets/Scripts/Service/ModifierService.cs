@@ -7,7 +7,7 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
     public List<Modifier> Modifiers { get; private set; }
 
     private ContentService ContentService { get; set; }
-    //private InterfaceService InterfaceService { get; set; }
+    private InterfaceService InterfaceService { get; set; }
     private GameSaveService GameSaveService { get; set; }
     private PlayerService PlayerService { get; set; }
 
@@ -16,7 +16,7 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
         var application = Application.Instance;
         
         ContentService = application.GetService<ContentService>();
-        //InterfaceService = application.GetService<InterfaceService>();
+        InterfaceService = application.GetService<InterfaceService>();
         GameSaveService = application.GetService<GameSaveService>();
         PlayerService = application.GetService<PlayerService>();
         
@@ -32,8 +32,8 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
     public async UniTask StartSave()
     {
         Modifiers.Clear();
+
         await LoadModifiers();
-        //InterfaceService.UpdateBlessingsCanvas();
     }
 
     public async UniTask LoadModifiers()
@@ -43,6 +43,11 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
             var modifier = await ContentService.GetModifierFromModel(modifierModel);
             await modifier.DoCreatedEvent();
             Modifiers.Add(modifier);
+            
+            if (!InterfaceService.DecalManager.ShowDecal(modifier))
+            {
+                Debug.LogWarning("LIMITE DE MODIFIERS");
+            }
         } 
     }
 
@@ -56,12 +61,16 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
     {
         modifier.DoCreatedEvent().Forget();
         Modifiers.Add(modifier);
-        //InterfaceService.UpdateBlessingsCanvas();
+
+        if (!InterfaceService.DecalManager.ShowDecal(modifier))
+        {
+            Debug.LogWarning("LIMITE DE MODIFIERS");
+        }
     }
 
     private void ClearModifiers()
     {
         Modifiers.Clear();
-        //InterfaceService.UpdateBlessingsCanvas();
+        InterfaceService.DecalManager.HideAll();
     }
 }

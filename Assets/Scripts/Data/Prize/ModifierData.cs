@@ -11,6 +11,6 @@ public class ModifierData : PrizeData
 
     public Modifier ToDomain(ModifierModel model)
     {
-        return new Modifier(Id, name, Icon, GetRarity(model.Rarity), Events, Description);
+        return new Modifier(Id, name, Material, GetRarity(model.Rarity), Events, Description);
     }
 }

@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: AddScoreAtMinigameEnd
   m_EditorClassIdentifier: Assembly-CSharp::ModifierData
   <Id>k__BackingField: a3a73555cebc6b641a4a2c484abb820e
-  <Icon>k__BackingField: {fileID: 0}
   <AvailableRarities>k__BackingField: 0000000003000000i
-  <Material>k__BackingField: {fileID: 0}
+  <Material>k__BackingField: {fileID: 2100000, guid: da21999dbf789f640913929be541e9c3, type: 2}
   <Events>k__BackingField:
   - rid: 2559116750113734749
   <Description>k__BackingField: ganha {0} pontos ao fim do minigame
