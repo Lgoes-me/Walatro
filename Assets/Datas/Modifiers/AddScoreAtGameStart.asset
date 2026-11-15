@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ModifierData
   <Id>k__BackingField: ccc25c7feb9cb1d4cae56ccce3463063
   <AvailableRarities>k__BackingField: 00000000010000000200000003000000i
-  <Material>k__BackingField: {fileID: 2100000, guid: da21999dbf789f640913929be541e9c3, type: 2}
+  <Texture>k__BackingField: {fileID: 2800000, guid: 2f433fe8bce5b5847ba45a7f259590db, type: 3}
   <Events>k__BackingField:
   - rid: 5989538494374477918
   <Description>k__BackingField: ganha {0} pontos no inicio da partida

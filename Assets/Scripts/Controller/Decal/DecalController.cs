@@ -12,7 +12,7 @@ public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void Show(Modifier modifier)
     {
         Modifier = modifier;
-        DecalProjector.material = Modifier.Material;
+        DecalProjector.material.SetTexture("Base_Map", Modifier.Texture); 
         Modifier.ModifierTriggered += GiveFeedback;
         gameObject.SetActive(true);
     }
@@ -22,7 +22,7 @@ public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExit
         gameObject.SetActive(false);
         
         Modifier = null;
-        DecalProjector.material = null;
+        DecalProjector.material.SetTexture("Base_Map", null); 
         Modifier.ModifierTriggered -= GiveFeedback;
     }
 

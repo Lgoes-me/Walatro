@@ -5,7 +5,7 @@ public class Modifier : IBaseEventData, IInfoDescriptor
 {
     public string Id { get; private set; }
     public string Name { get; private set; }
-    public Material Material { get; private set; }
+    public Texture Texture { get; private set; }
     public Rarity Rarity { get; private set; }
 
     public BaseEventListener[] Events { get; }
@@ -16,14 +16,14 @@ public class Modifier : IBaseEventData, IInfoDescriptor
     public Modifier(
         string id, 
         string name,
-        Material material, 
+        Texture texture, 
         Rarity rarity, 
         BaseEventListener[] events, 
         string description)
     {
         Id = id;
         Name = name;
-        Material = material;
+        Texture = texture;
         Rarity = rarity;
         Events = events;
         Description = description;

@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ModifierData : PrizeData
 {
-    [field: SerializeField] public Material Material { get; private set; }
+    [field: SerializeField] public Texture Texture { get; private set; }
 
     [field: SerializeReference] public BaseEventListener[] Events { get; private set; }
     
@@ -11,6 +11,6 @@ public class ModifierData : PrizeData
 
     public Modifier ToDomain(ModifierModel model)
     {
-        return new Modifier(Id, name, Material, GetRarity(model.Rarity), Events, Description);
+        return new Modifier(Id, name, Texture, GetRarity(model.Rarity), Events, Description);
     }
 }
