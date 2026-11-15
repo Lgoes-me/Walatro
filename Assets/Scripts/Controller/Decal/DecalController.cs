@@ -33,7 +33,7 @@ public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Application.Instance.GetService<InterfaceService>().InfoDescriptor.Show(Modifier, Modifier.Rarity);
+        Application.Instance.GetService<InterfaceService>().InfoDescriptor.Show(this.gameObject, Modifier, Modifier.Rarity);
     }
 
     public void OnPointerExit(PointerEventData eventData)
