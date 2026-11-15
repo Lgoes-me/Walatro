@@ -3,19 +3,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [field: SerializeField] private RawImage RawImage { get; set; }
+    [field: SerializeField] private Button BuyButton { get; set; }
     
     private Modifier Modifier { get; set; }
-    private Action Action { get; set; }
 
     public void Init(Modifier modifier, Action action)
     {
         Modifier = modifier;
-        Action = action;
 
         RawImage.texture = Modifier.Texture;
+        
+        BuyButton.onClick.RemoveAllListeners();
+        BuyButton.onClick.AddListener(() => action?.Invoke());
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -26,11 +28,6 @@ public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointer
     public void OnPointerExit(PointerEventData eventData)
     {
         Application.Instance.GetService<InterfaceService>().InfoDescriptor.Hide();
-    }
-
-    public void OnPointerClick(PointerEventData pointerEventData)
-    {
-        Action?.Invoke();
     }
 
     private void OnDisable()
