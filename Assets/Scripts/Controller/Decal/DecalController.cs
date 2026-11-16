@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [field: SerializeField] private Material Material { get; set; }
     [field: SerializeField] private DecalProjector DecalProjector { get; set; }
 
     private Modifier Modifier { get; set; }
@@ -12,17 +13,24 @@ public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void Show(Modifier modifier)
     {
         Modifier = modifier;
+        
+        var instancedMaterial = new Material(Material);
+        DecalProjector.material = instancedMaterial;
         DecalProjector.material.SetTexture("Base_Map", Modifier.Texture); 
+
         Modifier.ModifierTriggered += GiveFeedback;
+
         gameObject.SetActive(true);
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
-        
+
+        Destroy(DecalProjector.material);
+
         Modifier = null;
-        DecalProjector.material.SetTexture("Base_Map", null); 
+        
         Modifier.ModifierTriggered -= GiveFeedback;
     }
 

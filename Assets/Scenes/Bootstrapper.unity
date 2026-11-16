@@ -135,18 +135,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.8117223
@@ -190,45 +178,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 46967920}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &46967917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 46967916}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &46967918 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &46967922 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 46967916}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &46967919 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 46967916}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46967918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &46967920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46967918}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 46967919}
 --- !u!1 &64784773
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &70335492
@@ -337,18 +304,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.750138
@@ -392,45 +347,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 77113639}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &77113636 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 77113635}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &77113637 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &77113641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 77113635}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &77113638 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 77113635}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77113637}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &77113639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77113637}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 77113638}
 --- !u!1001 &85924935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,18 +381,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.809865
@@ -502,45 +424,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 85924939}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &85924936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 85924935}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &85924937 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &85924941 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 85924935}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &85924938 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 85924935}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85924937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &85924939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 85924937}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 85924938}
 --- !u!1 &89440305
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,18 +533,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.8234115
@@ -687,79 +576,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 127289261}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &127289258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 127289257}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &127289259 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &127289263 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 127289257}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &127289260 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 127289257}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127289259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &127289261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 127289259}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 127289260}
---- !u!1 &131989160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 6008012249894318341}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &131989161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 6008012249894318341}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &131989162 stripped
+--- !u!114 &131989163 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 6008012249894318341}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131989160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &131989163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131989160}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 131989162}
 --- !u!1001 &143842945
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -776,18 +626,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.83
@@ -831,45 +669,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 143842949}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &143842946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 143842945}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &143842947 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &143842951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 143842945}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &143842948 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 143842945}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143842947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &143842949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 143842947}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 143842948}
 --- !u!1 &223440001
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,18 +769,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.72
@@ -1007,45 +812,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 231774589}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &231774586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 231774585}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &231774587 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &231774591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 231774585}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &231774588 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 231774585}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231774587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &231774589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231774587}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 231774588}
 --- !u!1001 &293873353
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1062,18 +846,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5397587
@@ -1117,45 +889,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 293873357}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &293873354 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 293873353}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &293873355 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &293873359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 293873353}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &293873356 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 293873353}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 293873355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &293873357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 293873355}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 293873356}
 --- !u!1001 &334003970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1300,18 +1051,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.6985717
@@ -1355,45 +1094,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 363096348}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &363096345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 363096344}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &363096346 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &363096350 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 363096344}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &363096347 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 363096344}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363096346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &363096348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363096346}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 363096347}
 --- !u!1 &401894553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,18 +1316,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.82
@@ -1653,45 +1359,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 457574111}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &457574108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 457574107}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &457574109 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &457574113 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 457574107}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &457574110 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 457574107}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457574109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &457574111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 457574109}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 457574110}
 --- !u!1 &492733063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,18 +1496,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.08
@@ -1866,45 +1539,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 514719102}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &514719099 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 514719098}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &514719100 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &514719104 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 514719098}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &514719101 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 514719098}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 514719100}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &514719102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 514719100}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 514719101}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2422,18 +2074,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1395793
@@ -2477,45 +2117,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 858952852}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &858952849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 858952848}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &858952850 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &858952854 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 858952848}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &858952851 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 858952848}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858952850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &858952852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858952850}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 858952851}
 --- !u!1001 &870532577
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2532,18 +2151,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.178153
@@ -2587,45 +2194,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 870532581}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &870532578 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 870532577}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &870532579 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &870532583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 870532577}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &870532580 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 870532577}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870532579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &870532581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870532579}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 870532580}
 --- !u!1001 &882881780
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2642,18 +2228,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.72
@@ -2697,45 +2271,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 882881784}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &882881781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 882881780}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &882881782 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &882881786 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 882881780}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &882881783 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 882881780}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882881782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &882881784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882881782}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 882881783}
 --- !u!1001 &911129769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3169,18 +2722,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.2394886
@@ -3224,45 +2765,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1019342640}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1019342637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1019342636}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1019342638 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1019342642 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1019342636}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1019342639 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1019342636}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019342638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1019342640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1019342638}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1019342639}
 --- !u!1001 &1032094453
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3279,18 +2799,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.86
@@ -3334,45 +2842,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1032094457}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1032094454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1032094453}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1032094455 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1032094459 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1032094453}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1032094456 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1032094453}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032094455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1032094457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032094455}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1032094456}
 --- !u!1 &1061904284
 GameObject:
   m_ObjectHideFlags: 0
@@ -3597,18 +3084,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.180227
@@ -3652,45 +3127,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1102935910}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1102935907 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1102935906}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1102935908 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1102935912 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1102935906}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1102935909 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1102935906}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1102935908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1102935910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1102935908}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1102935909}
 --- !u!1001 &1121522352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3707,18 +3161,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5392103
@@ -3762,45 +3204,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1121522356}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1121522353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1121522352}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1121522354 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1121522358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1121522352}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1121522355 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1121522352}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121522354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1121522356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1121522354}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1121522355}
 --- !u!1 &1137871030
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,18 +3274,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.34
@@ -3908,45 +3317,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1191732951}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1191732948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1191732947}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1191732949 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1191732953 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1191732947}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1191732950 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1191732947}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191732949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1191732951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1191732949}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1191732950}
 --- !u!1 &1274034065
 GameObject:
   m_ObjectHideFlags: 0
@@ -4447,18 +3835,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.36
@@ -4502,45 +3878,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1408549787}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1408549784 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1408549783}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1408549785 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1408549789 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1408549783}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1408549786 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1408549783}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408549785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1408549787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408549785}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1408549786}
 --- !u!1001 &1439549161
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4557,18 +3912,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.3796334
@@ -4612,45 +3955,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1439549165}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1439549162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1439549161}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1439549163 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1439549167 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1439549161}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1439549164 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1439549161}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439549163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1439549165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439549163}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1439549164}
 --- !u!1001 &1441667604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4667,18 +3989,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.7
@@ -4722,45 +4032,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1441667608}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1441667605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1441667604}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1441667606 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1441667610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1441667604}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1441667607 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1441667604}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441667606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1441667608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441667606}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1441667607}
 --- !u!1 &1485617643
 GameObject:
   m_ObjectHideFlags: 0
@@ -4914,18 +4203,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.33985567
@@ -4969,45 +4246,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1486288439}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1486288436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1486288435}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1486288437 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1486288441 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1486288435}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1486288438 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1486288435}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486288437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1486288439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1486288437}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1486288438}
 --- !u!1 &1520502438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5119,18 +4375,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.85892
@@ -5174,45 +4418,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1599398500}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1599398497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1599398496}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1599398498 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1599398502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1599398496}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1599398499 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1599398496}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599398498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1599398500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599398498}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1599398499}
 --- !u!4 &1600156476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2539705476351861723, guid: 111134f1ba19da74591a13a59a6b1ed2, type: 3}
@@ -5234,18 +4457,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1403697
@@ -5289,45 +4500,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1611317420}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1611317417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1611317416}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1611317418 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1611317422 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1611317416}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1611317419 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1611317416}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611317418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1611317420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1611317418}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1611317419}
 --- !u!1001 &1622796352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5344,18 +4534,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.898048
@@ -5399,45 +4577,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1622796356}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1622796353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1622796352}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1622796354 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1622796358 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1622796352}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1622796355 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1622796352}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622796354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1622796356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1622796354}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1622796355}
 --- !u!1001 &1675106893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5454,18 +4611,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.981997
@@ -5509,45 +4654,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1675106897}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1675106894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1675106893}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1675106895 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1675106899 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1675106893}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1675106896 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1675106893}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675106895}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1675106897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675106895}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1675106896}
 --- !u!1001 &1715917680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5564,18 +4688,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.9765882
@@ -5619,45 +4731,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1715917684}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1715917681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1715917680}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1715917682 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1715917686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1715917680}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1715917683 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1715917680}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715917682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1715917684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1715917682}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1715917683}
 --- !u!1001 &1773655263
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5674,18 +4765,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.310207
@@ -5729,45 +4808,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1773655267}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1773655264 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1773655263}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1773655265 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1773655269 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1773655263}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1773655266 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1773655263}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773655265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1773655267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773655265}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1773655266}
 --- !u!1001 &1783258412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5784,18 +4842,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.97
@@ -5839,45 +4885,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1783258416}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1783258413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1783258412}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1783258414 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1783258418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1783258412}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1783258415 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1783258412}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783258414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1783258416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783258414}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1783258415}
 --- !u!1001 &1808851181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5894,18 +4919,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.31
@@ -5949,45 +4962,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1808851185}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1808851182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1808851181}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1808851183 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1808851187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1808851181}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1808851184 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1808851181}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808851183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1808851185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808851183}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1808851184}
 --- !u!1 &1825069374
 GameObject:
   m_ObjectHideFlags: 0
@@ -6192,18 +5184,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.7499304
@@ -6247,45 +5227,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1837963591}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1837963588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1837963587}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1837963589 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1837963593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1837963587}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1837963590 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1837963587}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837963589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1837963591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837963589}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1837963590}
 --- !u!1001 &1856988366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6302,18 +5261,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.8994079
@@ -6357,45 +5304,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1856988370}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1856988367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1856988366}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1856988368 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1856988372 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1856988366}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1856988369 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1856988366}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856988368}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1856988370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856988368}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1856988369}
 --- !u!1001 &1954765201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6412,18 +5338,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.719931
@@ -6467,45 +5381,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1954765205}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &1954765202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1954765201}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1954765203 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &1954765207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 1954765201}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1954765204 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 1954765201}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954765203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &1954765205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1954765203}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 1954765204}
 --- !u!1 &2017690489
 GameObject:
   m_ObjectHideFlags: 0
@@ -6588,41 +5481,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DecalManager
   <Decals>k__BackingField:
   - {fileID: 131989163}
-  - {fileID: 46967920}
-  - {fileID: 457574111}
-  - {fileID: 1715917684}
-  - {fileID: 514719102}
-  - {fileID: 1032094457}
-  - {fileID: 85924939}
-  - {fileID: 2099295845}
-  - {fileID: 1675106897}
-  - {fileID: 1783258416}
-  - {fileID: 1599398500}
-  - {fileID: 143842949}
-  - {fileID: 231774589}
-  - {fileID: 127289261}
-  - {fileID: 1808851185}
-  - {fileID: 1773655267}
-  - {fileID: 77113639}
-  - {fileID: 1837963591}
-  - {fileID: 293873357}
-  - {fileID: 1121522356}
-  - {fileID: 882881784}
-  - {fileID: 1954765205}
-  - {fileID: 1486288439}
-  - {fileID: 1191732951}
-  - {fileID: 1856988370}
-  - {fileID: 1622796356}
-  - {fileID: 1441667608}
-  - {fileID: 363096348}
-  - {fileID: 2143450349}
-  - {fileID: 1019342640}
-  - {fileID: 1611317420}
-  - {fileID: 858952852}
-  - {fileID: 1439549165}
-  - {fileID: 1408549787}
-  - {fileID: 1102935910}
-  - {fileID: 870532581}
+  - {fileID: 46967922}
+  - {fileID: 457574113}
+  - {fileID: 1715917686}
+  - {fileID: 514719104}
+  - {fileID: 1032094459}
+  - {fileID: 85924941}
+  - {fileID: 2099295847}
+  - {fileID: 1675106899}
+  - {fileID: 1783258418}
+  - {fileID: 1599398502}
+  - {fileID: 143842951}
+  - {fileID: 231774591}
+  - {fileID: 127289263}
+  - {fileID: 1808851187}
+  - {fileID: 1773655269}
+  - {fileID: 77113641}
+  - {fileID: 1837963593}
+  - {fileID: 293873359}
+  - {fileID: 1121522358}
+  - {fileID: 882881786}
+  - {fileID: 1954765207}
+  - {fileID: 1486288441}
+  - {fileID: 1191732953}
+  - {fileID: 1856988372}
+  - {fileID: 1622796358}
+  - {fileID: 1441667610}
+  - {fileID: 363096350}
+  - {fileID: 2143450351}
+  - {fileID: 1019342642}
+  - {fileID: 1611317422}
+  - {fileID: 858952854}
+  - {fileID: 1439549167}
+  - {fileID: 1408549789}
+  - {fileID: 1102935912}
+  - {fileID: 870532583}
 --- !u!1001 &2099295841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6639,18 +5532,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.8785853
@@ -6694,45 +5575,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 2099295845}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &2099295842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 2099295841}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2099295843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &2099295847 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 2099295841}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2099295844 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 2099295841}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099295843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &2099295845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099295843}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 2099295844}
 --- !u!1 &2114286503
 GameObject:
   m_ObjectHideFlags: 0
@@ -6886,18 +5746,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.24
@@ -6941,45 +5789,24 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 2143450349}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!4 &2143450346 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 2143450345}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2143450347 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
+--- !u!114 &2143450351 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 206365249876168382, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
   m_PrefabInstance: {fileID: 2143450345}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2143450348 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-  m_PrefabInstance: {fileID: 2143450345}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143450347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
---- !u!114 &2143450349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2143450347}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
-  <DecalProjector>k__BackingField: {fileID: 2143450348}
 --- !u!1001 &1635410220561017635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7154,18 +5981,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5622910647360563537, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7968530238842474886, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.81
@@ -7209,10 +6024,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485316089323299483, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 131989163}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c66138afcdda244ebb77653413b3f02, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
