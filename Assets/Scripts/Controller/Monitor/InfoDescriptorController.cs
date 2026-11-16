@@ -20,11 +20,12 @@ public class InfoDescriptorController : MonoBehaviour
         
         if (focus.transform is RectTransform rectTransform)
         {
-            Pivot.anchoredPosition = rectTransform.position;
+            Pivot.position = rectTransform.position;
         }
         else
         {
-            Pivot.anchoredPosition = Camera.WorldToScreenPoint(focus.transform.position) - Canvas.position;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(Canvas, Camera.WorldToScreenPoint(focus.transform.position), Camera, out var position);
+            Pivot.anchoredPosition = position;
         }
     }
 
