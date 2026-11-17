@@ -19,9 +19,6 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
     private CinemachineCamera CameraLonge { get; set; }
 
     [field: SerializeField]
-    private CinemachineCamera CameraMedia { get; set; }
-
-    [field: SerializeField]
     private CinemachineCamera CameraPerto { get; set; }
 
     [field: SerializeField]
@@ -39,15 +36,9 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
     public UniTask Boot()
     {
         ResetMouse();
-        CameraMedia.Priority = 1;
+        CameraPerto.Priority = 1;
         CameraLonge.Priority = -1;
         return UniTask.CompletedTask;
-    }
-
-    public void StartGame()
-    {
-        CameraPerto.Priority = 1;
-        CameraMedia.Priority = -1;
     }
 
     public UniTask StartSave()

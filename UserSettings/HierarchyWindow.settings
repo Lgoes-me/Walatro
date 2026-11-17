@@ -12,13 +12,13 @@
         {
             "ColumnId": "Picking",
             "Visible": true,
-            "Width": 20.0,
+            "Width": 21.0,
             "Index": 1
         },
         {
             "ColumnId": "HierarchyViewColumn Name",
             "Visible": true,
-            "Width": 249.0,
+            "Width": 251.0,
             "Index": 2
         },
         {

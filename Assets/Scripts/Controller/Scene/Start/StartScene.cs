@@ -27,8 +27,6 @@ public class StartScene : BaseScene<StartSceneData>
 
     private async UniTask StartGame()
     {
-        Application.GetService<InterfaceService>().StartGame();
-
         if (!TutorialService.HasFinishedTutorial())
         {
             if (!GameSaveService.PossuiContinue())

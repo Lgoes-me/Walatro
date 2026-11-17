@@ -9,11 +9,11 @@ public class PrizeScene : BaseScene<PrizeSceneData>
 
     private SceneService SceneService { get; set; }
 
-    protected override void Init()
+    protected override async void Init()
     {
         SceneService = Application.GetService<SceneService>();
         
-        Application.GetService<InterfaceService>().PrizeCanvas.Show();
+        await Application.GetService<InterfaceService>().PrizeCanvas.Show();
 
         NextButton.onClick.RemoveAllListeners();
         NextButton.onClick.AddListener(() => Next().Forget());

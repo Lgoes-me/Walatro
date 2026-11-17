@@ -15,7 +15,7 @@ public class PrizeCanvasController : MonoBehaviour
 
     private List<Modifier> Modifiers { get; set; }
 
-    public async void Show()
+    public async UniTask Show()
     {
         GameSaveService = Application.Instance.GetService<GameSaveService>();
         ModifierService = Application.Instance.GetService<ModifierService>();
