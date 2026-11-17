@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 #if UNITY_EDITOR
@@ -8,11 +9,12 @@ using UnityEditor;
 public class GameDiscData : ScriptableObject, IIdentifiable
 {
     [field: SerializeField] public string Id { get; set; }
+    [field: SerializeField] private List<GameTag> Tags { get; set; }
     [field: SerializeField] private BaseMinigameController MinigameControllerPrefab { get; set; }
 
     public GameDisc ToDomain()
     {
-        return new GameDisc(Id, MinigameControllerPrefab);
+        return new GameDisc(Id, Tags, MinigameControllerPrefab);
     }
     
 #if UNITY_EDITOR
