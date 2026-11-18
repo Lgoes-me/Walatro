@@ -15,8 +15,8 @@ public class Application : MonoBehaviour
     private List<KeyValuePair<int, List<IPreparable>>> Preparables { get; set; }
     private List<KeyValuePair<int, List<IBootable>>> Bootables { get; set; }
     private List<KeyValuePair<int, List<IStartable>>> Startables { get; set; }
-    private List<KeyValuePair<int, List<IResettable>>> Resettables { get; set; }
     private List<KeyValuePair<int, List<IOnShopEnter>>> OnShopEnters { get; set; }
+    private List<KeyValuePair<int, List<IOnGameOver>>> OnGameOvers { get; set; }
 
     private void Awake()
     {
@@ -50,8 +50,8 @@ public class Application : MonoBehaviour
         Preparables = Services.PrepareServices<IPreparable>("Prepare");
         Bootables = Services.PrepareServices<IBootable>("Boot");
         Startables = Services.PrepareServices<IStartable>("StartSave");
-        Resettables = Services.PrepareServices<IResettable>("ResetSave");
         OnShopEnters = Services.PrepareServices<IOnShopEnter>("OnShopEnter");
+        OnGameOvers = Services.PrepareServices<IOnGameOver>("OnGameOver");
     }
 
     private void Start()
@@ -126,15 +126,15 @@ public class Application : MonoBehaviour
         }
     }
 
-    public async UniTask OnSaveReset()
+    public async UniTask OnGameOver()
     {
-        foreach (var (_, services) in Resettables)
+        foreach (var (_, services) in OnGameOvers)
         {
             var tasks = new List<UniTask>();
 
             foreach (var service in services)
             {
-                tasks.Add(service.ResetSave());
+                tasks.Add(service.OnGameOver());
             }
 
             await UniTask.WhenAll(tasks);
@@ -178,16 +178,14 @@ public interface IStartable
     UniTask StartSave();
 }
 
-//On save reset
-public interface IResettable
-{
-    UniTask ResetSave();
-}
-
-//After shop loads
 public interface IOnShopEnter
 {
     UniTask OnShopEnter();
+}
+
+public interface IOnGameOver
+{
+    UniTask OnGameOver();
 }
 
 public class CallbackOrderAttribute : Attribute

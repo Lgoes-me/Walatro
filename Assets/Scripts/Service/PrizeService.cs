@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class PrizeService : IService, IPreparable, IResettable
+public class PrizeService : IService, IPreparable
 {
     private GameSaveService GameSaveService { get; set; }
     private RandomService RandomService { get; set; }
@@ -34,10 +34,5 @@ public class PrizeService : IService, IPreparable, IResettable
         }
 
         return shopItems;
-    }
-    
-    public UniTask ResetSave()
-    {
-        return UniTask.CompletedTask;
     }
 }

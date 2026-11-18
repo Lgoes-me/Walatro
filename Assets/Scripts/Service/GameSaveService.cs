@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 
-public class GameSaveService : IService, IPreparable, IBootable, IOnShopEnter
+public class GameSaveService : IService, IPreparable, IBootable, IOnShopEnter, IOnGameOver
 {
     public Save Save { get; private set; }
     private SaveManager SaveManager { get; set; }
@@ -30,6 +30,12 @@ public class GameSaveService : IService, IPreparable, IBootable, IOnShopEnter
     public UniTask Boot()
     {
         SaveManager = new SaveManager();
+        return UniTask.CompletedTask;
+    }
+
+    public UniTask OnGameOver()
+    {
+        DeleteSave(Save);
         return UniTask.CompletedTask;
     }
 

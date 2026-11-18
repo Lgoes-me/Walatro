@@ -29,9 +29,8 @@ public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         Destroy(DecalProjector.material);
 
-        Modifier = null;
-        
         Modifier.ModifierTriggered -= GiveFeedback;
+        Modifier = null;
     }
 
     private void GiveFeedback()

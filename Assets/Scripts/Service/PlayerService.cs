@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class PlayerService : IService, IPreparable, IStartable, IResettable
+public class PlayerService : IService, IPreparable, IStartable, IOnGameOver
 {
     public List<Modifier> PlayerModifiers { get; private set; }
 
@@ -14,14 +14,14 @@ public class PlayerService : IService, IPreparable, IStartable, IResettable
         var application = Application.Instance;
         GameSaveService = application.GetService<GameSaveService>();
         ContentService = application.GetService<ContentService>();
-
+        
         return UniTask.CompletedTask;
     }
     
     public UniTask StartSave()
     {
         //todo nao deveria vir do save
-        /*PlayerModifiers = new List<Modifier>();
+        /*
 
         foreach (var modifierModel in GameSaveService.Save.Modifiers)
         {
@@ -32,9 +32,9 @@ public class PlayerService : IService, IPreparable, IStartable, IResettable
         return UniTask.CompletedTask;
     }
     
-    public UniTask ResetSave()
+    public UniTask OnGameOver()
     {
-        PlayerModifiers.Clear();
+        //PlayerModifiers.Clear();
         return UniTask.CompletedTask;
     }
 }

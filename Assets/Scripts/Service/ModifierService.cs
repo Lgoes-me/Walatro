@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class ModifierService : IService, IPreparable, IBootable, IStartable, IResettable
+public class ModifierService : IService, IPreparable, IBootable, IStartable, IOnGameOver
 {
     public List<Modifier> Modifiers { get; private set; }
 
@@ -51,7 +51,7 @@ public class ModifierService : IService, IPreparable, IBootable, IStartable, IRe
         } 
     }
 
-    public UniTask ResetSave()
+    public UniTask OnGameOver()
     {
         ClearModifiers();
         return UniTask.CompletedTask;

@@ -17,15 +17,11 @@ public class GameOverScene : BaseAwaitableScene<GameOverSceneData>
         ResetButton.Select();
     }
 
-    private UniTask Reset()
+    private async UniTask Reset()
     {
-        GameSaveService.DeleteSave(GameSaveService.Save);
-
+        await Application.OnGameOver();   
         CloseScene();
-        
-        return UniTask.CompletedTask;
     }
-
 }
 
 public class GameOverSceneData : BaseSceneData

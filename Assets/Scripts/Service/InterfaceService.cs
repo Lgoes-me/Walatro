@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using Unity.Cinemachine;
 using Cysharp.Threading.Tasks;
 
-public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
+public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable, IOnGameOver
 {
     [field: SerializeField]
     private Sprite MouseSprite { get; set; }
@@ -44,6 +44,12 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
     public UniTask StartSave()
     {
         ResetMouse();
+        return UniTask.CompletedTask;
+    }
+
+    public UniTask OnGameOver()
+    {
+        DecalManager.HideAll();
         return UniTask.CompletedTask;
     }
 
