@@ -7,13 +7,9 @@ public class PrizeScene : BaseScene<PrizeSceneData>
 {
     [field: SerializeField] private Button NextButton { get; set; }
 
-    private SceneService SceneService { get; set; }
-
-    protected override async void Init()
+    protected override void Init()
     {
-        SceneService = Application.GetService<SceneService>();
-        
-        await Application.GetService<InterfaceService>().PrizeCanvas.Show();
+        Application.GetService<InterfaceService>().GivePrize().Forget();
 
         NextButton.onClick.RemoveAllListeners();
         NextButton.onClick.AddListener(() => Next().Forget());
@@ -21,7 +17,7 @@ public class PrizeScene : BaseScene<PrizeSceneData>
 
     private async UniTask Next()
     {
-        await SceneService.OpenScene(new GameplaySceneData());
+        await Application.GetService<SceneService>().OpenScene(new GameplaySceneData());
     }
 }
 

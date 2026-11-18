@@ -25,7 +25,7 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
     public InfoDescriptorController InfoDescriptor { get; set; }
 
     [field: SerializeField]
-    public PrizeCanvasController PrizeCanvas { get; set; }
+    private PrizeCanvasController PrizeCanvas { get; set; }
 
     [field: SerializeField]
     public ScreenMouseDetector ScreenMouseDetector { get; set; }
@@ -53,6 +53,11 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable
             return;
             
         Mouse.sprite = sprite;
+    }
+
+    public async UniTask GivePrize()
+    {
+        await PrizeCanvas.Show();
     }
 
     public Ray RaycastFromVirtualMouse()
