@@ -26,15 +26,15 @@ public class ContentService : MonoBehaviour, IService, IPreparable
         return UniTask.CompletedTask;
     }
     
-    public async UniTask<Modifier> GetModifierFromModel(ModifierModel info)
+    public async UniTask<Modifier> GetModifierFromModel(ModifierModel modifierModel)
     {
-        if (AvailableModifiers.TryGetValue(info.Id, out var modifierDataAsset))
+        if (AvailableModifiers.TryGetValue(modifierModel.Id, out var modifierDataAsset))
         {
             var modifierData = await modifierDataAsset.LoadAssetAsyncIfValid();
-            return modifierData.ToDomain(info);
+            return modifierData.ToDomain(modifierModel);
         }
 
-        throw new Exception("Invalid Modifier info");
+        throw new Exception("Invalid Modifier");
     }
 
     public async UniTask<GameBox> GetGameBoxFromId(string id)
@@ -45,7 +45,7 @@ public class ContentService : MonoBehaviour, IService, IPreparable
             return gameBoxData.ToDomain();
         }
 
-        throw new Exception("Invalid gameBox id");
+        throw new Exception("Invalid gameBox");
     }
 
 
@@ -54,10 +54,10 @@ public class ContentService : MonoBehaviour, IService, IPreparable
         if (AvailableGameDiscs.TryGetValue(gameDiscModel.Id, out var gameDiscDataAsset))
         {
             var gameDiscData = await gameDiscDataAsset.LoadAssetAsyncIfValid();
-            return gameDiscData.ToDomain();
+            return gameDiscData.ToDomain(gameDiscModel);
         }
 
-        throw new Exception("Invalid gameDiscModel");
+        throw new Exception("Invalid gameDisc");
     }
 
 #if UNITY_EDITOR

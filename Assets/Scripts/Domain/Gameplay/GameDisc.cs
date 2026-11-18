@@ -4,21 +4,24 @@ public class GameDisc
 {
     public string Id { get; set; }
     public List<GameTag> Tags { get; set; }
+    public DiscModifier Modifier { get; set; }
     public BaseMinigameController MinigameControllerPrefab { get; set; }
 
     public GameDisc(
         string id,
         List<GameTag> tags,
+        DiscModifier modifier,
         BaseMinigameController minigameControllerPrefab)
     {
         Id = id;
         Tags = tags;
+        Modifier = modifier;
         MinigameControllerPrefab = minigameControllerPrefab;
     }
 
     public GameDiscModel ToModel()
     {
-        return new GameDiscModel(Id);
+        return new GameDiscModel(Id, Modifier);
     }
 }
 
@@ -30,4 +33,12 @@ public enum GameTag
     Esporte = 2,
     Aventura = 3,
     Tiro = 4,
+}
+
+public enum DiscModifier
+{
+    None = -1,
+    ExtraChips = 0,
+    Mult = 1,
+    Gold = 2,
 }

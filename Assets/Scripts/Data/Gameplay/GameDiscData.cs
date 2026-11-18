@@ -12,9 +12,14 @@ public class GameDiscData : ScriptableObject, IIdentifiable
     [field: SerializeField] private List<GameTag> Tags { get; set; }
     [field: SerializeField] private BaseMinigameController MinigameControllerPrefab { get; set; }
 
+    public GameDisc ToDomain(GameDiscModel gameDiscModel)
+    {
+        return new GameDisc(Id, Tags, gameDiscModel.Modifier, MinigameControllerPrefab);
+    }
+
     public GameDisc ToDomain()
     {
-        return new GameDisc(Id, Tags, MinigameControllerPrefab);
+        return new GameDisc(Id, Tags, DiscModifier.None, MinigameControllerPrefab);
     }
     
 #if UNITY_EDITOR

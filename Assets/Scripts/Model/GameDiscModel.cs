@@ -4,15 +4,17 @@ using System;
 public class GameDiscModel
 {
     public string Id { get; set; }
+    public DiscModifier Modifier { get; set; }
     
-    public GameDiscModel(string id)
+    public GameDiscModel(string id, DiscModifier modifier)
     {
         Id = id;
+        Modifier = modifier;
     }
 
     protected bool Equals(GameDiscModel other)
     {
-        return Id == other.Id;
+        return Id == other.Id && Modifier == other.Modifier;
     }
 
     public override bool Equals(object obj)
@@ -25,6 +27,6 @@ public class GameDiscModel
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(Id);
+        return HashCode.Combine(Id, Modifier);
     }
 }
