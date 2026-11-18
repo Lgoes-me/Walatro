@@ -15,7 +15,7 @@ public class GameBox
     public async UniTask<GameDisc> GetRandomGame()
     {
         await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
-        return Games[UnityEngine.Random.Range(0, Games.Count)];
+        return Application.Instance.GetService<RandomService>().RandomElement(Games);
     }
     
     public GameBoxModel ToModel()

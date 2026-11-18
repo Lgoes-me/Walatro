@@ -28,10 +28,10 @@ public class PrizeCanvasController : MonoBehaviour
 
         gameObject.SetActive(true);
 
-        Items[0].Init(Modifiers[0], () => SelectItem(0).Forget());
-        Items[1].Init(Modifiers[1], () => SelectItem(1).Forget());
-        Items[2].Init(Modifiers[2], () => SelectItem(2).Forget());
-        Items[3].Init(Modifiers[3], () => SelectItem(3).Forget());
+        Items[0].Init(Modifiers[0], () => SelectItem(0));
+        Items[1].Init(Modifiers[1], () => SelectItem(1));
+        Items[2].Init(Modifiers[2], () => SelectItem(2));
+        Items[3].Init(Modifiers[3], () => SelectItem(3));
 
         RerollButton.onClick.RemoveAllListeners();
         RerollButton.onClick.AddListener(() => RerollItems().Forget());
@@ -40,7 +40,7 @@ public class PrizeCanvasController : MonoBehaviour
         RerollButton.gameObject.SetActive(false);
     }
     
-    private async UniTask SelectItem(int i)
+    private void SelectItem(int i)
     {
         //feedback visual
         ModifierService.AddModifier(Modifiers[i]);
