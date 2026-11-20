@@ -33,6 +33,9 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable, I
     [field: SerializeField] 
     public DecalManager DecalManager { get; set; }
 
+    [field: SerializeField] 
+    public GameDiscManager GameDiscManager { get; set; }
+
     public UniTask Boot()
     {
         ResetMouse();

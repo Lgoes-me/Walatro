@@ -2,14 +2,14 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using DG.Tweening;
 
-public class GameDiscCotroller : MonoBehaviour
+public class GameDiscController : MonoBehaviour
 {
     [field: SerializeField] private Material Material { get; set; }
     [field: SerializeField] private DecalProjector DecalProjector { get; set; }
 
     private GameDisc GameDisc { get; set; }
 
-    public void Show(GameDisc gameDisc)
+    public GameDiscController Init(GameDisc gameDisc)
     {
         GameDisc = gameDisc;
         
@@ -19,17 +19,17 @@ public class GameDiscCotroller : MonoBehaviour
 
         GameDisc.GameDiscTriggered += GiveFeedback;
 
-        gameObject.SetActive(true);
+        return this;
     }
 
     public void Hide()
     {
-        gameObject.SetActive(false);
-
         Destroy(DecalProjector.material);
 
         GameDisc.GameDiscTriggered -= GiveFeedback;
         GameDisc = null;
+        
+        Destroy(this.gameObject);
     }
 
     private void GiveFeedback()
