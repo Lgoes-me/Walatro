@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2539705476351861723}
+  - component: {fileID: 376631872941199056}
   m_Layer: 0
   m_Name: Disquete
   m_TagString: Untagged
@@ -33,6 +34,20 @@ Transform:
   - {fileID: 6262593995705738447}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -86.28, y: 0, z: 0}
+--- !u!114 &376631872941199056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612009156523859331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2569fed12cb4a85469bbdc4fb58331b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DiscCotroller
+  <Material>k__BackingField: {fileID: 2100000, guid: 28dff572821fe4d4fa983afb36f2dd1f, type: 2}
+  <DecalProjector>k__BackingField: {fileID: 2405825055869149338}
 --- !u!1 &4819621026159328727
 GameObject:
   m_ObjectHideFlags: 0

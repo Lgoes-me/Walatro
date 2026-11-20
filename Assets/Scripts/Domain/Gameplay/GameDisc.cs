@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class GameDisc
 {
@@ -6,17 +7,28 @@ public class GameDisc
     public List<GameTag> Tags { get; set; }
     public DiscModifier Modifier { get; set; }
     public BaseMinigameController MinigameControllerPrefab { get; set; }
+    public Texture Texture { get; private set; }
+    
+    public delegate void EventTriggered();
+    public event EventTriggered GameDiscTriggered;
 
     public GameDisc(
         string id,
         List<GameTag> tags,
         DiscModifier modifier,
+        Texture texture,
         BaseMinigameController minigameControllerPrefab)
     {
         Id = id;
         Tags = tags;
         Modifier = modifier;
+        Texture = texture;
         MinigameControllerPrefab = minigameControllerPrefab;
+    }
+
+    public void TriggerEventDelegate()
+    {
+        GameDiscTriggered?.Invoke();
     }
 
     public GameDiscModel ToModel()
