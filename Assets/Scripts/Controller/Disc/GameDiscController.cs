@@ -4,18 +4,30 @@ using DG.Tweening;
 
 public class GameDiscController : MonoBehaviour
 {
-    [field: SerializeField] private Material Material { get; set; }
-    [field: SerializeField] private DecalProjector DecalProjector { get; set; }
+    [field: SerializeField] private Material DiscMaterial { get; set; }
+    [field: SerializeField] private Material DecalMaterial { get; set; }
+    [field: SerializeField] private MeshRenderer MeshRenderer { get; set; }
 
     private GameDisc GameDisc { get; set; }
+    
+    private static readonly int BaseMapID = Shader.PropertyToID("_BaseMap");
 
     public GameDiscController Init(GameDisc gameDisc)
     {
         GameDisc = gameDisc;
         
-        var instancedMaterial = new Material(Material);
-        DecalProjector.material = instancedMaterial;
-        DecalProjector.material.SetTexture("Base_Map", GameDisc.Texture); 
+        var instancedDiscMaterial = new Material(DiscMaterial);
+
+        var instancedDecalMaterial = new Material(DecalMaterial);
+        instancedDecalMaterial.SetTexture(BaseMapID, GameDisc.Texture); 
+
+        var materials = new Material[2]
+         {
+            instancedDiscMaterial,  
+            instancedDecalMaterial
+        };
+
+        MeshRenderer.materials = materials;
 
         GameDisc.GameDiscTriggered += GiveFeedback;
 
@@ -24,7 +36,10 @@ public class GameDiscController : MonoBehaviour
 
     public void Hide()
     {
-        Destroy(DecalProjector.material);
+        foreach(var material in MeshRenderer.materials)
+        {
+            Destroy(material);
+        }
 
         GameDisc.GameDiscTriggered -= GiveFeedback;
         GameDisc = null;

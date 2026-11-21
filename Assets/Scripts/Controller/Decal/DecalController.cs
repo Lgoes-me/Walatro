@@ -9,6 +9,8 @@ public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [field: SerializeField] private DecalProjector DecalProjector { get; set; }
 
     private Modifier Modifier { get; set; }
+
+    private static readonly int BaseMapID = Shader.PropertyToID("Base_Map");
     
     public void Show(Modifier modifier)
     {
@@ -16,7 +18,7 @@ public class DecalController : MonoBehaviour, IPointerEnterHandler, IPointerExit
         
         var instancedMaterial = new Material(Material);
         DecalProjector.material = instancedMaterial;
-        DecalProjector.material.SetTexture("Base_Map", Modifier.Texture); 
+        DecalProjector.material.SetTexture(BaseMapID, Modifier.Texture); 
 
         Modifier.ModifierTriggered += GiveFeedback;
 

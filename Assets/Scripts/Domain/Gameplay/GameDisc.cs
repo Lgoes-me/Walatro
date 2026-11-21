@@ -1,16 +1,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDisc
+public class GameDisc: IBaseEventData, IInfoDescriptor
 {
-    public string Id { get; set; }
-    public List<GameTag> Tags { get; set; }
-    public DiscModifier Modifier { get; set; }
-    public BaseMinigameController MinigameControllerPrefab { get; set; }
+    public string Id { get; private set; }
+    public string Name { get; private set; }
+    public Rarity Rarity { get; private set; }
+    public List<GameTag> Tags { get; private set; }
+    public DiscModifier Modifier { get; private set; }
+    public BaseMinigameController MinigameControllerPrefab { get; private set; }
     public Texture Texture { get; private set; }
     
-    public delegate void EventTriggered();
-    public event EventTriggered GameDiscTriggered;
+    public BaseEventListener[] Events { get; }
+    private string Description { get; set; }
+    
+    public event IBaseEventData.EventTriggered GameDiscTriggered;
 
     public GameDisc(
         string id,
@@ -30,6 +34,8 @@ public class GameDisc
     {
         GameDiscTriggered?.Invoke();
     }
+    
+    public string GetDescription(Rarity rarity) => string.Format(Description ?? string.Empty, (this as IBaseEventData).GetTextParams(rarity));
 
     public GameDiscModel ToModel()
     {
