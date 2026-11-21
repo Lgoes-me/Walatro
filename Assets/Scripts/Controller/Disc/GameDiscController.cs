@@ -1,20 +1,23 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.EventSystems;
 using DG.Tweening;
 
-public class GameDiscController : MonoBehaviour
+public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [field: SerializeField] private Material DiscMaterial { get; set; }
     [field: SerializeField] private Material DecalMaterial { get; set; }
     [field: SerializeField] private MeshRenderer MeshRenderer { get; set; }
 
     private GameDisc GameDisc { get; set; }
+    private bool Selectable { get; set; }
     
     private static readonly int BaseMapID = Shader.PropertyToID("_BaseMap");
 
     public GameDiscController Init(GameDisc gameDisc)
     {
         GameDisc = gameDisc;
+        Selectable = false;
         
         var instancedDiscMaterial = new Material(DiscMaterial);
 
@@ -30,6 +33,8 @@ public class GameDiscController : MonoBehaviour
         MeshRenderer.materials = materials;
 
         GameDisc.GameDiscTriggered += GiveFeedback;
+        GameDisc.GameDiscChosen += MoveToPosition;
+        GameDisc.GameDiscComplete += Hide;
 
         return this;
     }
@@ -42,6 +47,8 @@ public class GameDiscController : MonoBehaviour
         }
 
         GameDisc.GameDiscTriggered -= GiveFeedback;
+        GameDisc.GameDiscChosen -= MoveToPosition;
+        GameDisc.GameDiscComplete -= Hide;
         GameDisc = null;
         
         Destroy(this.gameObject);
@@ -50,5 +57,42 @@ public class GameDiscController : MonoBehaviour
     private void GiveFeedback()
     {
         transform.DOShakePosition(0.15f, 0.15f);
+    }
+
+    private void MoveToPosition()
+    {
+        Selectable = true;
+        
+        var transformHand = Application.Instance.GetService<InterfaceService>().HandPosition;
+        var transformInsert = Application.Instance.GetService<InterfaceService>().InsertPosition;
+
+        Sequence seq = DOTween.Sequence();
+        seq.Append(transform.DOMove(transformHand.position, 1f));
+        seq.Join(transform.DORotate(transformHand.eulerAngles, 1f));
+        seq.Join(transform.DOScale(transformHand.localScale, 1f));
+        seq.Append(transform.DOMove(transformInsert.position, 1f));
+        seq.Join(transform.DORotate(transformInsert.eulerAngles, 1f));
+        seq.Join(transform.DOScale(transformInsert.localScale, 1f));
+
+        seq.Play();
+    }
+    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!Selectable || GameDisc.Modifier is DiscModifier.None)
+            return;
+        
+        Application.Instance.GetService<InterfaceService>().InfoDescriptor.Show(this.gameObject, GameDisc, GameDisc.Rarity);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Application.Instance.GetService<InterfaceService>().InfoDescriptor.Hide();
+    }
+
+    private void OnDestroy()
+    {
+        Selectable = false;
+        Application.Instance.GetService<InterfaceService>().InfoDescriptor.Hide();
     }
 }

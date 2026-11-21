@@ -29,6 +29,8 @@ public class GameDisc: IBaseEventData, IInfoDescriptor
     private string Description { get; set; }
     
     public event IBaseEventData.EventTriggered GameDiscTriggered;
+    public event IBaseEventData.EventTriggered GameDiscChosen;
+    public event IBaseEventData.EventTriggered GameDiscComplete;
 
     public GameDisc(
         string id,
@@ -48,7 +50,17 @@ public class GameDisc: IBaseEventData, IInfoDescriptor
     {
         GameDiscTriggered?.Invoke();
     }
-    
+
+    public void TriggerGameChosenDelegate()
+    {
+        GameDiscChosen?.Invoke();
+    }
+
+    public void TriggerGameCompleteDelegate()
+    {
+        GameDiscComplete?.Invoke();
+    }
+
     public void SetModifier(DiscModifier modifier)
     {
         Modifier = modifier;

@@ -127,6 +127,8 @@ public class GameplayScene : BaseScene<GameplaySceneData>
             await Gameplay.SetScore();
             await Gameplay.SetTotalScore();
             
+            GameBoxService.FinishGame();
+            
             if (Gameplay.Vidas == 0)
             {
                 await GameOver();
@@ -155,7 +157,6 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     {
         await EventsService.DoGameplayEndEvent();
 
-        GameBoxService.FinishGame();
         GameplayService.NextGameplay();
 
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
@@ -164,8 +165,6 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     
     private async UniTask GameOver()
     {
-        GameBoxService.FinishGame();
-        
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
         await SceneService.WaitScene(new GameOverSceneData());
         await SceneService.OpenScene(new MainMenuSceneData());

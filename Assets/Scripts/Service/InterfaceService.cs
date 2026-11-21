@@ -36,6 +36,12 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable, I
     [field: SerializeField] 
     public GameDiscManager GameDiscManager { get; set; }
 
+    [field: SerializeField] 
+    public Transform HandPosition { get; set; }
+
+    [field: SerializeField] 
+    public Transform InsertPosition { get; set; }
+
     public UniTask Boot()
     {
         ResetMouse();

@@ -52,14 +52,18 @@ public class GameBoxService : IService, IPreparable, IStartable
     
     public async UniTask<GameDisc> GetRandomGame()
     {
-        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+        CurrentGameDisc = RandomService.RandomElement(GameBox.Games);
+        CurrentGameDisc.TriggerGameChosenDelegate();
+        
+        await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
 
-        return CurrentGameDisc = RandomService.RandomElement(GameBox.Games);
+        return CurrentGameDisc;
     }
 
     
     public void FinishGame()
     {
+        CurrentGameDisc.TriggerGameCompleteDelegate();
         CurrentGameDisc = null;
     }
 }

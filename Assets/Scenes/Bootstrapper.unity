@@ -887,7 +887,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 59bd4ce03378c354d9941d2b2f4a7731, type: 2}
     - target: {fileID: -8679921383154817045, guid: a986e40e4c4769241aefb0ab541dbd58, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 3.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a986e40e4c4769241aefb0ab541dbd58, type: 3}
       propertyPath: m_LocalScale.y
@@ -4974,6 +4974,37 @@ MonoBehaviour:
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
   m_ForceModuleActive: 0
+--- !u!1 &1324970525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1324970526}
+  m_Layer: 0
+  m_Name: Hand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1324970526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324970525}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.59540075, y: -0, z: -0, w: 0.8034289}
+  m_LocalPosition: {x: -0.03, y: 94.68, z: 2.34}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1520502439}
+  m_LocalEulerAnglesHint: {x: -73.082, y: 0, z: 0}
 --- !u!1 &1390449180
 GameObject:
   m_ObjectHideFlags: 0
@@ -5580,6 +5611,8 @@ Transform:
   - {fileID: 1083730119}
   - {fileID: 1095542372}
   - {fileID: 679963352}
+  - {fileID: 1324970526}
+  - {fileID: 2093876969}
   m_Father: {fileID: 451199275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1576585833
@@ -5638,6 +5671,8 @@ MonoBehaviour:
   <ScreenMouseDetector>k__BackingField: {fileID: 622422281}
   <DecalManager>k__BackingField: {fileID: 2017690491}
   <GameDiscManager>k__BackingField: {fileID: 1479358425}
+  <HandPosition>k__BackingField: {fileID: 1324970526}
+  <InsertPosition>k__BackingField: {fileID: 2093876969}
 --- !u!1001 &1599398496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6677,6 +6712,37 @@ MonoBehaviour:
   - {fileID: 1408549789}
   - {fileID: 1102935912}
   - {fileID: 870532583}
+--- !u!1 &2093876968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2093876969}
+  m_Layer: 0
+  m_Name: Slot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2093876969
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2093876968}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.03173924, z: -0, w: 0.9994962}
+  m_LocalPosition: {x: 6.38, y: 91.67, z: 7.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1520502439}
+  m_LocalEulerAnglesHint: {x: 0, y: 3.638, z: 0}
 --- !u!1001 &2099295841
 PrefabInstance:
   m_ObjectHideFlags: 0
