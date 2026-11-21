@@ -14,7 +14,10 @@ public class GameDisc: IBaseEventData, IInfoDescriptor
     
     public BaseEventListener[] Events => Modifier switch
     {
-        DiscModifier.ExtraChips => Array.Empty<BaseEventListener>(),
+        DiscModifier.ExtraChips => new BaseEventListener[]
+        {
+            new MinigameEndListener(null, new AddScoreEffectData(new RarityDefinedInt(new Dictionary<Rarity, int> {{Rarity.Common, 100}}))),
+        },
         DiscModifier.Mult => Array.Empty<BaseEventListener>(),
         DiscModifier.Gold => Array.Empty<BaseEventListener>(),
         _ => Array.Empty<BaseEventListener>()

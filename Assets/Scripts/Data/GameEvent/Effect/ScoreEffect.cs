@@ -7,6 +7,11 @@ public class AddScoreEffectData : IGameplayStartEffect , IMinigameEndEffect
 {
     [field: SerializeField] private RarityDefinedInt Score { get; set; }
 
+    public AddScoreEffectData(RarityDefinedInt score)
+    {
+        Score = score;
+    }
+
     public async UniTask DoEffect(Rarity rarity) 
     {
         var score = Score.GetValue(rarity);

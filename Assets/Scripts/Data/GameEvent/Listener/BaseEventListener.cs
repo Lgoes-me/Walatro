@@ -18,6 +18,12 @@ public abstract class BaseEventListener<T, T1>: BaseEventListener
 
     public override IEffect BaseEffect => Effect;
 
+    protected BaseEventListener(T validator, T1 effect)
+    {
+        Validator = validator;
+        Effect = effect;
+    }
+
     public async UniTask Invoke(Rarity rarity)
     {
         if (Validator != null && !Validator.Validate())
@@ -30,35 +36,53 @@ public abstract class BaseEventListener<T, T1>: BaseEventListener
 [Serializable]
 public class GameplayStartListener : BaseEventListener<IGameplayStartValidator, IGameplayStartEffect>
 {
-
+    public GameplayStartListener(IGameplayStartValidator validator, IGameplayStartEffect effect) : base(validator, effect)
+    {
+        
+    }
 }
 
 [Serializable]
 public class MinigameStartListener : BaseEventListener<IMinigameStartValidator, IMinigameStartEffect>
 {
+    public MinigameStartListener(IMinigameStartValidator validator, IMinigameStartEffect effect) : base(validator, effect)
+    {
 
+    }
 }
 
 [Serializable]
 public class MinigameEndListener : BaseEventListener<IMinigameEndValidator, IMinigameEndEffect>
 {
-
+    public MinigameEndListener(IMinigameEndValidator validator, IMinigameEndEffect effect) : base(validator, effect)
+    {
+        
+    }
 }
 
 [Serializable]
 public class GameplayEndListener : BaseEventListener<IGameplayEndValidator, IGameplayEndEffect>
 {
-
+    public GameplayEndListener(IGameplayEndValidator validator, IGameplayEndEffect effect) : base(validator, effect)
+    {
+        
+    }
 }
 
 [Serializable]
 public class LifeLostListener : BaseEventListener<ILifeLostValidator, ILifeLostEffect>
 {
-
+    public LifeLostListener(ILifeLostValidator validator, ILifeLostEffect effect) : base(validator, effect)
+    {
+        
+    }
 }
 
 [Serializable]
 public class CreatedListener : BaseEventListener<ICreatedValidator, ICreatedEffect>
 {
-
+    public CreatedListener(ICreatedValidator validator, ICreatedEffect effect) : base(validator, effect)
+    {
+        
+    }
 }
