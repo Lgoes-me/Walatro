@@ -8,13 +8,17 @@ public class GameBoxService : IService, IPreparable, IStartable
     public GameBox GameBox { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
+    private RandomService RandomService { get; set; }
     private ContentService ContentService { get; set; }
     private InterfaceService InterfaceService { get; set; }
+
+    public GameDisc CurrentGameDisc { get; set; }
 
     public UniTask Prepare()
     {
         var application = Application.Instance;
         GameSaveService = application.GetService<GameSaveService>();
+        RandomService = application.GetService<RandomService>();
         ContentService = application.GetService<ContentService>();
         InterfaceService = application.GetService<InterfaceService>();
 
@@ -44,5 +48,18 @@ public class GameBoxService : IService, IPreparable, IStartable
         {
             InterfaceService.GameDiscManager.ShowDisc(gameDisc);
         }
+    }
+    
+    public async UniTask<GameDisc> GetRandomGame()
+    {
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+
+        return CurrentGameDisc = RandomService.RandomElement(GameBox.Games);
+    }
+
+    
+    public void FinishGame()
+    {
+        CurrentGameDisc = null;
     }
 }

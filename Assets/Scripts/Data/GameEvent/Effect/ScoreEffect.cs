@@ -23,4 +23,3 @@ public class AddScoreEffectData : IGameplayStartEffect , IMinigameEndEffect
         return new[] { Score.GetValue(rarity).ToString() };
     }
 }
-

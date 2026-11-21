@@ -110,7 +110,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         {
             await EventsService.DoMinigameStartEvent();
 
-            var game = await GameBoxService.GameBox.GetRandomGame();
+            var game = await GameBoxService.GetRandomGame();
 
             var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
 
@@ -155,6 +155,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     {
         await EventsService.DoGameplayEndEvent();
 
+        GameBoxService.FinishGame();
         GameplayService.NextGameplay();
 
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
@@ -163,6 +164,8 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     
     private async UniTask GameOver()
     {
+        GameBoxService.FinishGame();
+        
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
         await SceneService.WaitScene(new GameOverSceneData());
         await SceneService.OpenScene(new MainMenuSceneData());

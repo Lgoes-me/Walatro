@@ -12,12 +12,6 @@ public class GameBox
         Games = games;
     }
 
-    public async UniTask<GameDisc> GetRandomGame()
-    {
-        await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
-        return Application.Instance.GetService<RandomService>().RandomElement(Games);
-    }
-    
     public GameBoxModel ToModel()
     {
         var discsModels = new List<GameDiscModel>();

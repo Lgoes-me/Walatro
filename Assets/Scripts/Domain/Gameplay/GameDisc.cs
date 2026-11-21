@@ -16,9 +16,12 @@ public class GameDisc: IBaseEventData, IInfoDescriptor
     {
         DiscModifier.ExtraChips => new BaseEventListener[]
         {
-            new MinigameEndListener(null, new AddScoreEffectData(new RarityDefinedInt(new Dictionary<Rarity, int> {{Rarity.Common, 100}}))),
+            new MinigameEndListener(null, new AddPointsEffectData(new RarityDefinedInt(new Dictionary<Rarity, int> {{Rarity.Deactivated, 100}}))),
         },
-        DiscModifier.Mult => Array.Empty<BaseEventListener>(),
+        DiscModifier.Mult => new BaseEventListener[]
+        {
+            new MinigameEndListener(null, new AddMultEffectData(new RarityDefinedFloat(new Dictionary<Rarity, float> {{Rarity.Deactivated, 2f}}))),
+        },
         DiscModifier.Gold => Array.Empty<BaseEventListener>(),
         _ => Array.Empty<BaseEventListener>()
     };
@@ -44,6 +47,11 @@ public class GameDisc: IBaseEventData, IInfoDescriptor
     public void TriggerEventDelegate()
     {
         GameDiscTriggered?.Invoke();
+    }
+    
+    public void SetModifier(DiscModifier modifier)
+    {
+        Modifier = modifier;
     }
     
     public string GetDescription(Rarity rarity) => string.Format(Description ?? string.Empty, (this as IBaseEventData).GetTextParams(rarity));
