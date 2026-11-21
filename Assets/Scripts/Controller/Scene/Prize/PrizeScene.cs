@@ -9,6 +9,7 @@ public class PrizeScene : BaseScene<PrizeSceneData>
 
     protected override void Init()
     {
+        Application.GetService<InterfaceService>().GameDiscManager.ShowAll();
         Application.GetService<InterfaceService>().GivePrize().Forget();
 
         NextButton.onClick.RemoveAllListeners();

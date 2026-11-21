@@ -21,6 +21,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     private GameplayService GameplayService { get; set; }
     private EventsService EventsService { get; set; }
     private GameBoxService GameBoxService { get; set; }
+    private InterfaceService InterfaceService { get; set; }
     
     private Gameplay Gameplay { get; set; }
 
@@ -30,6 +31,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         GameplayService = Application.GetService<GameplayService>();
         EventsService = Application.GetService<EventsService>();
         GameBoxService = Application.GetService<GameBoxService>();
+        InterfaceService = Application.GetService<InterfaceService>();
         
         Gameplay = GameplayService.CreateGameplay();
 
@@ -178,6 +180,8 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         Gameplay.OnMultAddedEvent -= MultAddedFeedback;
         Gameplay.OnMultMultipliedEvent -= MultMultipliedFeedback;
         Gameplay.OnScoreAddedEvent -= ScoreAddedFeedback;
+
+        InterfaceService.GameDiscManager.HideAll();
     }
 }
 

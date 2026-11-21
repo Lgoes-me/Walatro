@@ -8,6 +8,19 @@ public class GameDiscManager : MonoBehaviour
 
     private List<GameDiscController> GameDiscs { get; set; }
 
+    public void ShowAll()
+    {
+        //todo melhorar para nao ficar criando e destruindo varias vezes
+        HideAll();
+
+        var box = Application.Instance.GetService<GameBoxService>().GameBox;
+
+        foreach(var game in box.Games)
+        {
+            ShowDisc(game);
+        }
+    }
+
     public void ShowDisc(GameDisc gameDisc)
     {
         GameDiscs ??= new List<GameDiscController>();
@@ -25,7 +38,12 @@ public class GameDiscManager : MonoBehaviour
     {
         foreach(var gameDisc in GameDiscs)
         {
+            if (gameDisc == null)
+                continue;
+            
             gameDisc.Hide();
         }
+
+        GameDiscs.Clear();
     }
 }
