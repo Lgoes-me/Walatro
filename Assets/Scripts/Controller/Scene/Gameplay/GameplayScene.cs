@@ -129,7 +129,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
             await Gameplay.SetScore();
             await Gameplay.SetTotalScore();
             
-            GameBoxService.FinishGame();
+            await GameBoxService.FinishGame();
             
             if (Gameplay.Vidas == 0)
             {

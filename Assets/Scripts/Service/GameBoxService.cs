@@ -59,11 +59,11 @@ public class GameBoxService : IService, IPreparable, IStartable
 
         return CurrentGameDisc;
     }
-
     
-    public void FinishGame()
+    public async UniTask FinishGame()
     {
         CurrentGameDisc.TriggerGameCompleteDelegate();
+        await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
         CurrentGameDisc = null;
     }
 }

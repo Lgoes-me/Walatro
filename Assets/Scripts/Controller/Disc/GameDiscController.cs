@@ -34,7 +34,7 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
 
         GameDisc.GameDiscTriggered += GiveFeedback;
         GameDisc.GameDiscChosen += MoveToPosition;
-        GameDisc.GameDiscComplete += Hide;
+        GameDisc.GameDiscComplete += MoveAway;
 
         return this;
     }
@@ -48,7 +48,7 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
 
         GameDisc.GameDiscTriggered -= GiveFeedback;
         GameDisc.GameDiscChosen -= MoveToPosition;
-        GameDisc.GameDiscComplete -= Hide;
+        GameDisc.GameDiscComplete -= MoveAway;
         GameDisc = null;
         
         Destroy(this.gameObject);
@@ -76,6 +76,20 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
 
         seq.Play();
     }
+
+    private void MoveAway()
+    {
+        Selectable = false;
+        
+        var transformHand = Application.Instance.GetService<InterfaceService>().HandPosition;
+        var transformCamera = Application.Instance.GetService<InterfaceService>().CameraLonge.gameObject.transform;
+
+        Sequence seq = DOTween.Sequence();
+        seq.Append(transform.DOMove(transformCamera.position, 0.5f).OnComplete(() => Hide()));
+
+        seq.Play();
+    }
+
     
     public void OnPointerEnter(PointerEventData eventData)
     {

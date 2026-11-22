@@ -16,7 +16,7 @@ public class InterfaceService: MonoBehaviour, IService, IBootable, IStartable, I
     private Camera GameCamera { get; set; }
 
     [field: SerializeField]
-    private CinemachineCamera CameraLonge { get; set; }
+    public CinemachineCamera CameraLonge { get; set; }
 
     [field: SerializeField]
     private CinemachineCamera CameraPerto { get; set; }
