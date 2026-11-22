@@ -10,7 +10,7 @@ public class GameBoxService : IService, IPreparable, IStartable
     private GameSaveService GameSaveService { get; set; }
     private RandomService RandomService { get; set; }
     private ContentService ContentService { get; set; }
-    private InterfaceService InterfaceService { get; set; }
+    private EnvironmentService EnvironmentService { get; set; }
 
     public GameDisc CurrentGameDisc { get; set; }
 
@@ -20,7 +20,7 @@ public class GameBoxService : IService, IPreparable, IStartable
         GameSaveService = application.GetService<GameSaveService>();
         RandomService = application.GetService<RandomService>();
         ContentService = application.GetService<ContentService>();
-        InterfaceService = application.GetService<InterfaceService>();
+        EnvironmentService = application.GetService<EnvironmentService>();
 
         return UniTask.CompletedTask;
     }
@@ -33,7 +33,7 @@ public class GameBoxService : IService, IPreparable, IStartable
         {
             var gameDisc = await ContentService.GetGameDiscsFromModel(gameModel);
             
-            InterfaceService.GameDiscManager.ShowDisc(gameDisc);
+            EnvironmentService.GameDiscManager.ShowDisc(gameDisc);
             games.Add(gameDisc);
         }
         
@@ -46,7 +46,7 @@ public class GameBoxService : IService, IPreparable, IStartable
 
         foreach (var gameDisc in GameBox.Games)
         {
-            InterfaceService.GameDiscManager.ShowDisc(gameDisc);
+            EnvironmentService.GameDiscManager.ShowDisc(gameDisc);
         }
     }
     

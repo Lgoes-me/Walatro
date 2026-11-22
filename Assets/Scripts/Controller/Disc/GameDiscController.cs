@@ -63,8 +63,8 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         Selectable = true;
         
-        var transformHand = Application.Instance.GetService<InterfaceService>().HandPosition;
-        var transformInsert = Application.Instance.GetService<InterfaceService>().InsertPosition;
+        var transformHand = Application.Instance.GetService<EnvironmentService>().HandPosition;
+        var transformInsert = Application.Instance.GetService<EnvironmentService>().InsertPosition;
 
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOMove(transformHand.position, 1f));
@@ -81,11 +81,10 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         Selectable = false;
         
-        var transformHand = Application.Instance.GetService<InterfaceService>().HandPosition;
-        var transformCamera = Application.Instance.GetService<InterfaceService>().CameraLonge.gameObject.transform;
+        var transformHand = Application.Instance.GetService<EnvironmentService>().HandPosition;
 
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOMove(transformCamera.position, 0.5f).OnComplete(() => Hide()));
+        seq.Append(transform.DOMove(transformHand.position, 0.5f).OnComplete(() => Hide()));
 
         seq.Play();
     }

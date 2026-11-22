@@ -2160,6 +2160,8 @@ Transform:
   - {fileID: 519420032}
   - {fileID: 1274034066}
   - {fileID: 607067346}
+  - {fileID: 883511137}
+  - {fileID: 1976184203}
   - {fileID: 1576585834}
   - {fileID: 1520502439}
   m_Father: {fileID: 0}
@@ -3279,6 +3281,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
+--- !u!1 &883511136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 883511137}
+  - component: {fileID: 883511138}
+  m_Layer: 0
+  m_Name: CameraService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &883511137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883511136}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 451199275}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &883511138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883511136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ece46094a0963d46bb8f80357d0f60a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraService
+  <CameraLonge>k__BackingField: {fileID: 549719521}
+  <CameraPerto>k__BackingField: {fileID: 1826252360}
 --- !u!1001 &911129769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5664,15 +5712,8 @@ MonoBehaviour:
   <MouseSprite>k__BackingField: {fileID: 4637131114846996510, guid: de5ea112c91da6e42abf2b8c59d8955c, type: 3}
   <Mouse>k__BackingField: {fileID: 1390449182}
   <GameCamera>k__BackingField: {fileID: 1274034069}
-  <CameraLonge>k__BackingField: {fileID: 549719521}
-  <CameraPerto>k__BackingField: {fileID: 1826252360}
   <InfoDescriptor>k__BackingField: {fileID: 70335492}
-  <PrizeCanvas>k__BackingField: {fileID: 1061904286}
   <ScreenMouseDetector>k__BackingField: {fileID: 622422281}
-  <DecalManager>k__BackingField: {fileID: 2017690491}
-  <GameDiscManager>k__BackingField: {fileID: 1479358425}
-  <HandPosition>k__BackingField: {fileID: 1324970526}
-  <InsertPosition>k__BackingField: {fileID: 2093876969}
 --- !u!1001 &1599398496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6595,6 +6636,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f901f23de1b02143a99c4a278514708, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ModifierDecalController
+--- !u!1 &1976184202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1976184203}
+  - component: {fileID: 1976184204}
+  m_Layer: 0
+  m_Name: EnvironmentService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1976184203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976184202}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 451199275}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1976184204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976184202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49562e5fe6055584fa7c17349b1b6d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnvironmentService
+  <PrizeCanvas>k__BackingField: {fileID: 1061904286}
+  <DecalManager>k__BackingField: {fileID: 2017690491}
+  <GameDiscManager>k__BackingField: {fileID: 1479358425}
+  <HandPosition>k__BackingField: {fileID: 1324970526}
+  <InsertPosition>k__BackingField: {fileID: 2093876969}
 --- !u!1 &2017690489
 GameObject:
   m_ObjectHideFlags: 0
