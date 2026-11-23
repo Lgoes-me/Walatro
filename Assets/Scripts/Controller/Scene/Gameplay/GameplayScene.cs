@@ -20,7 +20,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     private SceneService SceneService { get; set; }
     private GameplayService GameplayService { get; set; }
     private EventsService EventsService { get; set; }
-    private GameBoxService GameBoxService { get; set; }
+    private GameDiscService GameDiscService { get; set; }
     private EnvironmentService EnvironmentService { get; set; }
     
     private Gameplay Gameplay { get; set; }
@@ -30,7 +30,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         SceneService = Application.GetService<SceneService>();
         GameplayService = Application.GetService<GameplayService>();
         EventsService = Application.GetService<EventsService>();
-        GameBoxService = Application.GetService<GameBoxService>();
+        GameDiscService = Application.GetService<GameDiscService>();
         EnvironmentService = Application.GetService<EnvironmentService>();
         
         Gameplay = GameplayService.CreateGameplay();
@@ -112,7 +112,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         {
             await EventsService.DoMinigameStartEvent();
 
-            var game = await GameBoxService.GetRandomGame();
+            var game = await GameDiscService.GetRandomGame();
 
             var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
 
@@ -129,7 +129,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
             await Gameplay.SetScore();
             await Gameplay.SetTotalScore();
             
-            await GameBoxService.FinishGame();
+            await GameDiscService.FinishGame();
             
             if (Gameplay.Vidas == 0)
             {
@@ -181,7 +181,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         Gameplay.OnMultMultipliedEvent -= MultMultipliedFeedback;
         Gameplay.OnScoreAddedEvent -= ScoreAddedFeedback;
 
-        EnvironmentService.GameDiscManager.HideAll();
+        EnvironmentService.GameDiscManager.PlaceAllAtPile().Forget();
     }
 }
 

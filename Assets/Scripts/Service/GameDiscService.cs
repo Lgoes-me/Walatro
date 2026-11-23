@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-public class GameBoxService : IService, IPreparable, IStartable
+public class GameDiscService : IService, IPreparable, IStartable
 {
-    public GameBox GameBox { get; set; }
+    public List<GameDisc> Games { get; set; }
+    public GameDisc CurrentGameDisc { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
     private RandomService RandomService { get; set; }
     private ContentService ContentService { get; set; }
     private EnvironmentService EnvironmentService { get; set; }
-
-    public GameDisc CurrentGameDisc { get; set; }
 
     public UniTask Prepare()
     {
@@ -29,7 +28,7 @@ public class GameBoxService : IService, IPreparable, IStartable
     {
         var games = new List<GameDisc>();
         
-        foreach (var gameModel in GameSaveService.Save.GameBox.Discs)
+        foreach (var gameModel in GameSaveService.Save.Games)
         {
             var gameDisc = await ContentService.GetGameDiscsFromModel(gameModel);
             
@@ -37,14 +36,14 @@ public class GameBoxService : IService, IPreparable, IStartable
             games.Add(gameDisc);
         }
         
-        GameBox = new GameBox(games);
+        Games = games;
     }
 
-    public void SelectGameBox(GameBox gameBox)
+    public void SelectGameBox(List<GameDisc> games)
     {
-        GameBox = gameBox;
+        Games = games;
 
-        foreach (var gameDisc in GameBox.Games)
+        foreach (var gameDisc in Games)
         {
             EnvironmentService.GameDiscManager.ShowDisc(gameDisc);
         }
@@ -52,7 +51,7 @@ public class GameBoxService : IService, IPreparable, IStartable
     
     public async UniTask<GameDisc> GetRandomGame()
     {
-        CurrentGameDisc = RandomService.RandomElement(GameBox.Games);
+        CurrentGameDisc = RandomService.RandomElement(Games);
         CurrentGameDisc.TriggerGameChosenDelegate();
         
         await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);

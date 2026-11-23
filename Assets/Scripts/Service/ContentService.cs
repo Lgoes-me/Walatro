@@ -37,7 +37,7 @@ public class ContentService : MonoBehaviour, IService, IPreparable
         throw new Exception("Invalid Modifier");
     }
 
-    public async UniTask<GameBox> GetGameBoxFromId(string id)
+    public async UniTask<List<GameDisc>> GetGameBoxFromId(string id)
     {
         if (AvailableGameBoxes.TryGetValue(id, out var gameBoxDataAsset))
         {

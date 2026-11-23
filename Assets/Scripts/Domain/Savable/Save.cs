@@ -10,7 +10,7 @@ public class Save : ISavable
     public List<ModifierModel> Modifiers { get; set; }
     public int CurrentLevel { get; set; }
     public int CurrentBind { get; set; }
-    public GameBoxModel GameBox { get; set; }
+    public List<GameDiscModel> Games { get; set; }
 
     public Save()
     {
@@ -20,6 +20,6 @@ public class Save : ISavable
         Modifiers = new List<ModifierModel>();
         CurrentLevel = 1;
         CurrentBind = 0;
-        GameBox = new GameBoxModel(new List<GameDiscModel>());
+        Games = new List<GameDiscModel>();
     }
 }

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using Cysharp.Threading.Tasks;
 
 public class GameDiscManager : MonoBehaviour
 {
@@ -16,35 +18,42 @@ public class GameDiscManager : MonoBehaviour
     private List<GameDiscController> GameDiscs { get; set; }
     private List<GameDiscController> DiscardedGameDiscs { get; set; }
 
-    public void ShowAll()
+    private void Start()
     {
-        //todo melhorar para nao ficar criando e destruindo varias vezes
-        HideAll();
-
-        var box = Application.Instance.GetService<GameBoxService>().GameBox;
-
-        foreach(var game in box.Games)
-        {
-            ShowDisc(game);
-        }
+        GameDiscs = new List<GameDiscController>();
+        DiscardedGameDiscs = new List<GameDiscController>();
     }
 
     public void ShowDisc(GameDisc gameDisc)
     {
-        GameDiscs ??= new List<GameDiscController>();
-
         var gameDiscController = Instantiate(
             GameDiscPrefab, 
             Pivot.position, 
             Quaternion.identity, 
             this.transform)
                 .Init(gameDisc, this);
-
+            
         PlaceAtPile(gameDiscController);
 
         GameDiscs.Add(gameDiscController);
     }
 
+    public async UniTask PlaceAllAtPile()
+    {
+        for (var i = DiscardedGameDiscs.Count - 1; i >= 0; i--)
+        {
+            var gameDisc = DiscardedGameDiscs[i];
+            gameDisc.GoToPile();
+
+            await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
+            
+            DiscardedGameDiscs.Remove(gameDisc);
+            GameDiscs.Add(gameDisc);
+        }
+
+        DiscardedGameDiscs.Clear();
+    }
+    
     public void HideAll()
     {
         foreach(var gameDisc in GameDiscs)
@@ -55,23 +64,31 @@ public class GameDiscManager : MonoBehaviour
             gameDisc.Hide();
         }
 
+        foreach(var gameDisc in DiscardedGameDiscs)
+        {
+            if (gameDisc == null)
+                continue;
+            
+            gameDisc.Hide();
+        }
+
         GameDiscs.Clear();
+        DiscardedGameDiscs.Clear();
     }
+
 
     public void PlaceAtPile(GameDiscController gameDisc)
     {
         gameDisc.transform.position += GameDiscs.Count * (new Vector3(0, 0.15f, 0));
-        gameDisc.transform.rotation = Quaternion.Euler(0f, Random.Range(-23f, 40f), 0f);
+        gameDisc.transform.rotation = Quaternion.Euler(0f, UnityEngine.Random.Range(-23f, 40f), 0f);
     }
 
     public void PlaceAtDiscard(GameDiscController gameDisc)
     {
-        DiscardedGameDiscs ??= new List<GameDiscController>();
-
         GameDiscs.Remove(gameDisc);
         DiscardedGameDiscs.Add(gameDisc);
 
         gameDisc.transform.position += DiscardedGameDiscs.Count * (new Vector3(0, 0.15f, 0));
-        gameDisc.transform.rotation = Quaternion.Euler(0f, Random.Range(-23f, 40f), 0f);
+        gameDisc.transform.rotation = Quaternion.Euler(0f, UnityEngine.Random.Range(-23f, 40f), 0f);
     }
 }

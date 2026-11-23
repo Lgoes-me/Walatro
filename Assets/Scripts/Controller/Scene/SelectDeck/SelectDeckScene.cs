@@ -7,12 +7,12 @@ public class SelectDeckScene : BaseAwaitableScene<SelectDeckSceneData>
     [field: SerializeField] private Button SelectButton { get; set; }
 
     private ContentService ContentService { get; set; }
-    private GameBoxService GameBoxService { get; set; }
+    private GameDiscService GameDiscService { get; set; }
 
     protected override void Init()
     {
         ContentService = Application.GetService<ContentService>();
-        GameBoxService = Application.GetService<GameBoxService>();
+        GameDiscService = Application.GetService<GameDiscService>();
         
         SelectButton.onClick.RemoveAllListeners();
         SelectButton.onClick.AddListener(() => SelectDeck().Forget());
@@ -22,7 +22,7 @@ public class SelectDeckScene : BaseAwaitableScene<SelectDeckSceneData>
     private async UniTask SelectDeck()
     {
         var defaultGameBox = await ContentService.GetGameBoxFromId("5ee07483df0c80c4898bb4e5ee96d77f");
-        GameBoxService.SelectGameBox(defaultGameBox);
+        GameDiscService.SelectGameBox(defaultGameBox);
 
         CloseScene();
     }

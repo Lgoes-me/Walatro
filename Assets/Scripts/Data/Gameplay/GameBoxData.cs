@@ -11,7 +11,7 @@ public class GameBoxData : ScriptableObject, IIdentifiable
     [field: SerializeField] public string Id { get; set; }
     [field: SerializeField] private List<GameDiscData> Games { get; set; }
 
-    public GameBox ToDomain()
+    public List<GameDisc> ToDomain()
     {
         var games = new List<GameDisc>();
 
@@ -20,7 +20,7 @@ public class GameBoxData : ScriptableObject, IIdentifiable
             games.Add(gameDiscData.ToDomain());
         }
 
-        return new GameBox(games);
+        return games;
     }
     
 #if UNITY_EDITOR

@@ -93,6 +93,18 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
         seq.Play();
     }
 
+    public void GoToPile()
+    {
+        var transformHand = GameDiscManager.Hand;
+        var transformPivot = GameDiscManager.Pivot;
+
+        Sequence seq = DOTween.Sequence();
+        seq.Append(transform.DOMove(transformHand.position, 0.5f));
+        seq.Append(transform.DOMove(transformPivot.position, 0.5f).OnComplete(() => GameDiscManager.PlaceAtPile(this)));
+
+        seq.Play();
+    }
+
     
     public void OnPointerEnter(PointerEventData eventData)
     {

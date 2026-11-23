@@ -8,7 +8,7 @@ public class StartScene : BaseScene<StartSceneData>
 
     private GameSaveService GameSaveService { get; set; }
     private ContentService ContentService { get; set; }
-    private GameBoxService GameBoxService { get; set; }
+    private GameDiscService GameDiscService { get; set; }
     private TutorialService TutorialService { get; set; }
     private SceneService SceneService { get; set; }
     
@@ -16,7 +16,7 @@ public class StartScene : BaseScene<StartSceneData>
     {
         GameSaveService = Application.GetService<GameSaveService>();
         ContentService = Application.GetService<ContentService>();
-        GameBoxService = Application.GetService<GameBoxService>();
+        GameDiscService = Application.GetService<GameDiscService>();
         TutorialService = Application.GetService<TutorialService>();
         SceneService = Application.GetService<SceneService>();
         
@@ -35,7 +35,7 @@ public class StartScene : BaseScene<StartSceneData>
                 await Application.StartServices();
 
                 var defaultGameBox = await ContentService.GetGameBoxFromId("5ee07483df0c80c4898bb4e5ee96d77f");
-                GameBoxService.SelectGameBox(defaultGameBox);
+                GameDiscService.SelectGameBox(defaultGameBox);
             }
             else
             {

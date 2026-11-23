@@ -9,14 +9,14 @@ public class GameSaveService : IService, IPreparable, IBootable, IOnShopEnter, I
 
     private ModifierService ModifierService { get; set; }
     private GameplayService GameplayService { get; set; }
-    private GameBoxService GameBoxService { get; set; }
+    private GameDiscService GameDiscService { get; set; }
 
     public UniTask Prepare()
     {
         var application = Application.Instance;
         ModifierService = application.GetService<ModifierService>();
         GameplayService = application.GetService<GameplayService>();
-        GameBoxService = application.GetService<GameBoxService>();
+        GameDiscService = application.GetService<GameDiscService>();
 
         return UniTask.CompletedTask;
     }
@@ -91,7 +91,12 @@ public class GameSaveService : IService, IPreparable, IBootable, IOnShopEnter, I
         Save.CurrentLevel = GameplayService.CurrentLevel;
         Save.CurrentBind = GameplayService.CurrentBind;
         
-        Save.GameBox = GameBoxService.GameBox.ToModel();
+        Save.Games.Clear();
+
+        foreach (var disc in GameDiscService.Games)
+        {
+            Save.Games.Add(disc.ToModel());
+        }
 
         SaveManager.SaveData(Save);
     }
