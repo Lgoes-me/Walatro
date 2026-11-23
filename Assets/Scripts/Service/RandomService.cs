@@ -38,6 +38,11 @@ public class RandomService : IService, IPreparable, IStartable, IOnShopEnter
     
     public T RandomElement<T>(List<T> list)
     {
+        if (list.Count == 0)
+        {
+            return (T) default;
+        }
+
         return list[Random.Next(list.Count)];
     }
     

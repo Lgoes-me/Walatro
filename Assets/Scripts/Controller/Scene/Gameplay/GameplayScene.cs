@@ -115,7 +115,9 @@ public class GameplayScene : BaseScene<GameplaySceneData>
             var game = await GameDiscService.GetRandomGame();
 
             if (game == null)
+            {
                 break;
+            }
 
             var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
 

@@ -59,7 +59,7 @@ public class GameDiscService : IService, IPreparable, IStartable
         DiscardedGames ??= new List<GameDisc>();
 
         CurrentGameDisc = RandomService.RandomElement(AvailableGames);
-        CurrentGameDisc.TriggerGameChosenDelegate();
+        CurrentGameDisc?.TriggerGameChosenDelegate();
         
         AvailableGames.Remove(CurrentGameDisc);
         DiscardedGames.Add(CurrentGameDisc);
@@ -71,7 +71,7 @@ public class GameDiscService : IService, IPreparable, IStartable
     
     public async UniTask FinishGame()
     {
-        CurrentGameDisc.TriggerGameCompleteDelegate();
+        CurrentGameDisc?.TriggerGameCompleteDelegate();
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
         CurrentGameDisc = null;
     }
