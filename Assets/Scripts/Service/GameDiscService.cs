@@ -13,6 +13,9 @@ public class GameDiscService : IService, IPreparable, IStartable
     private ContentService ContentService { get; set; }
     private EnvironmentService EnvironmentService { get; set; }
 
+    public List<GameDisc> AvailableGames { get; set; }
+    public List<GameDisc> DiscardedGames { get; set; }
+    
     public UniTask Prepare()
     {
         var application = Application.Instance;
@@ -51,9 +54,16 @@ public class GameDiscService : IService, IPreparable, IStartable
     
     public async UniTask<GameDisc> GetRandomGame()
     {
-        CurrentGameDisc = RandomService.RandomElement(Games);
+        CurrentGameDisc = null;
+        AvailableGames ??= new List<GameDisc>(Games);
+        DiscardedGames ??= new List<GameDisc>();
+
+        CurrentGameDisc = RandomService.RandomElement(AvailableGames);
         CurrentGameDisc.TriggerGameChosenDelegate();
         
+        AvailableGames.Remove(CurrentGameDisc);
+        DiscardedGames.Add(CurrentGameDisc);
+
         await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
 
         return CurrentGameDisc;
@@ -64,5 +74,11 @@ public class GameDiscService : IService, IPreparable, IStartable
         CurrentGameDisc.TriggerGameCompleteDelegate();
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
         CurrentGameDisc = null;
+    }
+    
+    public void FinishGamemeplay()
+    {
+        AvailableGames = null;
+        DiscardedGames= null;
     }
 }

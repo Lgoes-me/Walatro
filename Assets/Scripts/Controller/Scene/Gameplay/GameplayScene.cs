@@ -114,6 +114,9 @@ public class GameplayScene : BaseScene<GameplaySceneData>
 
             var game = await GameDiscService.GetRandomGame();
 
+            if (game == null)
+                break;
+
             var result = await SceneService.WaitScene<MinigameSceneData, MinigameSceneResult>(new MinigameSceneData(game));
 
             await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
@@ -181,6 +184,7 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         Gameplay.OnMultMultipliedEvent -= MultMultipliedFeedback;
         Gameplay.OnScoreAddedEvent -= ScoreAddedFeedback;
 
+        GameDiscService.FinishGamemeplay();
         EnvironmentService.GameDiscManager.PlaceAllAtPile().Forget();
     }
 }
