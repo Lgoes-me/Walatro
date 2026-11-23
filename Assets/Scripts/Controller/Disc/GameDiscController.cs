@@ -10,13 +10,15 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
     [field: SerializeField] private MeshRenderer MeshRenderer { get; set; }
 
     private GameDisc GameDisc { get; set; }
+    private GameDiscManager GameDiscManager { get; set; }
     private bool Selectable { get; set; }
     
     private static readonly int BaseMapID = Shader.PropertyToID("_BaseMap");
 
-    public GameDiscController Init(GameDisc gameDisc)
+    public GameDiscController Init(GameDisc gameDisc, GameDiscManager gameDiscManager)
     {
         GameDisc = gameDisc;
+        GameDiscManager = gameDiscManager;
         Selectable = false;
         
         var instancedDiscMaterial = new Material(DiscMaterial);
@@ -63,8 +65,8 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         Selectable = true;
         
-        var transformHand = Application.Instance.GetService<EnvironmentService>().HandPosition;
-        var transformInsert = Application.Instance.GetService<EnvironmentService>().InsertPosition;
+        var transformHand = GameDiscManager.Hand;
+        var transformInsert = GameDiscManager.Insert;
 
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOMove(transformHand.position, 1f));
@@ -81,12 +83,12 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         Selectable = false;
         
-        var transformHand = Application.Instance.GetService<EnvironmentService>().HandPosition;
-        var discardPile = Application.Instance.GetService<EnvironmentService>().DiscardPosition;
+        var transformHand = GameDiscManager.Hand;
+        var transformDiscard = GameDiscManager.Discard;
 
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOMove(transformHand.position, 0.5f));
-        seq.Append(transform.DOMove(discardPile.position, 0.5f));
+        seq.Append(transform.DOMove(transformDiscard.position, 0.5f).OnComplete(() => GameDiscManager.PlaceAtDiscard(this)));
 
         seq.Play();
     }

@@ -3,10 +3,18 @@ using UnityEngine;
 
 public class GameDiscManager : MonoBehaviour
 {
-    [field: SerializeField] private Transform Pivot { get; set; }
+    [field: SerializeField] public Transform Pivot { get; set; }
+
+    [field: SerializeField] public Transform Hand { get; set; }
+
+    [field: SerializeField] public Transform Insert { get; set; }
+
+    [field: SerializeField] public Transform Discard { get; set; }
+
     [field: SerializeField] private GameDiscController GameDiscPrefab { get; set; }
 
     private List<GameDiscController> GameDiscs { get; set; }
+    private List<GameDiscController> DiscardedGameDiscs { get; set; }
 
     public void ShowAll()
     {
@@ -27,9 +35,12 @@ public class GameDiscManager : MonoBehaviour
 
         var gameDiscController = Instantiate(
             GameDiscPrefab, 
-            Pivot.position + GameDiscs.Count * (new Vector3(0, 0.15f, 0)), 
-            Quaternion.Euler(0f, Random.Range(-23f, 40f), 0f), this.transform)
-                .Init(gameDisc);
+            Pivot.position, 
+            Quaternion.identity, 
+            this.transform)
+                .Init(gameDisc, this);
+
+        PlaceAtPile(gameDiscController);
 
         GameDiscs.Add(gameDiscController);
     }
@@ -45,5 +56,22 @@ public class GameDiscManager : MonoBehaviour
         }
 
         GameDiscs.Clear();
+    }
+
+    public void PlaceAtPile(GameDiscController gameDisc)
+    {
+        gameDisc.transform.position += GameDiscs.Count * (new Vector3(0, 0.15f, 0));
+        gameDisc.transform.rotation = Quaternion.Euler(0f, Random.Range(-23f, 40f), 0f);
+    }
+
+    public void PlaceAtDiscard(GameDiscController gameDisc)
+    {
+        DiscardedGameDiscs ??= new List<GameDiscController>();
+
+        GameDiscs.Remove(gameDisc);
+        DiscardedGameDiscs.Add(gameDisc);
+
+        gameDisc.transform.position += DiscardedGameDiscs.Count * (new Vector3(0, 0.15f, 0));
+        gameDisc.transform.rotation = Quaternion.Euler(0f, Random.Range(-23f, 40f), 0f);
     }
 }
