@@ -21,6 +21,9 @@ public class EnvironmentService: MonoBehaviour, IService, IOnGameOver
     [field: SerializeField] 
     public Transform InsertPosition { get; set; }
 
+    [field: SerializeField] 
+    public Transform DiscardPosition { get; set; }
+
     public UniTask OnGameOver()
     {
         DecalManager.HideAll();

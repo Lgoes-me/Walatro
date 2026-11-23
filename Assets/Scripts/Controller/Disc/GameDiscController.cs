@@ -82,9 +82,11 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
         Selectable = false;
         
         var transformHand = Application.Instance.GetService<EnvironmentService>().HandPosition;
+        var discardPile = Application.Instance.GetService<EnvironmentService>().DiscardPosition;
 
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOMove(transformHand.position, 0.5f).OnComplete(() => Hide()));
+        seq.Append(transform.DOMove(transformHand.position, 0.5f));
+        seq.Append(transform.DOMove(discardPile.position, 0.5f));
 
         seq.Play();
     }
