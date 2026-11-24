@@ -59,10 +59,14 @@ public class GameDiscService : IService, IPreparable, IStartable
         DiscardedGames ??= new List<GameDisc>();
 
         CurrentGameDisc = RandomService.RandomElement(AvailableGames);
-        CurrentGameDisc?.TriggerGameChosenDelegate();
         
-        AvailableGames.Remove(CurrentGameDisc);
-        DiscardedGames.Add(CurrentGameDisc);
+        if (CurrentGameDisc != null)
+        {
+            CurrentGameDisc.TriggerGameChosenDelegate();
+        
+            AvailableGames.Remove(CurrentGameDisc);
+            DiscardedGames.Add(CurrentGameDisc);
+        } 
 
         await UniTask.Delay(TimeSpan.FromSeconds(2), ignoreTimeScale: false);
 

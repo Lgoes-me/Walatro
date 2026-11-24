@@ -17,6 +17,7 @@ public class EnvironmentService: MonoBehaviour, IService, IOnGameOver
 
     public UniTask OnGameOver()
     {
+        GameDiscManager.HideAll();
         DecalManager.HideAll();
         return UniTask.CompletedTask;
     }

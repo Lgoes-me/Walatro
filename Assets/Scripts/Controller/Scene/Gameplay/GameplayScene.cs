@@ -162,6 +162,9 @@ public class GameplayScene : BaseScene<GameplaySceneData>
 
     private async UniTask Win()
     {
+        await EnvironmentService.GameDiscManager.PlaceAllAtPile();
+        GameDiscService.FinishGamemeplay();
+
         await EventsService.DoGameplayEndEvent();
 
         GameplayService.NextGameplay();
@@ -172,6 +175,9 @@ public class GameplayScene : BaseScene<GameplaySceneData>
     
     private async UniTask GameOver()
     {
+        await EnvironmentService.GameDiscManager.PlaceAllAtPile();
+        GameDiscService.FinishGamemeplay();
+        
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
         await SceneService.WaitScene(new GameOverSceneData());
         await SceneService.OpenScene(new MainMenuSceneData());
@@ -185,9 +191,6 @@ public class GameplayScene : BaseScene<GameplaySceneData>
         Gameplay.OnMultAddedEvent -= MultAddedFeedback;
         Gameplay.OnMultMultipliedEvent -= MultMultipliedFeedback;
         Gameplay.OnScoreAddedEvent -= ScoreAddedFeedback;
-
-        GameDiscService.FinishGamemeplay();
-        EnvironmentService.GameDiscManager.PlaceAllAtPile().Forget();
     }
 }
 
