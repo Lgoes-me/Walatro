@@ -9,29 +9,27 @@ public class PrizeCanvasController : MonoBehaviour
     [field: SerializeField] private Button RerollButton { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
-    private ModifierService ModifierService { get; set; }
     private PrizeService PrizeService { get; set; }
     private InterfaceService InterfaceService { get; set; }
 
-    private List<Modifier> Modifiers { get; set; }
+    private List<IPrize> Prizes { get; set; }
 
     public async UniTask Show()
     {
         GameSaveService = Application.Instance.GetService<GameSaveService>();
-        ModifierService = Application.Instance.GetService<ModifierService>();
         PrizeService = Application.Instance.GetService<PrizeService>();
         InterfaceService = Application.Instance.GetService<InterfaceService>();
         
-        Modifiers = await PrizeService.GetCurrentPrizeItems(); 
+        Prizes = await PrizeService.GetCurrentPrizeItems(); 
 
         InterfaceService.ScreenMouseDetector.Disable();
 
         gameObject.SetActive(true);
 
-        Items[0].Init(Modifiers[0], () => SelectItem(0));
-        Items[1].Init(Modifiers[1], () => SelectItem(1));
-        Items[2].Init(Modifiers[2], () => SelectItem(2));
-        Items[3].Init(Modifiers[3], () => SelectItem(3));
+        Items[0].Init(Prizes[0], () => SelectItem(0));
+        Items[1].Init(Prizes[1], () => SelectItem(1));
+        Items[2].Init(Prizes[2], () => SelectItem(2));
+        Items[3].Init(Prizes[3], () => SelectItem(3));
 
         RerollButton.onClick.RemoveAllListeners();
         RerollButton.onClick.AddListener(() => RerollItems().Forget());
@@ -43,7 +41,8 @@ public class PrizeCanvasController : MonoBehaviour
     private void SelectItem(int i)
     {
         //feedback visual
-        ModifierService.AddModifier(Modifiers[i]);
+        PrizeService.AddPrize(Prizes[i]);
+        
         //desativa outros botoes
         gameObject.SetActive(false);
         InterfaceService.ScreenMouseDetector.Enable();
@@ -52,7 +51,7 @@ public class PrizeCanvasController : MonoBehaviour
     private async UniTask RerollItems()
     {
         //load desativando botões
-        Modifiers = await PrizeService.GetCurrentPrizeItems(); 
+        Prizes = await PrizeService.GetCurrentPrizeItems(); 
         //rerenderiza botoes
     }
 }
