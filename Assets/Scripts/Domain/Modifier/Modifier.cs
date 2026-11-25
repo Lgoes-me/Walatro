@@ -1,7 +1,7 @@
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-public class Modifier : IPrize, IBaseEventData, IInfoDescriptor
+public class Modifier : IPrize, IBaseEventData
 {
     public string Id { get; private set; }
     public string Name { get; private set; }

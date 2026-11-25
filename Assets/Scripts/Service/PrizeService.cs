@@ -23,6 +23,9 @@ public class PrizeService : IService, IPreparable
     public async UniTask<List<IPrize>> GetCurrentPrizeItems()
     {
         return await GetModifiers();
+        return await GetItems();
+        return await GetTarots();
+        return await GetPlanets();
     }
 
     public void AddPrize(IPrize prize)
@@ -31,9 +34,23 @@ public class PrizeService : IService, IPreparable
         {
             case null:
                 break;
+
             case Modifier modifier:
                 ModifierService.AddModifier(modifier);
                 break;
+
+            case Item item:
+                
+                break;
+
+            case Tarot tarot:
+                
+                break;
+                
+            case Planet planet:
+                
+                break;
+                
             default:
                 break;
         }
@@ -42,7 +59,7 @@ public class PrizeService : IService, IPreparable
 
     public async UniTask<List<IPrize>> GetModifiers()
     {
-        var shopItems = new List<IPrize>();
+        var modifiers = new List<IPrize>();
 
         for (int i = 0; i < 4; i++)
         {
@@ -52,19 +69,27 @@ public class PrizeService : IService, IPreparable
             
             var modifier = modifierData.ToDomain(modifierModel);
 
-            shopItems.Add(modifier);
+            modifiers.Add(modifier);
         }
 
-        return shopItems;
+        return modifiers;
     }
-}
 
+    public async UniTask<List<IPrize>> GetItems()
+    {
+        var items = new List<IPrize>();
+        return items;
+    }
 
-public enum PrizeType
-{
-    Unknown = -1,
-    Modifier = 0,
-    Item = 1,
-    TarotCard = 2,
-    PlanetCard = 3,
+    public async UniTask<List<IPrize>> GetTarots()
+    {
+        var tarots = new List<IPrize>();
+        return tarots;
+    }
+
+    public async UniTask<List<IPrize>> GetPlanets()
+    {
+        var planets = new List<IPrize>();
+        return planets;
+    }
 }
