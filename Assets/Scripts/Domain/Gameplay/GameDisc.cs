@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameDisc: IBaseEventData, IInfoDescriptor
+public class GameDisc: IBaseEventData, IInfoDescriptor, IPrize
 {
     public string Id { get; private set; }
     public string Name { get; private set; }

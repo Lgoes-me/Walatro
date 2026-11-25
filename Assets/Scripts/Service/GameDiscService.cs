@@ -52,6 +52,12 @@ public class GameDiscService : IService, IPreparable, IStartable
         }
     }
     
+    public void ReceiveNewDisc(GameDisc gameDisc)
+    {
+        Games.Add(gameDisc);
+        EnvironmentService.GameDiscManager.ShowDisc(gameDisc);
+    }
+
     public async UniTask<GameDisc> GetRandomGame()
     {
         CurrentGameDisc = null;

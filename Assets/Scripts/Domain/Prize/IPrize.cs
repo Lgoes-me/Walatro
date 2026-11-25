@@ -1,8 +1,7 @@
 using UnityEngine;
 using Cysharp.Threading.Tasks;
 
-public interface IPrize: IInfoDescriptor
+public interface IPrize
 {
-    Texture Texture { get; }
-    Rarity Rarity { get; }
+    
 }

@@ -9,12 +9,14 @@ public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointer
     [field: SerializeField] private Button BuyButton { get; set; }
     
     private IPrize Prize { get; set; }
+    private IInfoDescriptor InfoDescriptor { get; set; }
 
     public void Init(IPrize prize, Action action)
     {
         Prize = prize;
+        InfoDescriptor = prize as IInfoDescriptor;
 
-        RawImage.texture = Prize.Texture;
+        //RawImage.texture = Prize.Texture;
         
         BuyButton.onClick.RemoveAllListeners();
         BuyButton.onClick.AddListener(() => action?.Invoke());
@@ -22,7 +24,10 @@ public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointer
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Application.Instance.GetService<InterfaceService>().InfoDescriptor.Show(this.gameObject, Prize, Prize.Rarity);
+        if (InfoDescriptor == null)
+            return;
+
+        Application.Instance.GetService<InterfaceService>().InfoDescriptor.Show(this.gameObject, InfoDescriptor, InfoDescriptor.Rarity);
     }
 
     public void OnPointerExit(PointerEventData eventData)

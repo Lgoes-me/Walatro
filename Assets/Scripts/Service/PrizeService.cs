@@ -8,6 +8,7 @@ public class PrizeService : IService, IPreparable
     private RandomService RandomService { get; set; }
     private ContentService ContentService { get; set; }
     private ModifierService ModifierService { get; set; }
+    private GameDiscService GameDiscService { get; set; }
 
     public UniTask Prepare()
     {
@@ -16,6 +17,7 @@ public class PrizeService : IService, IPreparable
         RandomService = application.GetService<RandomService>();
         ContentService = application.GetService<ContentService>();
         ModifierService = application.GetService<ModifierService>();
+        GameDiscService = application.GetService<GameDiscService>();
 
         return UniTask.CompletedTask;
     }
@@ -26,6 +28,7 @@ public class PrizeService : IService, IPreparable
         return await GetItems();
         return await GetTarots();
         return await GetPlanets();
+        return await GetGameDiscs();
     }
 
     public void AddPrize(IPrize prize)
@@ -51,6 +54,10 @@ public class PrizeService : IService, IPreparable
                 
                 break;
                 
+            case GameDisc gameDisc:
+                GameDiscService.ReceiveNewDisc(gameDisc);
+                break;
+
             default:
                 break;
         }
@@ -61,7 +68,7 @@ public class PrizeService : IService, IPreparable
     {
         var modifiers = new List<IPrize>();
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 6; i++)
         {
             var modifierDataAsset = RandomService.RandomElement(ContentService.Modifiers);
             var modifierData = await modifierDataAsset.LoadAssetAsyncIfValid();
@@ -91,5 +98,23 @@ public class PrizeService : IService, IPreparable
     {
         var planets = new List<IPrize>();
         return planets;
+    }
+
+    public async UniTask<List<IPrize>> GetGameDiscs()
+    {
+        var games = new List<IPrize>();
+
+        for (int i = 0; i < 6; i++)
+        {
+            var gameDiscDataAsset = RandomService.RandomElement(ContentService.GameDiscs);
+            var gameDiscData = await gameDiscDataAsset.LoadAssetAsyncIfValid();
+            var gameDiscModel = new GameDiscModel(gameDiscData.Id, DiscModifier.None);
+            
+            var gameDisc = gameDiscData.ToDomain(gameDiscModel);
+
+            games.Add(gameDisc);
+        }
+
+        return games;
     }
 }
