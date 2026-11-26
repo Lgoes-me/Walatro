@@ -26,11 +26,11 @@ public class PrizeService : IService, IPreparable
     
     public async UniTask<List<IPrize>> GetCurrentPrizeItems()
     {
+        return await GetGameDiscs();
         return await GetModifiers();
         return await GetItems();
         return await GetTarots();
         return await GetPlanets();
-        return await GetGameDiscs();
     }
 
     public GameObject InstantiateButton(IPrize prize, Transform parent)
@@ -56,7 +56,10 @@ public class PrizeService : IService, IPreparable
                 break;
                 
             case GameDisc gameDisc:
-                return PrefabService.InstantiateGameDisc(gameDisc, parent, parent).gameObject;
+                var disc = PrefabService.InstantiateGameDisc(gameDisc, parent, parent).gameObject;
+                disc.transform.rotation = Quaternion.Euler(90, -180, 0);
+                disc.transform.localScale *= 0.75f;
+                return disc;
 
             default:
                 break;

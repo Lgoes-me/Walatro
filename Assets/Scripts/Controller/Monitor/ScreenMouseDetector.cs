@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.EventSystems;
 
-public class ScreenMouseDetector : MonoBehaviour
+public class ScreenMouseDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public InputSystemUIInputModule worldInput;
     
@@ -19,18 +20,6 @@ public class ScreenMouseDetector : MonoBehaviour
     private void Awake()
     {
         Enabled = true;
-    }
-
-    private void OnMouseOver()
-    {
-        if (!Enabled)
-            return;
-
-        Cursor.visible = false;
-        uiIndicator.gameObject.SetActive(true);
-
-        worldInput.enabled = false;
-        gameInput.enabled = true;
     }
 
     private void Update()
@@ -57,7 +46,7 @@ public class ScreenMouseDetector : MonoBehaviour
         }
     }
 
-    private void OnMouseExit()
+    public void Disable()
     {
         if (!Enabled)
             return;
@@ -67,16 +56,36 @@ public class ScreenMouseDetector : MonoBehaviour
         
         worldInput.enabled = true;
         gameInput.enabled = false;
-    }
 
-    public void Disable()
-    {
-        OnMouseExit();
         Enabled = false;
     }
     
     public void Enable()
     {
         Enabled = true;
+    }
+    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (!Enabled)
+            return;
+
+        Cursor.visible = false;
+        uiIndicator.gameObject.SetActive(true);
+
+        worldInput.enabled = false;
+        gameInput.enabled = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!Enabled)
+            return;
+
+        Cursor.visible = true;
+        uiIndicator.gameObject.SetActive(false);
+        
+        worldInput.enabled = true;
+        gameInput.enabled = false;
     }
 }

@@ -63,7 +63,10 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
     }
 
     public void OnPointerExit(PointerEventData eventData)
-    {
+    { 
+        if (!Selectable || GameDisc.Modifier is DiscModifier.None)
+            return;
+            
         Application.Instance.GetService<InterfaceService>().InfoDescriptor.Hide();
     }
 

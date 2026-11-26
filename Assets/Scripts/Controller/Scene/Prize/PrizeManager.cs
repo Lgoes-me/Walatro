@@ -34,9 +34,9 @@ public class PrizeManager : MonoBehaviour
 
         RerollButton.Init(() => RerollItems().Forget());
 
-        Items[3].gameObject.SetActive(false);
-        Items[4].gameObject.SetActive(false);
-        Items[5].gameObject.SetActive(false);
+        //Items[3].gameObject.SetActive(false);
+        //Items[4].gameObject.SetActive(false);
+        //Items[5].gameObject.SetActive(false);
         RerollButton.gameObject.SetActive(false);
     }
     
