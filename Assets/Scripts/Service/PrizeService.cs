@@ -9,6 +9,7 @@ public class PrizeService : IService, IPreparable
     private ContentService ContentService { get; set; }
     private ModifierService ModifierService { get; set; }
     private GameDiscService GameDiscService { get; set; }
+    private PrefabService PrefabService { get; set; }
 
     public UniTask Prepare()
     {
@@ -18,6 +19,7 @@ public class PrizeService : IService, IPreparable
         ContentService = application.GetService<ContentService>();
         ModifierService = application.GetService<ModifierService>();
         GameDiscService = application.GetService<GameDiscService>();
+        PrefabService = application.GetService<PrefabService>();
 
         return UniTask.CompletedTask;
     }
@@ -29,6 +31,38 @@ public class PrizeService : IService, IPreparable
         return await GetTarots();
         return await GetPlanets();
         return await GetGameDiscs();
+    }
+
+    public GameObject InstantiateButton(IPrize prize, Transform parent)
+    {
+        switch (prize)
+        {
+            case null:
+                break;
+
+            case Modifier modifier:
+                return PrefabService.InstantiateModifierPrize(modifier, parent);
+
+            case Item item:
+                
+                break;
+
+            case Tarot tarot:
+                
+                break;
+                
+            case Planet planet:
+                
+                break;
+                
+            case GameDisc gameDisc:
+                return PrefabService.InstantiateGameDisc(gameDisc, parent, parent).gameObject;
+
+            default:
+                break;
+        }
+
+        return null;
     }
 
     public void AddPrize(IPrize prize)

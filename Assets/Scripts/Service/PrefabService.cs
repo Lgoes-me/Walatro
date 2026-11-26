@@ -5,14 +5,25 @@ using UnityEngine;
 
 public class PrefabService : MonoBehaviour, IService
 {
-    [field: SerializeField] public GameDiscController GameDisc { get; set; }
+    [field: SerializeField] private GameDiscController GameDisc { get; set; }
 
-    public GameDiscController InstantiateGameDisc(GameDisc gameDisc, GameDiscManager gameDiscManager)
+    [field: SerializeField] private GameObject ModifierPrize { get; set; }
+
+    public GameDiscController InstantiateGameDisc(GameDisc gameDisc, Transform pivot, Transform parent)
     {
         return Instantiate(
             GameDisc, 
-            gameDiscManager.Pivot.position, 
+            pivot.position, 
             Quaternion.identity, 
-            gameDiscManager.transform).Init(gameDisc, gameDiscManager);
+            parent).Init(gameDisc);
+    }
+    
+    public GameObject InstantiateModifierPrize(Modifier modifier, Transform parent)
+    {
+        return Instantiate(
+            ModifierPrize, 
+            parent.position, 
+            Quaternion.identity, 
+            parent);
     }
 }

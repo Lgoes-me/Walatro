@@ -68,7 +68,7 @@ public class GameDiscService : IService, IPreparable, IStartable
         
         if (CurrentGameDisc != null)
         {
-            CurrentGameDisc.TriggerGameChosenDelegate();
+            EnvironmentService.GameDiscManager.MoveToPosition(CurrentGameDisc);
         
             AvailableGames.Remove(CurrentGameDisc);
             DiscardedGames.Add(CurrentGameDisc);
@@ -81,7 +81,11 @@ public class GameDiscService : IService, IPreparable, IStartable
     
     public async UniTask FinishGame()
     {
-        CurrentGameDisc?.TriggerGameCompleteDelegate();
+        if (CurrentGameDisc != null)
+        {
+            EnvironmentService.GameDiscManager.MoveAway(CurrentGameDisc);
+        }
+
         await UniTask.Delay(TimeSpan.FromSeconds(1), ignoreTimeScale: false);
         CurrentGameDisc = null;
     }

@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [field: SerializeField] private RawImage RawImage { get; set; }
     [field: SerializeField] private WorldButtonController Button { get; set; }
     
+    private GameObject Child { get; set; }
     private IPrize Prize { get; set; }
     private IInfoDescriptor InfoDescriptor { get; set; }
 
@@ -16,9 +16,14 @@ public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointer
         Prize = prize;
         InfoDescriptor = prize as IInfoDescriptor;
 
-        //RawImage.texture = Prize.Texture;
-        
         Button.Init(() => action?.Invoke());
+
+        if (Child != null)
+        {
+            Destroy(Child);
+        }
+        
+        Child = Application.Instance.GetService<PrizeService>().InstantiateButton(Prize, this.transform);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

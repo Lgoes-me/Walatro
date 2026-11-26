@@ -10,15 +10,13 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
     [field: SerializeField] private MeshRenderer MeshRenderer { get; set; }
 
     private GameDisc GameDisc { get; set; }
-    private GameDiscManager GameDiscManager { get; set; }
     private bool Selectable { get; set; }
     
     private static readonly int BaseMapID = Shader.PropertyToID("_BaseMap");
 
-    public GameDiscController Init(GameDisc gameDisc, GameDiscManager gameDiscManager)
+    public GameDiscController Init(GameDisc gameDisc)
     {
         GameDisc = gameDisc;
-        GameDiscManager = gameDiscManager;
         Selectable = false;
         
         var instancedDiscMaterial = new Material(DiscMaterial);
@@ -33,10 +31,7 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
         };
 
         MeshRenderer.materials = materials;
-
         GameDisc.GameDiscTriggered += GiveFeedback;
-        GameDisc.GameDiscChosen += MoveToPosition;
-        GameDisc.GameDiscComplete += MoveAway;
 
         return this;
     }
@@ -49,8 +44,6 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
         }
 
         GameDisc.GameDiscTriggered -= GiveFeedback;
-        GameDisc.GameDiscChosen -= MoveToPosition;
-        GameDisc.GameDiscComplete -= MoveAway;
         GameDisc = null;
         
         Destroy(this.gameObject);
@@ -60,51 +53,6 @@ public class GameDiscController : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         transform.DOShakePosition(0.15f, 0.15f);
     }
-
-    private void MoveToPosition()
-    {
-        Selectable = true;
-        
-        var transformHand = GameDiscManager.Hand;
-        var transformInsert = GameDiscManager.Insert;
-
-        Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOMove(transformHand.position, 1f));
-        seq.Join(transform.DORotate(transformHand.eulerAngles, 1f));
-        seq.Join(transform.DOScale(transformHand.localScale, 1f));
-        seq.Append(transform.DOMove(transformInsert.position, 1f));
-        seq.Join(transform.DORotate(transformInsert.eulerAngles, 1f));
-        seq.Join(transform.DOScale(transformInsert.localScale, 1f));
-
-        seq.Play();
-    }
-
-    private void MoveAway()
-    {
-        Selectable = false;
-        
-        var transformHand = GameDiscManager.Hand;
-        var transformDiscard = GameDiscManager.Discard;
-
-        Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOMove(transformHand.position, 0.5f));
-        seq.Append(transform.DOMove(transformDiscard.position, 0.5f).OnComplete(() => GameDiscManager.PlaceAtDiscard(this)));
-
-        seq.Play();
-    }
-
-    public void GoToPile()
-    {
-        var transformHand = GameDiscManager.Hand;
-        var transformPivot = GameDiscManager.Pivot;
-
-        Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOMove(transformHand.position, 0.5f));
-        seq.Append(transform.DOMove(transformPivot.position, 0.5f).OnComplete(() => GameDiscManager.PlaceAtPile(this)));
-
-        seq.Play();
-    }
-
     
     public void OnPointerEnter(PointerEventData eventData)
     {

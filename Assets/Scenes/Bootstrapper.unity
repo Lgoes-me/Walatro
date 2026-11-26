@@ -3815,6 +3815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PrefabService
   <GameDisc>k__BackingField: {fileID: 376631872941199056, guid: 111134f1ba19da74591a13a59a6b1ed2, type: 3}
+  <ModifierPrize>k__BackingField: {fileID: 1464057755106353232, guid: 61b87b01d3f5db844a8abcf0a25f039a, type: 3}
 --- !u!1 &1095542371
 GameObject:
   m_ObjectHideFlags: 0
