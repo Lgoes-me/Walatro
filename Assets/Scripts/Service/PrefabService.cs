@@ -6,7 +6,6 @@ using UnityEngine;
 public class PrefabService : MonoBehaviour, IService
 {
     [field: SerializeField] private GameDiscController GameDisc { get; set; }
-
     [field: SerializeField] private GameObject ModifierPrize { get; set; }
 
     public GameDiscController InstantiateGameDisc(GameDisc gameDisc, Transform pivot, Transform parent)

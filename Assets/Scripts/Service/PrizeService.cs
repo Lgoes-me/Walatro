@@ -24,6 +24,14 @@ public class PrizeService : IService, IPreparable
         return UniTask.CompletedTask;
     }
     
+    public async void CreateCurrentPrize()
+    {
+        //Small or Big prize
+        //Prize type
+        //How many prizes
+        //Has Reroll
+    }
+    
     public async UniTask<List<IPrize>> GetCurrentPrizeItems()
     {
         return await GetGameDiscs();
@@ -37,11 +45,10 @@ public class PrizeService : IService, IPreparable
     {
         switch (prize)
         {
-            case null:
-                break;
-
             case Modifier modifier:
-                return PrefabService.InstantiateModifierPrize(modifier, parent);
+                var adesivo = PrefabService.InstantiateModifierPrize(modifier, parent);
+                adesivo.AddComponent<SpinController>();
+                return adesivo;
 
             case Item item:
                 
@@ -57,8 +64,11 @@ public class PrizeService : IService, IPreparable
                 
             case GameDisc gameDisc:
                 var disc = PrefabService.InstantiateGameDisc(gameDisc, parent, parent).gameObject;
-                disc.transform.rotation = Quaternion.Euler(90, -180, 0);
+                disc.transform.rotation = Quaternion.Euler(80, -178, 9);
                 disc.transform.localScale *= 0.75f;
+
+                disc.AddComponent<SpinController>();
+
                 return disc;
 
             default:
@@ -72,9 +82,6 @@ public class PrizeService : IService, IPreparable
     {
         switch (prize)
         {
-            case null:
-                break;
-
             case Modifier modifier:
                 ModifierService.AddModifier(modifier);
                 break;
