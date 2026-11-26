@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.EventSystems;
 
-public class ScreenMouseDetector : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ScreenMouseDetector : MonoBehaviour, IPointerEnterHandler
 {
     public InputSystemUIInputModule worldInput;
     
@@ -77,7 +77,7 @@ public class ScreenMouseDetector : MonoBehaviour, IPointerEnterHandler, IPointer
         gameInput.enabled = true;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void OnMouseExit()
     {
         if (!Enabled)
             return;
