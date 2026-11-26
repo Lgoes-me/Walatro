@@ -6,24 +6,20 @@ using Cysharp.Threading.Tasks;
 public class GameDiscManager : MonoBehaviour
 {
     [field: SerializeField] public Transform Pivot { get; set; }
-
     [field: SerializeField] public Transform Hand { get; set; }
-
     [field: SerializeField] public Transform Insert { get; set; }
-
     [field: SerializeField] public Transform Discard { get; set; }
 
-    [field: SerializeField] private GameDiscController GameDiscPrefab { get; set; }
-
-
     private Dictionary<GameDisc, GameDiscController> GameDiscs { get; set; }
-
+    
     private GameDiscService GameDiscService { get; set; }
+    private PrefabService PrefabService { get; set; }
 
     private void Start()
     {
         GameDiscs = new Dictionary<GameDisc, GameDiscController>();
         GameDiscService = Application.Instance.GetService<GameDiscService>();
+        PrefabService = Application.Instance.GetService<PrefabService>();
     }
 
     public void ShowDisc(GameDisc gameDisc)
@@ -31,11 +27,7 @@ public class GameDiscManager : MonoBehaviour
         if (GameDiscs.ContainsKey(gameDisc))
             return;
 
-        var gameDiscController = Instantiate(
-            GameDiscPrefab, 
-            Pivot.position, 
-            Quaternion.identity, 
-            this.transform).Init(gameDisc, this);
+        var gameDiscController = PrefabService.InstantiateGameDisc(gameDisc, this);
             
         GameDiscs.Add(gameDisc, gameDiscController);
 

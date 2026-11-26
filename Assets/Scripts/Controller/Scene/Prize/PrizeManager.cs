@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PrizeCanvasController : MonoBehaviour
+public class PrizeManager : MonoBehaviour
 {
     [field: SerializeField] private List<PrizeItemController> Items { get; set; }
-    [field: SerializeField] private Button RerollButton { get; set; }
+    [field: SerializeField] private WorldButtonController RerollButton { get; set; }
 
     private GameSaveService GameSaveService { get; set; }
     private PrizeService PrizeService { get; set; }
@@ -30,11 +29,14 @@ public class PrizeCanvasController : MonoBehaviour
         Items[1].Init(Prizes[1], () => SelectItem(1));
         Items[2].Init(Prizes[2], () => SelectItem(2));
         Items[3].Init(Prizes[3], () => SelectItem(3));
+        Items[4].Init(Prizes[4], () => SelectItem(4));
+        Items[5].Init(Prizes[5], () => SelectItem(5));
 
-        RerollButton.onClick.RemoveAllListeners();
-        RerollButton.onClick.AddListener(() => RerollItems().Forget());
+        RerollButton.Init(() => RerollItems().Forget());
 
         Items[3].gameObject.SetActive(false);
+        Items[4].gameObject.SetActive(false);
+        Items[5].gameObject.SetActive(false);
         RerollButton.gameObject.SetActive(false);
     }
     

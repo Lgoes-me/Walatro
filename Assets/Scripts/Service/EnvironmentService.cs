@@ -7,7 +7,7 @@ using Cysharp.Threading.Tasks;
 public class EnvironmentService: MonoBehaviour, IService, IOnGameOver
 {
     [field: SerializeField]
-    private PrizeCanvasController PrizeCanvas { get; set; }
+    private PrizeManager PrizeManager { get; set; }
 
     [field: SerializeField] 
     public DecalManager DecalManager { get; set; }
@@ -24,6 +24,6 @@ public class EnvironmentService: MonoBehaviour, IService, IOnGameOver
 
     public async UniTask GivePrize()
     {
-        await PrizeCanvas.Show();
+        await PrizeManager.Show();
     }
 }

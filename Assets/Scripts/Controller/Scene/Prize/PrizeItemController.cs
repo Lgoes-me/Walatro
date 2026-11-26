@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [field: SerializeField] private RawImage RawImage { get; set; }
-    [field: SerializeField] private Button BuyButton { get; set; }
+    [field: SerializeField] private WorldButtonController Button { get; set; }
     
     private IPrize Prize { get; set; }
     private IInfoDescriptor InfoDescriptor { get; set; }
@@ -18,8 +18,7 @@ public class PrizeItemController : MonoBehaviour, IPointerEnterHandler, IPointer
 
         //RawImage.texture = Prize.Texture;
         
-        BuyButton.onClick.RemoveAllListeners();
-        BuyButton.onClick.AddListener(() => action?.Invoke());
+        Button.Init(() => action?.Invoke());
     }
 
     public void OnPointerEnter(PointerEventData eventData)
