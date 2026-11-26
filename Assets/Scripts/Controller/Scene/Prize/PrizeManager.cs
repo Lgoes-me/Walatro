@@ -20,23 +20,27 @@ public class PrizeManager : MonoBehaviour
         InterfaceService = Application.Instance.GetService<InterfaceService>();
         
         Prizes = await PrizeService.GetCurrentPrizeItems(); 
-
         InterfaceService.ScreenMouseDetector.Disable();
+
+        var quantidade = 3;
+
+        for (int i = 0; i < Items.Count; i ++)
+        {
+            var item = Items[i];
+            
+            item.Init(Prizes[i], () => SelectItem(i));
+            item.transform.position = new Vector3(-8 + ((16/((float)quantidade - 1)) * i), item.transform.position.y, item.transform.position.z);
+
+            if(i >= quantidade)
+            {
+                item.gameObject.SetActive(false);
+            }
+        }
 
         gameObject.SetActive(true);
 
-        Items[0].Init(Prizes[0], () => SelectItem(0));
-        Items[1].Init(Prizes[1], () => SelectItem(1));
-        Items[2].Init(Prizes[2], () => SelectItem(2));
-        Items[3].Init(Prizes[3], () => SelectItem(3));
-        Items[4].Init(Prizes[4], () => SelectItem(4));
-        Items[5].Init(Prizes[5], () => SelectItem(5));
-
         RerollButton.Init(() => RerollItems().Forget());
 
-        //Items[3].gameObject.SetActive(false);
-        //Items[4].gameObject.SetActive(false);
-        //Items[5].gameObject.SetActive(false);
         RerollButton.gameObject.SetActive(false);
     }
     
