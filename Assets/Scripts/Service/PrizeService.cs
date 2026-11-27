@@ -28,17 +28,17 @@ public class PrizeService : IService, IPreparable
     {
         var sizeRarities = new Dictionary<int, int>()
         {
-            { 3, 80 },
-            { 5, 20 },
+            { 3, 90 },
+            { 5, 10 },
         };
         
         var prizeTypeRarities = new Dictionary<PrizeType, int>()
         {
             { PrizeType.Modifier, 60 },
-            { PrizeType.Item, 40 },
+            { PrizeType.Item, 0 },
             { PrizeType.GameDisc, 40 },
-            { PrizeType.Tarot, 20 },
-            { PrizeType.Planet, 20 },
+            { PrizeType.Tarot, 0 },
+            { PrizeType.Planet, 0 },
         };
 
         var boosterPack = new BoosterPack(
