@@ -11,7 +11,7 @@ public class PrizeManager : MonoBehaviour
     private PrizeService PrizeService { get; set; }
     private InterfaceService InterfaceService { get; set; }
 
-    private List<IPrize> Prizes { get; set; }
+    private BoosterPack BoosterPack { get; set; }
 
     public async UniTask Show()
     {
@@ -21,34 +21,32 @@ public class PrizeManager : MonoBehaviour
 
         InterfaceService.ScreenMouseDetector.Disable();
         
-        Prizes = await PrizeService.GetCurrentPrizeItems(); 
-
-        var quantidade = 3;
+        BoosterPack = await PrizeService.CreateBoosterPack();
 
         for (int i = 0; i < Items.Count; i++)
         {
             var index = i;
 
             var item = Items[index];
-            item.Init(Prizes[index], () => SelectItem(index));
-            item.transform.position = new Vector3(-8 + ((16/((float)quantidade - 1)) * index), item.transform.position.y, item.transform.position.z);
+            item.Init(BoosterPack.Prizes[index], () => SelectItem(index));
+            item.transform.position = new Vector3(-8 + ((16/(float)(BoosterPack.Size - 1)) * index), item.transform.position.y, item.transform.position.z);
 
-            if(index >= quantidade)
+            if(index >= BoosterPack.Size)
             {
                 item.gameObject.SetActive(false);
             }
         }
 
-        gameObject.SetActive(true);
-
         RerollButton.Init(() => RerollItems().Forget());
-        RerollButton.gameObject.SetActive(false);
+        RerollButton.gameObject.SetActive(BoosterPack.HasReroll);
+
+        gameObject.SetActive(true);
     }
     
     private void SelectItem(int i)
     {
         //feedback visual
-        PrizeService.AddPrize(Prizes[i]);
+        PrizeService.AddPrize(BoosterPack.Prizes[i]);
         
         //desativa outros botoes
         gameObject.SetActive(false);
@@ -58,7 +56,8 @@ public class PrizeManager : MonoBehaviour
     private async UniTask RerollItems()
     {
         //load desativando botões
-        Prizes = await PrizeService.GetCurrentPrizeItems(); 
+        var prizes = await PrizeService.GetPrizeItems(BoosterPack.PrizeType); 
+        BoosterPack.SetPrizes(prizes);
         //rerenderiza botoes
     }
 }

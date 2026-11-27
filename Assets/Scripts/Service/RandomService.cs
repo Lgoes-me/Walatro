@@ -62,6 +62,11 @@ public class RandomService : IService, IPreparable, IStartable, IOnShopEnter
             { Rarity.Legendary, 1 },
         };
         
+        return RandomWightedValue(rarities);
+    }
+    
+    public T RandomWightedValue<T>(Dictionary<T, int> rarities)
+    {        
         var pesoTotal = 0;
 
         foreach (var (_, peso) in rarities)
@@ -83,10 +88,9 @@ public class RandomService : IService, IPreparable, IStartable, IOnShopEnter
             return rarity;
         }
         
-        //fallback
-        return Rarity.Common;
+        return default;
     }
-    
+
     public float RandomFloatValue(float minimumValue, float maximumValue)
     {
         return (float) Random.NextDouble() * (maximumValue - minimumValue) + minimumValue;
@@ -95,10 +99,10 @@ public class RandomService : IService, IPreparable, IStartable, IOnShopEnter
 
 public enum Rarity
 {
-    Deactivated = -1,
-    Common = 0,
-    Uncommon = 1,
-    Rare = 2,
-    Epic = 3,
-    Legendary = 4,
+    Deactivated = 0,
+    Common = 1,
+    Uncommon = 2,
+    Rare = 3,
+    Epic = 4,
+    Legendary = 5,
 }

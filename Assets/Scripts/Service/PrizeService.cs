@@ -24,21 +24,48 @@ public class PrizeService : IService, IPreparable
         return UniTask.CompletedTask;
     }
     
-    public async void CreateCurrentPrize()
+    public async UniTask<BoosterPack> CreateBoosterPack()
     {
-        //Small or Big prize
-        //Prize type
-        //How many prizes
-        //Has Reroll
+        var sizeRarities = new Dictionary<int, int>()
+        {
+            { 3, 80 },
+            { 5, 20 },
+        };
+        
+        var prizeTypeRarities = new Dictionary<PrizeType, int>()
+        {
+            { PrizeType.Modifier, 60 },
+            { PrizeType.Item, 40 },
+            { PrizeType.GameDisc, 40 },
+            { PrizeType.Tarot, 20 },
+            { PrizeType.Planet, 20 },
+        };
+
+        var boosterPack = new BoosterPack(
+            RandomService.RandomWightedValue<int>(sizeRarities) + (false ? 1 : 0),
+            RandomService.RandomWightedValue<PrizeType>(prizeTypeRarities),
+            false
+        );
+
+        var prize = await GetPrizeItems(boosterPack.PrizeType);
+
+        boosterPack.SetPrizes(prize);
+
+        return boosterPack;
     }
     
-    public async UniTask<List<IPrize>> GetCurrentPrizeItems()
+    public async UniTask<List<IPrize>> GetPrizeItems(PrizeType prizeType)
     {
-        return await GetGameDiscs();
-        return await GetModifiers();
-        return await GetItems();
-        return await GetTarots();
-        return await GetPlanets();
+        return prizeType switch
+        {
+            PrizeType.Modifier => await GetModifiers(),
+            PrizeType.Item => await GetItems(),
+            PrizeType.GameDisc => await GetGameDiscs(),
+            PrizeType.Tarot => await GetTarots(),
+            PrizeType.Planet => await GetPlanets(),
+            _ => new List<IPrize>(),
+
+        };
     }
 
     public GameObject InstantiateButton(IPrize prize, Transform parent)
@@ -108,7 +135,7 @@ public class PrizeService : IService, IPreparable
 
     }
 
-    public async UniTask<List<IPrize>> GetModifiers()
+    private async UniTask<List<IPrize>> GetModifiers()
     {
         var modifiers = new List<IPrize>();
 
@@ -126,25 +153,25 @@ public class PrizeService : IService, IPreparable
         return modifiers;
     }
 
-    public async UniTask<List<IPrize>> GetItems()
+    private async UniTask<List<IPrize>> GetItems()
     {
         var items = new List<IPrize>();
         return items;
     }
 
-    public async UniTask<List<IPrize>> GetTarots()
+    private async UniTask<List<IPrize>> GetTarots()
     {
         var tarots = new List<IPrize>();
         return tarots;
     }
 
-    public async UniTask<List<IPrize>> GetPlanets()
+    private async UniTask<List<IPrize>> GetPlanets()
     {
         var planets = new List<IPrize>();
         return planets;
     }
 
-    public async UniTask<List<IPrize>> GetGameDiscs()
+    private async UniTask<List<IPrize>> GetGameDiscs()
     {
         var games = new List<IPrize>();
 
