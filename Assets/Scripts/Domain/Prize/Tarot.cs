@@ -8,16 +8,8 @@ public class Tarot : IPrize
     public Rarity Rarity { get; private set; }
     private string Description { get; set; }
 
-    public Tarot(
-        string name,
-        Texture texture, 
-        Rarity rarity, 
-        string description)
+    public Tarot()
     {
-        Name = name;
-        Texture = texture;
-        Rarity = rarity;
-        Description = description;
     }
 
     public string GetDescription(Rarity rarity) => string.Format(Description ?? string.Empty, (this as IBaseEventData).GetTextParams(rarity));

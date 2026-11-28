@@ -8,16 +8,8 @@ public class Planet : IPrize
     public Rarity Rarity { get; private set; }
     private string Description { get; set; }
 
-    public Planet(
-        string name,
-        Texture texture, 
-        Rarity rarity, 
-        string description)
+    public Planet()
     {
-        Name = name;
-        Texture = texture;
-        Rarity = rarity;
-        Description = description;
     }
 
     public string GetDescription(Rarity rarity) => string.Format(Description ?? string.Empty, (this as IBaseEventData).GetTextParams(rarity));

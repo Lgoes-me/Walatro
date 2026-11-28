@@ -2749,12 +2749,12 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   <GameDiscs>k__BackingField:
-  - m_AssetGUID: 8a8e8e23e907fb64185f7e9c1225268a
+  - m_AssetGUID: 1b9dc8727e2383c479893c7b862d8afb
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  - m_AssetGUID: 1b9dc8727e2383c479893c7b862d8afb
+  - m_AssetGUID: 8a8e8e23e907fb64185f7e9c1225268a
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
@@ -2770,6 +2770,9 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  <Items>k__BackingField: []
+  <Tarots>k__BackingField: []
+  <Planets>k__BackingField: []
 --- !u!1 &622422277 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8256134651489076907, guid: a01a04f1846c4af46880bff8d161c4c1, type: 3}

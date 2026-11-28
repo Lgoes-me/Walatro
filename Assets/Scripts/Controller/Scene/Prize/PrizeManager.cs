@@ -23,13 +23,16 @@ public class PrizeManager : MonoBehaviour
         
         BoosterPack = await PrizeService.CreateBoosterPack();
 
-        for (int i = 0; i < Items.Count; i++)
+        for (int i = 0; i < Items.Count && i < BoosterPack.Prizes.Count; i++)
         {
             var index = i;
 
             var item = Items[index];
             item.Init(BoosterPack.Prizes[index], () => SelectItem(index));
-            item.transform.position = new Vector3(-8 + ((16/(float)(BoosterPack.Size - 1)) * index), item.transform.position.y, item.transform.position.z);
+            item.transform.position = new Vector3(
+                -8 + ((16/(float)(Mathf.Min(BoosterPack.Size, BoosterPack.Prizes.Count) - 1)) * index), 
+                item.transform.position.y, 
+                item.transform.position.z);
 
             if(index >= BoosterPack.Size)
             {

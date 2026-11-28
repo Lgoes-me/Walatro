@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class PrizeService : IService, IPreparable
 {
@@ -58,11 +59,11 @@ public class PrizeService : IService, IPreparable
     {
         return prizeType switch
         {
-            PrizeType.Modifier => await GetModifiers(),
-            PrizeType.Item => await GetItems(),
-            PrizeType.GameDisc => await GetGameDiscs(),
-            PrizeType.Tarot => await GetTarots(),
-            PrizeType.Planet => await GetPlanets(),
+            PrizeType.Modifier => await GetPrizes<ModifierDataAssetReference, ModifierData, Modifier>(ContentService.Modifiers),
+            PrizeType.Item => await GetPrizes<ItemDataAssetReference, ItemData, Item>(ContentService.Items),
+            PrizeType.GameDisc => await GetPrizes<GameDiscDataAssetReference, GameDiscData, GameDisc>(ContentService.GameDiscs),
+            PrizeType.Tarot => await GetPrizes<TarotDataAssetReference, TarotData, Tarot>(ContentService.Tarots),
+            PrizeType.Planet => await GetPrizes<PlanetDataAssetReference, PlanetData, Planet>(ContentService.Planets),
             _ => new List<IPrize>(),
 
         };
@@ -135,57 +136,29 @@ public class PrizeService : IService, IPreparable
 
     }
 
-    private async UniTask<List<IPrize>> GetModifiers()
+    private async UniTask<List<IPrize>> GetPrizes<T1, T2, T3>(List<T1> contentList) 
+        where T1 : AssetReferenceT<T2>
+        where T2 : PrizeData<T3>
+        where T3 : IPrize
     {
-        var modifiers = new List<IPrize>();
+        var prizes = new List<IPrize>();
+        var prizeList = new List<T1>(contentList);
 
         for (int i = 0; i < 6; i++)
         {
-            var modifierDataAsset = RandomService.RandomElement(ContentService.Modifiers);
-            var modifierData = await modifierDataAsset.LoadAssetAsyncIfValid();
-            var modifierModel = new ModifierModel(modifierData.Id, RandomService.RandomRarity());
+            var prizeDataAsset = RandomService.RandomElement(prizeList);
             
-            var modifier = modifierData.ToDomain(modifierModel);
+            if (prizeDataAsset == null)
+                break;
+            
+            prizeList.Remove(prizeDataAsset);
 
-            modifiers.Add(modifier);
+            var prizeData = await prizeDataAsset.LoadAssetAsyncIfValid();
+            var prize = prizeData.ToDomain();
+
+            prizes.Add(prize);
         }
 
-        return modifiers;
-    }
-
-    private async UniTask<List<IPrize>> GetItems()
-    {
-        var items = new List<IPrize>();
-        return items;
-    }
-
-    private async UniTask<List<IPrize>> GetTarots()
-    {
-        var tarots = new List<IPrize>();
-        return tarots;
-    }
-
-    private async UniTask<List<IPrize>> GetPlanets()
-    {
-        var planets = new List<IPrize>();
-        return planets;
-    }
-
-    private async UniTask<List<IPrize>> GetGameDiscs()
-    {
-        var games = new List<IPrize>();
-
-        for (int i = 0; i < 6; i++)
-        {
-            var gameDiscDataAsset = RandomService.RandomElement(ContentService.GameDiscs);
-            var gameDiscData = await gameDiscDataAsset.LoadAssetAsyncIfValid();
-            var gameDiscModel = new GameDiscModel(gameDiscData.Id, DiscModifier.None);
-            
-            var gameDisc = gameDiscData.ToDomain(gameDiscModel);
-
-            games.Add(gameDisc);
-        }
-
-        return games;
+        return prizes;
     }
 }
