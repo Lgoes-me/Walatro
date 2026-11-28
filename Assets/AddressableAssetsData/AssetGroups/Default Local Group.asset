@@ -20,8 +20,28 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c9983e3cc9833643b939f50a08bd694
+    m_Address: Assets/Datas/Planets/Acao.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5573df738be106e45b92afc2215a3693
+    m_Address: Assets/Datas/Planets/Tiro.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5ee07483df0c80c4898bb4e5ee96d77f
     m_Address: Assets/Datas/Boxes/Horror.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60e92c128cc6c0f4c888fc83c3693222
+    m_Address: Assets/Datas/Planets/Esporte.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82222a61c53b5724abdba416d54459b5
+    m_Address: Assets/Datas/Planets/Terror.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -32,6 +52,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3a73555cebc6b641a4a2c484abb820e
     m_Address: Assets/Datas/Modifiers/AddScoreAtMinigameEnd.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca175f3be427875479a6bc19bf781c25
+    m_Address: Assets/Datas/Planets/Aventura.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
